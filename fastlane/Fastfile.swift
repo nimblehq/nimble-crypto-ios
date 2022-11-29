@@ -53,8 +53,6 @@ class Fastfile: LaneFile {
         // TODO: - Make release notes
         Distribution.uploadToFirebase(environment: .staging, releaseNotes: "")
 
-        Symbol.uploadToCrashlytics(environment: .staging)
-
         Build.saveBuildContextToCI()
     }
 
@@ -68,8 +66,6 @@ class Fastfile: LaneFile {
 
         // TODO: - Make release notes
         Distribution.uploadToFirebase(environment: .production, releaseNotes: "")
-
-        Symbol.uploadToCrashlytics(environment: .production)
 
         Build.saveBuildContextToCI()
     }

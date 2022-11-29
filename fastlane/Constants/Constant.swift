@@ -14,13 +14,13 @@ enum Constant {
 
     static let stagingFirebaseAppId = "1:169659422201:ios:15bd8fa2f4f5b9f86cd928"
     static let productionFirebaseAppId = "1:814505320278:ios:e4bbd77204f7bed25800f7"
-    static let firebaseTesterGroups = "Internal Testers"
+    static let firebaseTesterGroups = "Nimble"
 
     // MARK: - Match
 
     static let userName = "minh@nimblehq.co"
     static let teamId = "4TWS7E2EPE"
-    static let keychainName = "login.keychain"
+    static let keychainName = "app-signing.keychain-db"
     static let matchURL = "git@github.com:nimblehq/match-certificates.git"
 
     // MARK: - Path
@@ -41,12 +41,7 @@ enum Constant {
 
     static let stagingBundleId = "co.nimblehq.crypto-prices.staging"
     static let productionBundleId = "co.nimblehq.crypto-prices"
-    static let projectName = "Crypto Prices"
-
-    // MARK: - Symbol
-
-    static let uploadSymbolsBinaryPath: String = "./Pods/FirebaseCrashlytics/upload-symbols"
-    static let dSYMSuffix: String = ".dSYM.zip"
+    static let projectName = "CryptoPrices"
     
     // MARK: - Build and Version
 
@@ -54,7 +49,7 @@ enum Constant {
 
     // MARK: - Device
 
-    static let devices = ["iPhone 14 Pro"]
+    static let devices = ["iPhone 13 Pro"]
     
     // MARK: - Test
 
@@ -94,11 +89,6 @@ extension Constant {
             case .staging: return "\(googleServiceFolder)/Staging/\(infoName)"
             case .production: return "\(googleServiceFolder)/Production/\(infoName)"
             }
-        }
-
-        var dsymPath: String {
-            let outputDirectoryURL = URL(fileURLWithPath: Constant.outputPath)
-            return outputDirectoryURL.appendingPathComponent(productName + ".app" + Constant.dSYMSuffix).relativePath
         }
     }
 
