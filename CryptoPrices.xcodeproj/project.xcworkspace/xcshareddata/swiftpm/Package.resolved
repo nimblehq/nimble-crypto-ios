@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Pilot",
+        "repositoryURL": "https://github.com/Thieurom/Pilot",
+        "state": {
+          "branch": null,
+          "revision": "d0c990223f3447fd912ae716d03676fd1db714af",
+          "version": "0.5.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
