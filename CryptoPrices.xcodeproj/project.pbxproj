@@ -71,6 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24ADAFBD29374E0C00BF72D4 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		4D0A1D9329349D660038624D = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +103,7 @@
 			children = (
 				4D0A1DC929349E0C0038624D /* Sources */,
 				4D0A1DCA29349E160038624D /* Resources */,
+				24ADAFBD29374E0C00BF72D4 /* Configurations */,
 				4D0A1DA529349D670038624D /* Preview Content */,
 			);
 			path = CryptoPrices;
