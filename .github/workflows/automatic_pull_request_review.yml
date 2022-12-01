@@ -48,3 +48,6 @@ jobs:
 
     - name: Lint
       run: bundle exec fastlane lint
+      
+    - name: Clean up previous code coverage report
+      run: bundle exec fastlane cleanUpOutputLane

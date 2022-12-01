@@ -39,6 +39,17 @@ class Fastfile: LaneFile {
         desc("Build ad-hoc production")
         Build.adHoc(environment: .production)
     }
+    
+    // MARK: - Test
+
+    func buildAndTestLane() {
+        desc("Build and test project")
+        Test.buildAndTest(
+            environment: .staging,
+            targets: [Constant.testTarget, Constant.uiTestTarget],
+            devices: Constant.devices
+        )
+    }
 
     // MARK: - Upload builds to Firebase and AppStore
 
