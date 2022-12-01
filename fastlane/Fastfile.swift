@@ -51,16 +51,6 @@ class Fastfile: LaneFile {
         )
     }
 
-    // MARK: - SwiftLint
-
-    func lintLane() {
-        desc("Run swiftLint")
-        swiftlint(
-            strict: true,
-            raiseIfSwiftlintError: true
-        )
-    }
-
     // MARK: - Upload builds to Firebase and AppStore
 
     func buildStagingAndUploadToFirebaseLane() {

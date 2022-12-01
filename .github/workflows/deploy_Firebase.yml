@@ -32,9 +32,8 @@ jobs:
     - name: Bundle install
       run: bundle install
 
-    # TODO: Enable this step when the CI pipeline is ready
-    # - name: Build and Test
-    #   run: bundle exec fastlane build_and_test  
+    - name: Build and Test
+      run: bundle exec fastlane buildAndTest
 
     - name: Match Ad-hoc
       run: bundle exec fastlane syncAdHocStagingCodeSigning
