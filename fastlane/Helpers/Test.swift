@@ -3,7 +3,7 @@
 //  FastlaneRunner
 //
 //  Created by Khanh on 01/12/2022.
-//  Copyright © 2022 Joshua Liebowitz. All rights reserved.
+//  Copyright © 2022 Nimble. All rights reserved.
 //
 
 enum Test {

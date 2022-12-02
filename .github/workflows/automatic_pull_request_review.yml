@@ -19,7 +19,6 @@ jobs:
       with:
         args: --strict
 
-jobs:
   review_pull_request:
     name: Pull request review
     runs-on: macOS-latest
@@ -44,25 +43,10 @@ jobs:
     - name: Bundle install
       run: bundle install --path vendor/bundle
 
-    - name: Cache Pods
-      uses: actions/cache@v3
-      id: cocoapodCache
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-
-
-    - name: Install Pods Dependencies
-      run: bundle exec pod install
-
     - name: Build and Test
       run: bundle exec fastlane buildAndTest
       env:
         CI: true
 
-    - name: Lint
-      run: bundle exec fastlane lint
-      
     - name: Clean up previous code coverage report
-      run: bundle exec fastlane cleanUpOutputLane
+      run: bundle exec fastlane cleanUpOutput
