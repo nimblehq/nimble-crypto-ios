@@ -21,7 +21,7 @@ jobs:
 
   review_pull_request:
     name: Pull request review
-    runs-on: macOS-latest
+    runs-on: macOS-12
     steps:
     - name: Cancel Previous Runs
       uses: styfle/cancel-workflow-action@0.5.0
@@ -41,7 +41,7 @@ jobs:
           ${{ runner.os }}-gems-
 
     - name: Bundle install
-      run: bundle install --path vendor/bundle
+      run: bundle install
 
     - name: Build and Test
       run: bundle exec fastlane buildAndTest

@@ -3,6 +3,7 @@
 
 # Xcode
 xcuserdata/
+./Output
 
 # fastlane
 fastlane/report.xml
@@ -11,3 +12,7 @@ fastlane/screenshots/**/*.png
 fastlane/screenshots/screenshots.html
 fastlane/test_output
 fastlane/FastlaneRunner
+
+# Bundler
+
+vendor/bundle
