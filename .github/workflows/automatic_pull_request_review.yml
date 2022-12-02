@@ -40,8 +40,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-    - name: Bundle install
-      run: bundle install
+    - name: Setup
+      run: make setup
 
     - name: Build and Test
       run: bundle exec fastlane buildAndTest

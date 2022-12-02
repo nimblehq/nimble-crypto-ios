@@ -3,7 +3,10 @@
 
 # Xcode
 xcuserdata/
-./Output
+
+# Derived Data folder
+DerivedData/
+Build/
 
 # fastlane
 fastlane/report.xml
