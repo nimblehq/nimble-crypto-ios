@@ -1,36 +1,21 @@
-*.gem
-*.rbc
-/.config
-/.idea
-/coverage/
-/InstalledFiles
-/node_modules
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+# Mac
+.DS_Store
 
-# Used by dotenv library to load environment variables.
-# .env
+# Xcode
+xcuserdata/
 
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+# Derived Data folder
+DerivedData/
+Build/
 
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/screenshots/screenshots.html
+fastlane/test_output
+fastlane/FastlaneRunner
 
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
+# Bundler
 
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+vendor/bundle
