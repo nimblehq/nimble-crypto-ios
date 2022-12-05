@@ -1,0 +1,52 @@
+name: Automatic pull request review
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Run SwiftLint
+      uses: norio-nomura/action-swiftlint@3.1.0
+      with:
+        args: --strict
+
+  review_pull_request:
+    name: Pull request review
+    runs-on: macOS-12
+    steps:
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.5.0
+      with:
+        access_token: ${{ github.token }}
+
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - uses: actions/cache@v3
+      id: bunlderCache
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Setup
+      run: make setup
+
+    - name: Build and Test
+      run: bundle exec fastlane buildAndTest
+      env:
+        CI: true
+
+    - name: Clean up previous code coverage report
+      run: bundle exec fastlane cleanUpOutput
