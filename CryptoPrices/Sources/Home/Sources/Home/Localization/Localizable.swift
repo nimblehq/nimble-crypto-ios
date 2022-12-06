@@ -12,11 +12,11 @@ struct Localizable {
 
     var wrappedValue: String {
         didSet {
-            wrappedValue = NSLocalizedString(wrappedValue, bundle: Bundle.module, comment: "")
+            wrappedValue = NSLocalizedString(wrappedValue, bundle: .module, comment: "")
         }
     }
 
     init(wrappedValue: String) {
-        self.wrappedValue = NSLocalizedString(wrappedValue, bundle: Bundle.module, comment: "")
+        self.wrappedValue = NSLocalizedString(wrappedValue, bundle: .module, comment: "")
     }
 }

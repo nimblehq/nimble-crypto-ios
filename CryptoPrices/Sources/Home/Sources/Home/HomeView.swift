@@ -13,6 +13,7 @@ public struct HomeView: View {
         ScrollView {
             Text(Strings.Home.titleText)
                 .multilineTextAlignment(.center)
+                .font(.Inter.bold.font(for: .title2))
         }
         .padding(.top, 24.0)
         .clipped(antialiased: false)
