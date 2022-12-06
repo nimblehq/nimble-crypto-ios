@@ -4,17 +4,11 @@
 //  Created by Doan Thieu on 04/12/2022.
 //
 
-// swiftlint:disable type_contents_order
-
 import SwiftUI
 
 public struct Preview<Content: View>: View {
 
     let content: Content
-
-    public init(@ViewBuilder _ content: () -> Content) {
-        self.content = content()
-    }
 
     public var body: some View {
         Group {
@@ -30,5 +24,9 @@ public struct Preview<Content: View>: View {
                 .previewDevice("iPhone 14 Pro")
                 .previewDisplayName("Pro - Dark mode")
         }
+    }
+
+    public init(@ViewBuilder _ content: () -> Content) {
+        self.content = content()
     }
 }
