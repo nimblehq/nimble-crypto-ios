@@ -13,6 +13,7 @@ public extension Font {
     enum Inter: CaseIterable {
 
         case regular
+        case medium
         case bold
 
         public func font(for style: UIFont.TextStyle) -> Font {
@@ -29,8 +30,9 @@ public extension Font {
 
         func fontName() -> String {
             switch self {
-            case .regular: return "Inter-Regular"
-            case .bold: return "Inter-Bold"
+            case .regular: return "Inter-Regular" // Weight: 400
+            case .medium: return "Inter-Medium" // Weight: 500
+            case .bold: return "Inter-Bold" // Weight: 700
             }
         }
 

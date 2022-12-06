@@ -11,13 +11,13 @@ import SwiftUI
 @main
 struct CryptoPricesApp: App {
 
-    init() {
-        Font.Inter.registerFonts()
-    }
-
     var body: some Scene {
         WindowGroup {
             HomeView()
         }
+    }
+
+    init() {
+        Font.Inter.registerFonts()
     }
 }
