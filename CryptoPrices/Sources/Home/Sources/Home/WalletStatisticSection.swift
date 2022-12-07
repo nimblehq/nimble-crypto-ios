@@ -11,34 +11,26 @@ import SwiftUI
 struct WalletStatisticSection: View {
 
     var body: some View {
-        ZStack {
-            gradientBackground
-            VStack(spacing: 40.0) {
-                totalCoins
-                todayProfit
-            }
-            .frame(
-                maxWidth: .infinity,
-                alignment: .topLeading
-            )
-            .padding(EdgeInsets(top: 0.0, leading: 32.0, bottom: 0.0, trailing: 32.0))
+        VStack(spacing: 40.0) {
+            totalCoins
+            todayProfit
         }
+        .padding(.horizontal, 32.0)
+        .padding(.vertical, 32.0)
+        .background(gradientBackground)
     }
 }
 
 private extension WalletStatisticSection {
 
     var gradientBackground: some View {
-        Rectangle().fill(
-            LinearGradient(
-                gradient: Gradient(colors: [.metallicSeaweed, .tiffanyBlue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+        LinearGradient(
+            gradient: Gradient(colors: [.metallicSeaweed, .tiffanyBlue]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
         )
         .cornerRadius(12.0)
-        .frame(height: 212.0)
-        .padding(EdgeInsets(top: 0.0, leading: 16.0, bottom: 0.0, trailing: 16.0))
+        .padding(.horizontal, 16.0)
         .shadow(color: .tiffanyBlue, radius: 16.0, x: 0.0, y: 16.0)
     }
 
