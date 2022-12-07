@@ -8,9 +8,9 @@
 import Styleguide
 import SwiftUI
 
-public struct WalletStatisticSection: View {
+struct WalletStatisticSection: View {
 
-    public var body: some View {
+    var body: some View {
         ZStack {
             gradientBackground
             VStack(spacing: 40.0) {
@@ -24,6 +24,9 @@ public struct WalletStatisticSection: View {
             .padding(EdgeInsets(top: 0.0, leading: 32.0, bottom: 0.0, trailing: 32.0))
         }
     }
+}
+
+private extension WalletStatisticSection {
 
     var gradientBackground: some View {
         Rectangle().fill(
