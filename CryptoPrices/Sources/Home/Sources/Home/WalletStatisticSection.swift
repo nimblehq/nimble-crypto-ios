@@ -18,7 +18,6 @@ public struct WalletStatisticSection: View {
                 todayProfit
             }
             .frame(
-                minWidth: 0,
                 maxWidth: .infinity,
                 alignment: .topLeading
             )
@@ -82,8 +81,6 @@ public struct WalletStatisticSection: View {
             .cornerRadius(20.0)
         }
     }
-
-    public init() {}
 }
 
 #if DEBUG

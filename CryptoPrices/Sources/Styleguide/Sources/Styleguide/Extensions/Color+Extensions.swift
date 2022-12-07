@@ -24,12 +24,12 @@ public extension Color {
     /// #D6F5F3
     static var water: Color { Color(hex: 0xD6F5F3) }
 
-    init(hex: UInt, alpha: Double = 1) {
+    init(hex: UInt, alpha: Double = 1.0) {
         self.init(
             .sRGB,
-            red: Double((hex >> 16) & 0xff) / 255,
-            green: Double((hex >> 08) & 0xff) / 255,
-            blue: Double((hex >> 00) & 0xff) / 255,
+            red: Double((hex >> 16) & 0xff) / 255.0,
+            green: Double((hex >> 08) & 0xff) / 255.0,
+            blue: Double((hex >> 00) & 0xff) / 255.0,
             opacity: alpha
         )
     }

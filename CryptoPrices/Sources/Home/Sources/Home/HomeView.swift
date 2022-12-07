@@ -25,7 +25,6 @@ public struct HomeView: View {
         Text(Strings.Home.titleText)
             .multilineTextAlignment(.center)
             .font(.Inter.bold.font(for: .title2))
-
     }
 
     public init() {}
