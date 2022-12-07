@@ -16,4 +16,8 @@ struct CryptoPricesApp: App {
             HomeView()
         }
     }
+
+    init() {
+        Font.Inter.registerFonts()
+    }
 }

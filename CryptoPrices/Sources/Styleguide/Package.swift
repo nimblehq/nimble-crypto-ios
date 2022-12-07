@@ -16,7 +16,10 @@ let package = Package(
     targets: [
         .target(
             name: "Styleguide",
-            dependencies: []
+            dependencies: [],
+            resources: [
+                .process("Resources/Inter")
+            ]
         ),
         .testTarget(
             name: "StyleguideTests",

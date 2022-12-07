@@ -10,10 +10,21 @@ import SwiftUI
 public struct HomeView: View {
 
     public var body: some View {
-        // TODO: Implement later
-        Text("Home")
-            .font(.system(size: 28.0))
-            .fontWeight(.medium)
+        ScrollView {
+            VStack(spacing: 40.0) {
+                homeTitle
+                WalletStatisticSection()
+            }
+        }
+        .padding(.top, 24.0)
+        .clipped(antialiased: false)
+        .frame(maxHeight: .infinity)
+    }
+
+    var homeTitle: some View {
+        Text(Strings.Home.titleText)
+            .multilineTextAlignment(.center)
+            .font(.Inter.bold.font(for: .title2))
     }
 
     public init() {}
