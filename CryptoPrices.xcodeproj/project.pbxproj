@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
 		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
 		4D0A1DA429349D670038624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA329349D670038624D /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		249752BB29418C64003C6238 /* MyCoin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoin; path = CryptoPrices/Sources/MyCoin; sourceTree = "<group>"; };
 		4D0A1D9C29349D660038624D /* CryptoPrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoPrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesApp.swift; sourceTree = "<group>"; };
 		4D0A1DA129349D660038624D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
+				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +90,7 @@
 			children = (
 				4DF0741D293C90F100E1274D /* Styleguide */,
 				4DF07418293C8AA200E1274D /* Home */,
+				249752BB29418C64003C6238 /* MyCoin */,
 				4D0A1D9E29349D660038624D /* CryptoPrices */,
 				4D0A1DAF29349D670038624D /* CryptoPricesTests */,
 				4D0A1DB929349D670038624D /* CryptoPricesUITests */,
@@ -208,6 +212,7 @@
 			name = CryptoPrices;
 			packageProductDependencies = (
 				4DF0741B293C8D3900E1274D /* Home */,
+				249752BC2941901E003C6238 /* MyCoin */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -965,6 +970,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		249752BC2941901E003C6238 /* MyCoin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyCoin;
+		};
 		4DF0741B293C8D3900E1274D /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;

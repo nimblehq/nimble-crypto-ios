@@ -1,0 +1,3 @@
+# MyCoin
+
+The MyCoin package.
