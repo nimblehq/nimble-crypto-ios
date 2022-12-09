@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -13,7 +13,9 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Styleguide", path: "../Styleguide")
+        .package(name: "Styleguide", path: "../Styleguide"),
+        .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
+        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
     targets: [
         .target(
@@ -22,6 +24,11 @@ let package = Package(
         ),
         .testTarget(
             name: "MyCoinTests",
-            dependencies: ["MyCoin"])
+            dependencies: [
+                "MyCoin",
+                .product(name: "Quick", package: "Quick"),
+                .product(name: "Nimble", package: "Nimble")
+            ]
+        )
     ]
 )

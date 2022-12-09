@@ -4,31 +4,35 @@
 import PackageDescription
 
 let package = Package(
-    name: "Home",
-    defaultLocalization: "en",
+    name: "Data",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "Home",
-            targets: ["Home"]
+            name: "Data",
+            targets: ["Data"]
         )
     ],
     dependencies: [
-        .package(name: "Styleguide", path: "../Styleguide"),
+        .package(name: "Domain", path: "../Domain"),
+        .package(url: "https://github.com/Thieurom/Pilot", from: "0.5.1"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
     targets: [
         .target(
-            name: "Home",
+            name: "Data",
             dependencies: [
-                .product(name: "Styleguide", package: "Styleguide")
+                .product(name: "Entities", package: "Domain"),
+                .product(name: "RepositoryProtocol", package: "Domain"),
+                .product(name: "UseCaseProtocol", package: "Domain"),
+                .product(name: "Pilot", package: "Pilot"),
+                .product(name: "PilotType", package: "Pilot")
             ]
         ),
         .testTarget(
-            name: "HomeTests",
+            name: "DataTests",
             dependencies: [
-                "Home",
+                "Data",
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")
             ]

@@ -49,6 +49,8 @@
 		4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4DF07418293C8AA200E1274D /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = CryptoPrices/Sources/Home; sourceTree = "<group>"; };
 		4DF0741D293C90F100E1274D /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = CryptoPrices/Sources/Styleguide; sourceTree = "<group>"; };
+		4DDA898B2938432000A487E2 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = CryptoPrices/Sources/Data; sourceTree = "<group>"; };
+		4DDA898C2938434800A487E2 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = CryptoPrices/Sources/Domain; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,8 @@
 				4DF0741D293C90F100E1274D /* Styleguide */,
 				4DF07418293C8AA200E1274D /* Home */,
 				249752BB29418C64003C6238 /* MyCoin */,
+				4DDA898C2938434800A487E2 /* Domain */,
+				4DDA898B2938432000A487E2 /* Data */,
 				4D0A1D9E29349D660038624D /* CryptoPrices */,
 				4D0A1DAF29349D670038624D /* CryptoPricesTests */,
 				4D0A1DB929349D670038624D /* CryptoPricesUITests */,

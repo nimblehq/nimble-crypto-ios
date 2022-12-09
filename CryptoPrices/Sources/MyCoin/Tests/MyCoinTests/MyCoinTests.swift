@@ -1,5 +1,2 @@
-import XCTest
-@testable import MyCoin
-
-final class MyCoinTests: XCTestCase {
-}
+import Nimble
+import Quick
