@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Data"
-               BuildableName = "Data"
-               BlueprintName = "Data"
+               BlueprintIdentifier = "Repositories"
+               BuildableName = "Repositories"
+               BlueprintName = "Repositories"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,15 +26,26 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Repositories"
+            BuildableName = "Repositories"
+            BlueprintName = "Repositories"
+            ReferencedContainer = "container:">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DataTests"
-               BuildableName = "DataTests"
-               BlueprintName = "DataTests"
+               BlueprintIdentifier = "RepositoriesTests"
+               BuildableName = "RepositoriesTests"
+               BlueprintName = "RepositoriesTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -60,9 +71,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Data"
-            BuildableName = "Data"
-            BlueprintName = "Data"
+            BlueprintIdentifier = "Repositories"
+            BuildableName = "Repositories"
+            BlueprintName = "Repositories"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

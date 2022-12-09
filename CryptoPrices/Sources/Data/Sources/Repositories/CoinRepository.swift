@@ -6,6 +6,7 @@
 //
 
 import Entities
+import NetworkCore
 import RepositoryProtocol
 
 public class CoinRepository: CoinRepositoryProtocol {
@@ -16,11 +17,11 @@ public class CoinRepository: CoinRepositoryProtocol {
         self.coinAPI = coinAPI
     }
 
-    // TODO: Update implementation, for e.g. mapping errors
-
     public func myCoins() async throws -> [Coin] {
         return try await coinAPI.myCoins().map { $0 as Coin }
     }
+
+    // TODO: Update implementation, for e.g. mapping errors
 
     public func trendingCoins() async throws -> [Coin] {
         return try await coinAPI.trendingCoins().map { $0 as Coin }

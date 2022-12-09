@@ -8,8 +8,20 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "Data",
-            targets: ["Data"]
+            name: "NetworkCore",
+            targets: ["NetworkCore"]
+        ),
+        .library(
+            name: "NetworkExtension",
+            targets: ["NetworkExtension"]
+        ),
+        .library(
+            name: "Repositories",
+            targets: ["Repositories"]
+        ),
+        .library(
+            name: "TestHelpers",
+            targets: ["TestHelpers"]
         )
     ],
     dependencies: [
@@ -20,19 +32,39 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Data",
+            name: "NetworkCore",
+            dependencies: []
+        ),
+        .target(
+            name: "NetworkExtension",
             dependencies: [
-                .product(name: "Entities", package: "Domain"),
-                .product(name: "RepositoryProtocol", package: "Domain"),
-                .product(name: "UseCaseProtocol", package: "Domain"),
+                "NetworkCore",
                 .product(name: "Pilot", package: "Pilot"),
                 .product(name: "PilotType", package: "Pilot")
             ]
         ),
-        .testTarget(
-            name: "DataTests",
+        .target(
+            name: "Repositories",
             dependencies: [
-                "Data",
+                "NetworkCore",
+                .product(name: "Entities", package: "Domain"),
+                .product(name: "RepositoryProtocol", package: "Domain")
+            ]
+        ),
+        .target(
+            name: "TestHelpers",
+            dependencies: [
+                "NetworkCore",
+                "NetworkExtension",
+                .product(name: "Entities", package: "Domain")
+            ]
+        ),
+        .testTarget(
+            name: "RepositoriesTests",
+            dependencies: [
+                "NetworkCore",
+                "Repositories",
+                "TestHelpers",
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")
             ]
