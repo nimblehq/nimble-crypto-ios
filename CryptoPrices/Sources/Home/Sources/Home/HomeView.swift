@@ -28,6 +28,8 @@ public struct HomeView: View {
                 }
                 .padding(.leading, 16.0)
                 .padding(.trailing, 16.0)
+
+                MyCoinView()
             }
         }
         .padding(.top, 24.0)

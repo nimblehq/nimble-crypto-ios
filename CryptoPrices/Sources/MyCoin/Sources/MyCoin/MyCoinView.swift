@@ -10,8 +10,13 @@ import SwiftUI
 public struct MyCoinView: View {
 
     public var body: some View {
-        // TODO: Handle to show correct view in the UI task
-        Text("MyCoin View")
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(0..<10) {_ in
+                    MyCoinItemView()
+                }
+            }
+        }
     }
 
     public init() {}
