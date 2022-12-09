@@ -23,6 +23,18 @@ public extension Color {
 
     /// #D6F5F3
     static var water: Color { Color(hex: 0xD6F5F3) }
+    
+    /// #00BDB0
+    static var caribbeanGreen: Color { Color(hex: 0x00BDB0) }
+    
+    /// #70747C
+    static var paleSky: Color { Color(hex: 0x70747C) }
+
+    /// #141B29
+    static var mirage: Color { Color(hex: 0x141B29) }
+
+    /// #F15950
+    static var carnation: Color { Color(hex: 0xF15950) }
 
     init(hex: UInt, alpha: Double = 1.0) {
         self.init(

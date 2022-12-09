@@ -6,6 +6,7 @@
 
 import Styleguide
 import SwiftUI
+import MyCoin
 
 public struct HomeView: View {
 
@@ -14,6 +15,19 @@ public struct HomeView: View {
             VStack(spacing: 40.0) {
                 homeTitle
                 WalletStatisticSection()
+
+                HStack {
+                    Text("My Coins 😎")
+                        .font(.Inter.bold.font(for: .callout))
+
+                    Spacer()
+
+                    Button("see all ->") {}
+                        .foregroundColor(.caribbeanGreen)
+                        .font(.Inter.medium.font(for: .subheadline))
+                }
+                .padding(.leading, 16.0)
+                .padding(.trailing, 16.0)
             }
         }
         .padding(.top, 24.0)
