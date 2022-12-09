@@ -1,5 +1,2 @@
-import XCTest
-@testable import Home
-
-final class HomeTests: XCTestCase {
-}
+import Nimble
+import Quick

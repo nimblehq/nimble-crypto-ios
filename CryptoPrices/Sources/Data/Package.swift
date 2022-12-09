@@ -14,7 +14,9 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Domain", path: "../Domain"),
-        .package(url: "https://github.com/Thieurom/Pilot", from: "0.5.1")
+        .package(url: "https://github.com/Thieurom/Pilot", from: "0.5.1"),
+        .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
+        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
     targets: [
         .target(
@@ -22,13 +24,18 @@ let package = Package(
             dependencies: [
                 .product(name: "Entities", package: "Domain"),
                 .product(name: "RepositoryProtocol", package: "Domain"),
+                .product(name: "UseCaseProtocol", package: "Domain"),
                 .product(name: "Pilot", package: "Pilot"),
                 .product(name: "PilotType", package: "Pilot")
             ]
         ),
         .testTarget(
             name: "DataTests",
-            dependencies: ["Data"]
+            dependencies: [
+                "Data",
+                .product(name: "Quick", package: "Quick"),
+                .product(name: "Nimble", package: "Nimble")
+            ]
         )
     ]
 )

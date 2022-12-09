@@ -13,7 +13,7 @@ let package = Package(
         ),
         .library(
             name: "RepositoryProtocol",
-            targets: ["Entities"]
+            targets: ["RepositoryProtocol"]
         ),
         .library(
             name: "UseCaseProtocol",
@@ -24,7 +24,10 @@ let package = Package(
             targets: ["UseCases"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
+        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
+    ],
     targets: [
         .target(
             name: "Entities",
@@ -47,7 +50,11 @@ let package = Package(
         ),
         .testTarget(
             name: "UseCasesTests",
-            dependencies: ["UseCases"]
+            dependencies: [
+                "UseCases",
+                .product(name: "Quick", package: "Quick"),
+                .product(name: "Nimble", package: "Nimble")
+            ]
         )
     ]
 )
