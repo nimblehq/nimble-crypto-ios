@@ -5,7 +5,6 @@
 //  Created by Doan Thieu on 09/12/2022.
 //
 
-import NetworkExtension
 import Foundation
 
 public extension Data {

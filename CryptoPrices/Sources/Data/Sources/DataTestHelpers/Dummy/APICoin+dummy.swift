@@ -6,6 +6,7 @@
 //
 
 import NetworkCore
+import NetworkExtension
 
 public extension APICoin {
 
