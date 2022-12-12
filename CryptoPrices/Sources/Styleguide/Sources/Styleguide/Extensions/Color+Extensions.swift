@@ -46,3 +46,18 @@ public extension Color {
         )
     }
 }
+
+public extension Color {
+
+    /// main background
+    static var mainBackground = Color("bg_main")
+
+    /// currency item background
+    static var currencyItemBackground = Color("bg_currency_item")
+
+    /// text-medium
+    static var textMedium = Color("text_medium")
+
+    /// text-bold
+    static var textBold = Color("text_bold")
+}

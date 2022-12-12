@@ -14,5 +14,7 @@ public enum Strings {
         @Localizable static var titleText = "home.title.text"
         @Localizable static var totalCoinsTitle = "home.totalCoins.title"
         @Localizable static var todayProfitTitle = "home.todayProfit.title"
+        @Localizable static var myCoinTitle = "home.myCoin.title"
+        @Localizable static var seeAllText = "home.seeAll.text"
     }
 }

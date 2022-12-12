@@ -16,6 +16,7 @@ public struct MyCoinView: View {
                     MyCoinItemView()
                 }
             }
+            .padding(.leading, 16.0)
         }
     }
 
