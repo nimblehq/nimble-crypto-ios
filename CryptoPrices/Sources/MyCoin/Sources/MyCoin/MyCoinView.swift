@@ -10,6 +10,7 @@ import SwiftUI
 public struct MyCoinView: View {
 
     public var body: some View {
+        // TODO: - Remove dummy
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(0..<10) {_ in
