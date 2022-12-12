@@ -14,6 +14,7 @@ public struct MyCoinView: View {
             HStack {
                 ForEach(0..<10) {_ in
                     MyCoinItemView()
+                        .padding(.trailing, 8.0)
                 }
             }
             .padding(.leading, 16.0)

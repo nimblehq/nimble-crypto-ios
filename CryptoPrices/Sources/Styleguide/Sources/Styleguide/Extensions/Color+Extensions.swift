@@ -26,12 +26,6 @@ public extension Color {
     
     /// #00BDB0
     static var caribbeanGreen: Color { Color(hex: 0x00BDB0) }
-    
-    /// #70747C
-    static var paleSky: Color { Color(hex: 0x70747C) }
-
-    /// #141B29
-    static var mirage: Color { Color(hex: 0x141B29) }
 
     /// #F15950
     static var carnation: Color { Color(hex: 0xF15950) }
@@ -55,9 +49,12 @@ public extension Color {
     /// currency item background
     static var currencyItemBackground = Color("bg_currency_item")
 
-    /// text-medium
+    /// text medium
     static var textMedium = Color("text_medium")
 
-    /// text-bold
+    /// text bold
     static var textBold = Color("text_bold")
+
+    /// title medium
+    static var titleMedium = Color("title_medium")
 }

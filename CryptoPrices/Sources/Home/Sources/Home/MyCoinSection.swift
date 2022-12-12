@@ -1,6 +1,5 @@
 //
 //  MyCoinSection.swift
-//  
 //
 //  Created by Khanh on 12/12/2022.
 //
@@ -15,8 +14,8 @@ struct MyCoinSection: View {
         VStack {
             HStack {
                 Text(Strings.Home.myCoinTitle)
-                    .foregroundColor(Color.textMedium)
-                    .font(.Inter.bold.font(for: .callout))
+                    .foregroundColor(Color.titleMedium)
+                    .font(.Inter.medium.font(for: .callout))
                 
                 Spacer()
                 
@@ -24,9 +23,7 @@ struct MyCoinSection: View {
                     .foregroundColor(.caribbeanGreen)
                     .font(.Inter.medium.font(for: .subheadline))
             }
-            .padding(.leading, 16.0)
-            .padding(.trailing, 16.0)
-
+            .padding(16.0)
 
             MyCoinView()
         }
