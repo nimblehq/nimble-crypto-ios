@@ -6,7 +6,6 @@
 
 import Styleguide
 import SwiftUI
-import MyCoin
 
 struct MyCoinSection: View {
 
