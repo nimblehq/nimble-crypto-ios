@@ -1,5 +1,7 @@
-setup: install assets
+# Setup
+setup: install generate
 
+# Install dependencies
 install:
 	brew install swiftgen
 	brew install xcbeautify
@@ -7,5 +9,6 @@ install:
 	bundle config set --local path vendor/bundle
 	bundle install
 
-assets:
+# Generate Swift code for resources
+generate:
 	swiftgen

@@ -25,9 +25,7 @@ fileprivate extension SwiftUI.Font {
     }
 
     // swiftlint:disable:next cyclomatic_complexity
-    static func mapToUIFontTextStyle(
-        _ textStyle: SwiftUI.Font.TextStyle
-    ) -> UIFont.TextStyle {
+    static func mapToUIFontTextStyle(_ textStyle: SwiftUI.Font.TextStyle) -> UIFont.TextStyle {
         switch textStyle {
         case .largeTitle:
             return .largeTitle

@@ -1,58 +1,40 @@
-## Note: all of the config entries below are just examples with placeholders. Be sure to edit and adjust to your needs when uncommenting.
-
-## In case your config entries all use a common input/output parent directory, you can specify those here.
-##   Every input/output paths in the rest of the config will then be expressed relative to these.
-##   Those two top-level keys are optional and default to "." (the directory of the config file).
-input_dir: CryptoPrices/Sources/Styleguide/Sources/Styleguide/Resources
-output_dir: CryptoPrices/Sources/Styleguide/Sources/Styleguide/Assets
-
+input_dir: CryptoPrices/Sources
+output_dir: CryptoPrices/Sources
 
 ## Generate constants for your localized strings.
 ##   Be sure that SwiftGen only parses ONE locale (typically Base.lproj, or en.lproj, or whichever your development region is); otherwise it will generate the same keys multiple times.
 ##   SwiftGen will parse all `.strings` files found in that folder.
-# strings:
-#   inputs:
-#     - Resources/Base.lproj
-#   outputs:
-#     - templateName: structured-swift5
-#       output: Strings+Generated.swift
+strings:
+   inputs:
+     - Home/Sources/Home/Resources/en.lproj
+   outputs:
+     - templateName: structured-swift5
+       params:
+         enumName: Strings
+       output: Home/Sources/Home/Localization/Strings.swift
 
 
 ## Generate constants for your Assets Catalogs, including constants for images, colors, ARKit resources, etc.
-##   This example also shows how to provide additional parameters to your template to customize the output.
-##   - Especially the `forceProvidesNamespaces: true` param forces to create sub-namespace for each folder/group used in your Asset Catalogs, even the ones without "Provides Namespace". Without this param, SwiftGen only generates sub-namespaces for folders/groups which have the "Provides Namespace" box checked in the Inspector pane.
-##   - To know which params are supported for a template, use `swiftgen template doc xcassets swift5` to open the template documentation on GitHub.
 xcassets:
    inputs:
-     - Assets/Images.xcassets
-     - Assets/Colors.xcassets
+     - Styleguide/Sources/Styleguide/Resources/Assets
    outputs:
      - templateName: swift5
        params:
          enumName: Assets
          forceProvidesNamespaces: true
          publicAccess: true
-       output: Assets.swift
+       output: Styleguide/Sources/Styleguide/Generated/Assets.swift
 
 
 ## Generate constants for custom fonts
 fonts:
   inputs:
-    - Fonts
+    - Styleguide/Sources/Styleguide/Resources/Fonts
   outputs:
     - templateName: swift5
       params:
         enumName: Fonts
         forceProvidesNamespaces: true
         publicAccess: true
-      output: Fonts.swift
-
-
-## There are other parsers available for you to use depending on your needs, for example:
-##  - `fonts` (if you have custom ttf/ttc font files)
-##  - `coredata` (for CoreData models)
-##  - `json`, `yaml` and `plist` (to parse custom JSON/YAML/Plist files and generate code from their content)
-## …
-##
-## For more info, use `swiftgen config doc` to open the full documentation on GitHub.
-## https://github.com/SwiftGen/SwiftGen/tree/6.6.2/Documentation/
+      output: Styleguide/Sources/Styleguide/Generated/Fonts.swift

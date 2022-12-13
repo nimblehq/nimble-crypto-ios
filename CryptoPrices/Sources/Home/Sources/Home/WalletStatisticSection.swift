@@ -42,7 +42,7 @@ private extension WalletStatisticSection {
     var totalCoins: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
-                Text(Strings.Home.totalCoinsTitle)
+                Text(Strings.Home.TotalCoins.title)
                     .foregroundColor(Assets.Colors.lightSilver.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
 
@@ -58,7 +58,7 @@ private extension WalletStatisticSection {
     var todayProfit: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
-                Text(Strings.Home.todayProfitTitle)
+                Text(Strings.Home.TodayProfit.title)
                     .foregroundColor(Assets.Colors.lightSilver.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
 
