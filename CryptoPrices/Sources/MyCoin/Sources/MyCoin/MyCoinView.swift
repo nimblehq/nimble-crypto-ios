@@ -10,16 +10,8 @@ import SwiftUI
 public struct MyCoinView: View {
 
     public var body: some View {
-        // TODO: - Remove dummy
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(0..<10) {_ in
-                    MyCoinItemView()
-                        .padding(.trailing, 8.0)
-                }
-            }
-            .padding(.leading, 16.0)
-        }
+        // TODO: Handle to show correct view in the UI task
+        Text("MyCoin View")
     }
 
     public init() {}

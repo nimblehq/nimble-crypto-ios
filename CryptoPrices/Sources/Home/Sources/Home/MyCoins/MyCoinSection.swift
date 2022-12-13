@@ -25,7 +25,16 @@ struct MyCoinSection: View {
             }
             .padding(16.0)
 
-            MyCoinView()
+            // TODO: - Remove dummy
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(0..<10) {_ in
+                        MyCoinItemView()
+                            .padding(.trailing, 8.0)
+                    }
+                }
+                .padding(.leading, 16.0)
+            }
         }
     }
 }

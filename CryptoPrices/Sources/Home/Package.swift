@@ -16,15 +16,13 @@ let package = Package(
     dependencies: [
         .package(name: "Styleguide", path: "../Styleguide"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
-        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1"),
-        .package(name: "MyCoin", path: "../MyCoin")
+        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
     targets: [
         .target(
             name: "Home",
             dependencies: [
-                .product(name: "Styleguide", package: "Styleguide"),
-                .product(name: "MyCoin", package: "MyCoin")
+                .product(name: "Styleguide", package: "Styleguide")
             ]
         ),
         .testTarget(
