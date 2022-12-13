@@ -20,7 +20,7 @@ public struct HomeView: View {
         .padding(.top, 24.0)
         .clipped(antialiased: false)
         .frame(maxHeight: .infinity)
-        .background(Color.mainBackground)
+        .background(Assets.Colors.bgMain.swiftUIColor)
     }
 
     var homeTitle: some View {

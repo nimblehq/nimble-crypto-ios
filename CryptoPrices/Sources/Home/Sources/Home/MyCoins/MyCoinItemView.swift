@@ -31,7 +31,7 @@ struct MyCoinItemView: View {
             .padding(8.0)
         }
         .frame(width: 180.0, height: 114.0)
-        .background(Color.currencyItemBackground)
+        .background(Assets.Colors.bgCurrencyItem.swiftUIColor)
         .cornerRadius(12.0)
     }
 }
@@ -40,7 +40,7 @@ private extension MyCoinItemView {
 
     var coinImage: some View {
         // TODO: - Remove dummy
-        Image("ic_bitcoin")
+        Assets.Images.icBitcoin.swiftUIImage
             .frame(width: 40.0, height: 40.0)
             .clipShape(Circle())
     }
@@ -49,12 +49,12 @@ private extension MyCoinItemView {
         // TODO: - Remove dummy
         VStack(alignment: .leading) {
             Text("BTC")
-                .foregroundColor(Color.textBold)
+                .foregroundColor(Assets.Colors.textBold.swiftUIColor)
                 .font(.Inter.bold.font(for: .callout))
                 .padding(.bottom, 4.0)
 
             Text("Bitcoin")
-                .foregroundColor(Color.textMedium)
+                .foregroundColor(Assets.Colors.textMedium.swiftUIColor)
                 .font(.Inter.medium.font(for: .subheadline))
         }
     }
@@ -62,18 +62,24 @@ private extension MyCoinItemView {
     var currentPrice: some View {
         // TODO: - Remove dummy
         Text("$24,209")
-            .foregroundColor(Color.textBold)
+            .foregroundColor(Assets.Colors.textBold.swiftUIColor)
             .font(.Inter.bold.font(for: .callout))
     }
     
     var priceChangePercentage: some View {
         // TODO: - Remove dummy
         HStack {
-            Image(percentage < 0.0 ? "ic_arrow_down_red" : "ic_arrow_up_green")
+            percentage < 0.0
+            ? Assets.Images.icArrowDownRed.swiftUIImage
+            : Assets.Images.icArrowUpGreen.swiftUIImage
 
             Text("6.21%")
                 .font(.Inter.medium.font(for: .callout))
-                .foregroundColor(percentage < 0.0 ? .carnation : .guppieGreen)
+                .foregroundColor(
+                    percentage < 0.0
+                    ? Assets.Colors.carnation.swiftUIColor
+                    : Assets.Colors.guppieGreen.swiftUIColor
+                )
         }
     }
 }
