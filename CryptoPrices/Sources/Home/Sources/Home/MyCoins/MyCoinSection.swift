@@ -14,13 +14,13 @@ struct MyCoinSection: View {
             HStack {
                 Text(Strings.Home.myCoinTitle)
                     .foregroundColor(Assets.Colors.titleMedium.swiftUIColor)
-                    .font(.Inter.medium.font(for: .callout))
-                
+                    .font(Fonts.Inter.medium.textStyle(.callout))
+
                 Spacer()
                 
                 Button(Strings.Home.seeAllText) {}
                     .foregroundColor(Assets.Colors.caribbeanGreen.swiftUIColor)
-                    .font(.Inter.medium.font(for: .subheadline))
+                    .font(Fonts.Inter.medium.textStyle(.subheadline))
             }
             .padding(16.0)
 

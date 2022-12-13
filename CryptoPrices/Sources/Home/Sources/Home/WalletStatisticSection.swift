@@ -44,11 +44,11 @@ private extension WalletStatisticSection {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(Strings.Home.totalCoinsTitle)
                     .foregroundColor(Assets.Colors.lightSilver.swiftUIColor)
-                    .font(.Inter.medium.font(for: .callout))
+                    .font(Fonts.Inter.medium.textStyle(.callout))
 
                 Text("$7,273,291") // TODO: Handle showing this number with device locale
                     .foregroundColor(.white)
-                    .font(.Inter.bold.font(for: .title2))
+                    .font(Fonts.Inter.bold.textStyle(.title2))
             }
 
             Spacer()
@@ -60,11 +60,11 @@ private extension WalletStatisticSection {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(Strings.Home.todayProfitTitle)
                     .foregroundColor(Assets.Colors.lightSilver.swiftUIColor)
-                    .font(.Inter.medium.font(for: .callout))
+                    .font(Fonts.Inter.medium.textStyle(.callout))
 
                 Text("$193,28") // TODO: Handle showing this number with device locale
                     .foregroundColor(.white)
-                    .font(.Inter.bold.font(for: .title2))
+                    .font(Fonts.Inter.bold.textStyle(.title2))
             }
 
             Spacer()
