@@ -4,7 +4,7 @@ import Quick
 import TestHelpers
 @testable import UseCases
 
-final class MyCoinsUseCaseTests: QuickSpec {
+final class MyCoinsUseCaseSpec: QuickSpec {
 
     override func spec() {
         var myCoinsUseCase: MyCoinsUseCase!

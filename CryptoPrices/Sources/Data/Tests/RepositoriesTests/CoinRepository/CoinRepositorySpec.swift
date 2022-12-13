@@ -5,7 +5,7 @@ import Quick
 import TestHelpers
 @testable import Repositories
 
-final class CoinRepositoryTests: QuickSpec {
+final class CoinRepositorySpec: QuickSpec {
 
     override func spec() {
         var coinRepository: CoinRepository!
