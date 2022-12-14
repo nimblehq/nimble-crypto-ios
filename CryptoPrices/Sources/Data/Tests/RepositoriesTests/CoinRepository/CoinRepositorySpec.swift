@@ -11,7 +11,7 @@ final class CoinRepositorySpec: QuickSpec {
         var coinRepository: CoinRepository!
         var coinAPI: MockCoinAPI!
 
-        describe("The CoinRepository") {
+        describe("the CoinRepository") {
             beforeEach {
                 coinAPI = MockCoinAPI()
                 coinRepository = CoinRepository(coinAPI: coinAPI)

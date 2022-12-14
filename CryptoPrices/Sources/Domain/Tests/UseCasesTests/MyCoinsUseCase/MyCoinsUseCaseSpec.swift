@@ -10,7 +10,7 @@ final class MyCoinsUseCaseSpec: QuickSpec {
         var myCoinsUseCase: MyCoinsUseCase!
         var coinRepository: MockCoinRepository!
 
-        describe("The MyCoinsUseCase") {
+        describe("the MyCoinsUseCase") {
             beforeEach {
                 coinRepository = MockCoinRepository()
                 myCoinsUseCase = MyCoinsUseCase(repository: coinRepository)
@@ -18,7 +18,7 @@ final class MyCoinsUseCaseSpec: QuickSpec {
 
             describe("its execute()") {
                 context("when coinRepository returns success") {
-                    let expectedCoins = [TestCoin.single]
+                    let expectedCoins = [MockCoin.single]
 
                     beforeEach {
                         coinRepository.myCoinsReturnValue = .success(expectedCoins)
@@ -26,7 +26,7 @@ final class MyCoinsUseCaseSpec: QuickSpec {
 
                     it("returns correct value") {
                         await expect {
-                            try await myCoinsUseCase.execute().compactMap { $0 as? TestCoin }
+                            try await myCoinsUseCase.execute().compactMap { $0 as? MockCoin }
                         }
                         .to(equal(expectedCoins))
                     }

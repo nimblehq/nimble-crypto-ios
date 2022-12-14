@@ -35,8 +35,8 @@ extension CoinRoute: Route {
     public var parameters: Parameters? {
         switch self {
         case let .myCoins(parameters): return parameters.encoded()
-        default:
             // TODO: Update when implement
+        default:
             return nil
         }
     }
