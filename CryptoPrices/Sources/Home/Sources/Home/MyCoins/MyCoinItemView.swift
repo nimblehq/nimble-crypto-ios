@@ -69,11 +69,11 @@ private extension MyCoinItemView {
     var priceChangePercentage: some View {
         // TODO: - Remove dummy
         HStack {
-            Image(percentage < 0 ? "ic_arrow_down_red" : "ic_arrow_up_green")
+            Image(percentage < 0.0 ? "ic_arrow_down_red" : "ic_arrow_up_green")
 
             Text("6.21%")
                 .font(.Inter.medium.font(for: .callout))
-                .foregroundColor(percentage < 0 ? .carnation : .guppieGreen)
+                .foregroundColor(percentage < 0.0 ? .carnation : .guppieGreen)
         }
     }
 }
