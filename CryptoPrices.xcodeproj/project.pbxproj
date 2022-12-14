@@ -47,10 +47,11 @@
 		4D0A1DB629349D670038624D /* CryptoPricesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPricesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1DBA29349D670038624D /* CryptoPricesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITests.swift; sourceTree = "<group>"; };
 		4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4DF07418293C8AA200E1274D /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = CryptoPrices/Sources/Home; sourceTree = "<group>"; };
-		4DF0741D293C90F100E1274D /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = CryptoPrices/Sources/Styleguide; sourceTree = "<group>"; };
 		4DDA898B2938432000A487E2 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = CryptoPrices/Sources/Data; sourceTree = "<group>"; };
 		4DDA898C2938434800A487E2 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = CryptoPrices/Sources/Domain; sourceTree = "<group>"; };
+		4DF07418293C8AA200E1274D /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = CryptoPrices/Sources/Home; sourceTree = "<group>"; };
+		4DF0741D293C90F100E1274D /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = CryptoPrices/Sources/Styleguide; sourceTree = "<group>"; };
+		4DF074382946D44500E1274D /* TestHelpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TestHelpers; path = CryptoPrices/Sources/TestHelpers; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,7 @@
 		4D0A1D9329349D660038624D = {
 			isa = PBXGroup;
 			children = (
+				4DF074382946D44500E1274D /* TestHelpers */,
 				4DF0741D293C90F100E1274D /* Styleguide */,
 				4DF07418293C8AA200E1274D /* Home */,
 				249752BB29418C64003C6238 /* MyCoin */,

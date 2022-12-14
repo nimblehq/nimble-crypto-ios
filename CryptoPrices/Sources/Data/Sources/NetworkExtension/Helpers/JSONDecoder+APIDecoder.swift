@@ -11,7 +11,7 @@ extension JSONDecoder {
 
     public static let apiDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        // TODO: Update decoding strategies
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
 }

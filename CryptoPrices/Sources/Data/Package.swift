@@ -8,31 +8,65 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "Data",
-            targets: ["Data"]
+            name: "NetworkCore",
+            targets: ["NetworkCore"]
+        ),
+        .library(
+            name: "NetworkExtension",
+            targets: ["NetworkExtension"]
+        ),
+        .library(
+            name: "Repositories",
+            targets: ["Repositories"]
+        ),
+        .library(
+            name: "DataTestHelpers",
+            targets: ["DataTestHelpers"]
         )
     ],
     dependencies: [
         .package(name: "Domain", path: "../Domain"),
+        .package(name: "TestHelpers", path: "../TestHelpers"),
         .package(url: "https://github.com/Thieurom/Pilot", from: "0.5.1"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
     targets: [
         .target(
-            name: "Data",
+            name: "NetworkCore",
+            dependencies: []
+        ),
+        .target(
+            name: "NetworkExtension",
             dependencies: [
-                .product(name: "Entities", package: "Domain"),
-                .product(name: "RepositoryProtocol", package: "Domain"),
-                .product(name: "UseCaseProtocol", package: "Domain"),
+                "NetworkCore",
                 .product(name: "Pilot", package: "Pilot"),
                 .product(name: "PilotType", package: "Pilot")
             ]
         ),
-        .testTarget(
-            name: "DataTests",
+        .target(
+            name: "Repositories",
             dependencies: [
-                "Data",
+                "NetworkCore",
+                .product(name: "Entities", package: "Domain"),
+                .product(name: "RepositoryProtocol", package: "Domain")
+            ]
+        ),
+        .target(
+            name: "DataTestHelpers",
+            dependencies: [
+                "NetworkCore",
+                "NetworkExtension",
+                .product(name: "Entities", package: "Domain")
+            ]
+        ),
+        .testTarget(
+            name: "RepositoriesTests",
+            dependencies: [
+                "NetworkCore",
+                "Repositories",
+                "DataTestHelpers",
+                .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")
             ]

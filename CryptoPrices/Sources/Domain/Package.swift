@@ -22,9 +22,14 @@ let package = Package(
         .library(
             name: "UseCases",
             targets: ["UseCases"]
+        ),
+        .library(
+            name: "DomainTestHelpers",
+            targets: ["DomainTestHelpers"]
         )
     ],
     dependencies: [
+        .package(name: "TestHelpers", path: "../TestHelpers"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
@@ -48,10 +53,19 @@ let package = Package(
                 "UseCaseProtocol"
             ]
         ),
+        .target(
+            name: "DomainTestHelpers",
+            dependencies: [
+                "Entities",
+                "RepositoryProtocol"
+            ]
+        ),
         .testTarget(
             name: "UseCasesTests",
             dependencies: [
                 "UseCases",
+                "DomainTestHelpers",
+                .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")
             ]
