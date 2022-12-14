@@ -9,15 +9,29 @@ import Foundation
 
 public protocol Parameterable: Encodable {}
 
-public extension Parameterable {
+extension Parameterable {
 
-    func encoded(encoder: JSONEncoder = .apiEncoder) -> [String: Any] {
-        guard let dictionary = try? JSONSerialization.jsonObject(
+    private func encoded(boolValue: Bool) -> String {
+        return boolValue ? "true" : "false"
+    }
+
+    public func encoded(encoder: JSONEncoder = .apiEncoder) -> [String: String] {
+        guard let parameters = try? JSONSerialization.jsonObject(
             with: encoder.encode(self), options: .allowFragments
         ) as? [String: Any] else {
             return [:]
         }
 
-        return dictionary
+        var encodedParameters = [String: String]()
+
+        for (key, value) in parameters {
+            if let boolValue = value as? Bool {
+                encodedParameters[key] = encoded(boolValue: boolValue)
+            } else {
+                encodedParameters[key] = "\(value)"
+            }
+        }
+
+        return encodedParameters
     }
 }

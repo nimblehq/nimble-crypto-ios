@@ -12,9 +12,9 @@ public struct HomeView: View {
     public var body: some View {
         ScrollView {
             VStack(spacing: 40.0) {
-                homeTitle
+                headerView
                 WalletStatisticSection()
-                MyCoinSection()
+                MyCoinSection(coins: viewModel.myCoins)
                 TrendingCoinSection()
             }
         }
@@ -22,23 +22,35 @@ public struct HomeView: View {
         .clipped(antialiased: false)
         .frame(maxHeight: .infinity)
         .background(Colors.bgMain.swiftUIColor)
+        .task {
+            await viewModel.fetchMyCoins()
+        }
     }
 
-    var homeTitle: some View {
+    @ObservedObject private var viewModel: HomeViewModel
+
+    public init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+private extension HomeView {
+
+    var headerView: some View {
         Text(Strings.Home.Title.text)
             .multilineTextAlignment(.center)
             .font(Fonts.Inter.bold.textStyle(.title2))
     }
-
-    public init() {}
 }
 
 #if DEBUG
+import DomainTestHelpers
+
 struct HomeView_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            HomeView()
+            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCase()))
         }
     }
 }
