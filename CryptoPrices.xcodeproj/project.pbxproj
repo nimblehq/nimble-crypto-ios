@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
 		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
 		4D0A1DA429349D670038624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA329349D670038624D /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 		4D0A1DB129349D670038624D /* CryptoPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DB029349D670038624D /* CryptoPricesTests.swift */; };
 		4D0A1DBB29349D670038624D /* CryptoPricesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DBA29349D670038624D /* CryptoPricesUITests.swift */; };
 		4D0A1DBD29349D670038624D /* CryptoPricesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */; };
+		4DF0741C293C8D3900E1274D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF0741B293C8D3900E1274D /* Home */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		249752BB29418C64003C6238 /* MyCoin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoin; path = CryptoPrices/Sources/MyCoin; sourceTree = "<group>"; };
 		4D0A1D9C29349D660038624D /* CryptoPrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoPrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesApp.swift; sourceTree = "<group>"; };
 		4D0A1DA129349D660038624D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +47,11 @@
 		4D0A1DB629349D670038624D /* CryptoPricesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPricesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1DBA29349D670038624D /* CryptoPricesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITests.swift; sourceTree = "<group>"; };
 		4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4DDA898B2938432000A487E2 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = CryptoPrices/Sources/Data; sourceTree = "<group>"; };
+		4DDA898C2938434800A487E2 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = CryptoPrices/Sources/Domain; sourceTree = "<group>"; };
+		4DF07418293C8AA200E1274D /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = CryptoPrices/Sources/Home; sourceTree = "<group>"; };
+		4DF0741D293C90F100E1274D /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = CryptoPrices/Sources/Styleguide; sourceTree = "<group>"; };
+		4DF074382946D44500E1274D /* TestHelpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TestHelpers; path = CryptoPrices/Sources/TestHelpers; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
+				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +91,17 @@
 		4D0A1D9329349D660038624D = {
 			isa = PBXGroup;
 			children = (
+				4DF074382946D44500E1274D /* TestHelpers */,
+				4DF0741D293C90F100E1274D /* Styleguide */,
+				4DF07418293C8AA200E1274D /* Home */,
+				249752BB29418C64003C6238 /* MyCoin */,
+				4DDA898C2938434800A487E2 /* Domain */,
+				4DDA898B2938432000A487E2 /* Data */,
 				4D0A1D9E29349D660038624D /* CryptoPrices */,
 				4D0A1DAF29349D670038624D /* CryptoPricesTests */,
 				4D0A1DB929349D670038624D /* CryptoPricesUITests */,
 				4D0A1D9D29349D660038624D /* Products */,
+				4DF0741A293C8D3900E1274D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,8 +153,7 @@
 		4D0A1DC929349E0C0038624D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */,
-				4D0A1DA129349D660038624D /* ContentView.swift */,
+				4DF07419293C8AAA00E1274D /* App */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -167,6 +183,22 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		4DF07419293C8AAA00E1274D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */,
+				4D0A1DA129349D660038624D /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4DF0741A293C8D3900E1274D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,6 +217,8 @@
 			);
 			name = CryptoPrices;
 			packageProductDependencies = (
+				4DF0741B293C8D3900E1274D /* Home */,
+				249752BC2941901E003C6238 /* MyCoin */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -444,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices.staging";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME) Staging";
@@ -575,7 +609,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices.staging";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME) Staging";
@@ -764,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -801,7 +835,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -940,6 +974,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		249752BC2941901E003C6238 /* MyCoin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyCoin;
+		};
+		4DF0741B293C8D3900E1274D /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D0A1D9429349D660038624D /* Project object */;
 }
