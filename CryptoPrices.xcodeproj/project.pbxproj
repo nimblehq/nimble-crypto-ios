@@ -27,6 +27,7 @@
 		4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B8294AD26300D15E33 /* PilotTestSupport */; };
 		4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27BA294AD26300D15E33 /* PilotType */; };
 		4DF0741C293C8D3900E1274D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF0741B293C8D3900E1274D /* Home */; };
+		4DF0743B2949766900E1274D /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF0743A2949766900E1274D /* ShowTime */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 				4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */,
 				4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */,
 				4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */,
+				4DF0743B2949766900E1274D /* ShowTime in Frameworks */,
 				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
 				4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */,
 			);
@@ -246,6 +248,7 @@
 				4DBA27B6294AD26300D15E33 /* Pilot */,
 				4DBA27B8294AD26300D15E33 /* PilotTestSupport */,
 				4DBA27BA294AD26300D15E33 /* PilotType */,
+				4DF0743A2949766900E1274D /* ShowTime */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -321,6 +324,7 @@
 			mainGroup = 4D0A1D9329349D660038624D;
 			packageReferences = (
 				4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */,
+				4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -1014,6 +1018,14 @@
 				minimumVersion = 0.5.1;
 			};
 		};
+		4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KaneCheshire/ShowTime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1063,6 +1075,11 @@
 		4DF0741B293C8D3900E1274D /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
+		};
+		4DF0743A2949766900E1274D /* ShowTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */;
+			productName = ShowTime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
