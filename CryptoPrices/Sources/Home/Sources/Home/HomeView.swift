@@ -14,11 +14,13 @@ public struct HomeView: View {
             VStack(spacing: 40.0) {
                 homeTitle
                 WalletStatisticSection()
+                MyCoinSection()
             }
         }
         .padding(.top, 24.0)
         .clipped(antialiased: false)
         .frame(maxHeight: .infinity)
+        .background(Color.mainBackground)
     }
 
     var homeTitle: some View {

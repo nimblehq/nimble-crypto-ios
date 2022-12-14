@@ -23,6 +23,12 @@ public extension Color {
 
     /// #D6F5F3
     static var water: Color { Color(hex: 0xD6F5F3) }
+    
+    /// #00BDB0
+    static var caribbeanGreen: Color { Color(hex: 0x00BDB0) }
+
+    /// #F15950
+    static var carnation: Color { Color(hex: 0xF15950) }
 
     init(hex: UInt, alpha: Double = 1.0) {
         self.init(
@@ -33,4 +39,22 @@ public extension Color {
             opacity: alpha
         )
     }
+}
+
+public extension Color {
+
+    /// main background
+    static var mainBackground = Color("bg_main")
+
+    /// currency item background
+    static var currencyItemBackground = Color("bg_currency_item")
+
+    /// text medium
+    static var textMedium = Color("text_medium")
+
+    /// text bold
+    static var textBold = Color("text_bold")
+
+    /// title medium
+    static var titleMedium = Color("title_medium")
 }
