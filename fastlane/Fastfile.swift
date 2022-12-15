@@ -46,7 +46,15 @@ class Fastfile: LaneFile {
         desc("Build and test project")
         Test.buildAndTest(
             environment: .staging,
-            targets: [Constant.testTarget, Constant.uiTestTarget],
+            targets: [
+                Constant.testTarget,
+                Constant.uiTestTarget,
+                Constant.dataTestTarget,
+                Constant.homeTestTarget,
+                Constant.myCoinTestTarget,
+                Constant.styleguideTestTarget,
+                Constant.useCaseTestTarget
+            ],
             devices: Constant.devices
         )
     }

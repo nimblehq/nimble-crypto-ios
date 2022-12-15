@@ -48,6 +48,56 @@
                ReferencedContainer = "container:CryptoPrices.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DataTests"
+               BuildableName = "DataTests"
+               BlueprintName = "DataTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Data">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UseCasesTests"
+               BuildableName = "UseCasesTests"
+               BlueprintName = "UseCasesTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Domain">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HomeTests"
+               BuildableName = "HomeTests"
+               BlueprintName = "HomeTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Home">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MyCoinTests"
+               BuildableName = "MyCoinTests"
+               BlueprintName = "MyCoinTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/MyCoin">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "StyleguideTests"
+               BuildableName = "StyleguideTests"
+               BlueprintName = "StyleguideTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Styleguide">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
