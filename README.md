@@ -1,12 +1,27 @@
-# Git Repository Template
+# CryptoPrices iOS
 
-Project repository template to set up all public projects at [Nimble](https://nimblehq.co/)
+This is a simple iOS application built with SwiftUI that shows the crypto market prices.
 
-## Usage
+## Build and run
+Open your terminal, then:
 
-Clone the repository
+1. Checkout source code
+   ```
+   git clone git@github.com:nimblehq/nimble-crypto-ios.git
+   cd nimble-crypto-ios
+   ```
 
-`git clone git@github.com:nimblehq/git-template.git`
+2. Install dependencies
+   ```
+   make setup
+   ```
+
+3. Open `CryptoPrices.xcodeproj` with Xcode, hit `⌘R` to run.
+
+4. When adding/removing/updating any resources (colors and images assets, fonts, localized strings), please run the following before re-running the app from Xcode:
+   ```
+   make generate
+   ```
 
 ## License
 
