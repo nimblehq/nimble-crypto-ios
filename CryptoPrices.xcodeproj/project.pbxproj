@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C02C659294B007A00ED7DFC /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C658294B007A00ED7DFC /* Styleguide */; };
 		1C02C65B294B008A00ED7DFC /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65A294B008A00ED7DFC /* UseCases */; };
-		1C02C65D294B009400ED7DFC /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65C294B009400ED7DFC /* Data */; };
+		1C02C65F294B02B300ED7DFC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65E294B02B300ED7DFC /* Repositories */; };
 		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
 		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
@@ -62,9 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C02C65F294B02B300ED7DFC /* Repositories in Frameworks */,
 				1C02C65B294B008A00ED7DFC /* UseCases in Frameworks */,
 				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
-				1C02C65D294B009400ED7DFC /* Data in Frameworks */,
 				1C02C659294B007A00ED7DFC /* Styleguide in Frameworks */,
 				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
 			);
@@ -227,7 +227,7 @@
 				249752BC2941901E003C6238 /* MyCoin */,
 				1C02C658294B007A00ED7DFC /* Styleguide */,
 				1C02C65A294B008A00ED7DFC /* UseCases */,
-				1C02C65C294B009400ED7DFC /* Data */,
+				1C02C65E294B02B300ED7DFC /* Repositories */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -993,9 +993,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = UseCases;
 		};
-		1C02C65C294B009400ED7DFC /* Data */ = {
+		1C02C65E294B02B300ED7DFC /* Repositories */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Data;
+			productName = Repositories;
 		};
 		249752BC2941901E003C6238 /* MyCoin */ = {
 			isa = XCSwiftPackageProductDependency;
