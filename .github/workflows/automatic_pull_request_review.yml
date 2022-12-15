@@ -29,13 +29,13 @@ jobs:
     - name: Setup
       run: make setup
 
+    - name: Lint
+      run: make lint
+
     - name: Build and Test
       run: bundle exec fastlane buildAndTest
       env:
         CI: true
-
-    - name: Lint
-      run: make lint
 
     - name: Clean up previous code coverage report
       run: bundle exec fastlane cleanUpOutput
