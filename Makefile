@@ -12,3 +12,7 @@ install:
 # Generate Swift code for resources
 generate:
 	swiftgen
+
+# Lint code
+lint:
+	swiftlint --strict
