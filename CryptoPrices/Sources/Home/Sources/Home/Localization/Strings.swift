@@ -20,10 +20,8 @@ internal enum Strings {
       internal static let text = Strings.tr("Localizable", "home.seeAll.text", fallback: "see all ->")
     }
     internal enum Title {
-      /// Localizable.strings
-      ///   CryptoPrices
-      /// 
-      ///   Created by Mike Pham on 06/12/2022.
+      /// Trade Now and Get
+      /// Your Life
       internal static let text = Strings.tr("Localizable", "home.title.text", fallback: "Trade Now and Get\nYour Life")
     }
     internal enum TodayProfit {

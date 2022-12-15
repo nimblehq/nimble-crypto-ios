@@ -27,8 +27,8 @@ private extension WalletStatisticSection {
         LinearGradient(
             gradient: Gradient(
                 colors: [
-                    Assets.Colors.metallicSeaweed.swiftUIColor,
-                    Assets.Colors.tiffanyBlue.swiftUIColor
+                    Colors.metallicSeaweed.swiftUIColor,
+                    Colors.tiffanyBlue.swiftUIColor
                 ]
             ),
             startPoint: .topLeading,
@@ -36,14 +36,14 @@ private extension WalletStatisticSection {
         )
         .cornerRadius(12.0)
         .padding(.horizontal, 16.0)
-        .shadow(color: Assets.Colors.tiffanyBlue.swiftUIColor, radius: 16.0, x: 0.0, y: 16.0)
+        .shadow(color: Colors.tiffanyBlue.swiftUIColor, radius: 16.0, x: 0.0, y: 16.0)
     }
 
     var totalCoins: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(Strings.Home.TotalCoins.title)
-                    .foregroundColor(Assets.Colors.lightSilver.swiftUIColor)
+                    .foregroundColor(Colors.lightSilver.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
 
                 Text("$7,273,291") // TODO: Handle showing this number with device locale
@@ -59,7 +59,7 @@ private extension WalletStatisticSection {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(Strings.Home.TodayProfit.title)
-                    .foregroundColor(Assets.Colors.lightSilver.swiftUIColor)
+                    .foregroundColor(Colors.lightSilver.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
 
                 Text("$193,28") // TODO: Handle showing this number with device locale
@@ -71,13 +71,13 @@ private extension WalletStatisticSection {
 
             Button(action: {}, label: {
                 HStack {
-                    Assets.Images.icArrowUpGreen.swiftUIImage
+                    Images.icArrowUpGreen.swiftUIImage
                     Text("2.41%")
                 }
             })
             .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))
-            .foregroundColor(Assets.Colors.guppieGreen.swiftUIColor)
-            .background(Assets.Colors.water.swiftUIColor)
+            .foregroundColor(Colors.guppieGreen.swiftUIColor)
+            .background(Colors.water.swiftUIColor)
             .cornerRadius(20.0)
         }
     }

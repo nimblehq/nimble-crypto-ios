@@ -5,26 +5,36 @@ output_dir: CryptoPrices/Sources
 ##   Be sure that SwiftGen only parses ONE locale (typically Base.lproj, or en.lproj, or whichever your development region is); otherwise it will generate the same keys multiple times.
 ##   SwiftGen will parse all `.strings` files found in that folder.
 strings:
-   inputs:
-     - Home/Sources/Home/Resources/en.lproj
-   outputs:
-     - templateName: structured-swift5
-       params:
-         enumName: Strings
-       output: Home/Sources/Home/Localization/Strings.swift
+  inputs:
+    - Home/Sources/Home/Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      params:
+        enumName: Strings
+      output: Home/Sources/Home/Localization/Strings.swift
 
 
 ## Generate constants for your Assets Catalogs, including constants for images, colors, ARKit resources, etc.
 xcassets:
-   inputs:
-     - Styleguide/Sources/Styleguide/Resources/Assets
-   outputs:
-     - templateName: swift5
-       params:
-         enumName: Assets
-         forceProvidesNamespaces: true
-         publicAccess: true
-       output: Styleguide/Sources/Styleguide/Generated/Assets.swift
+  - inputs:
+      - Styleguide/Sources/Styleguide/Resources/Assets/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        params:
+          enumName: Colors
+          forceProvidesNamespaces: true
+          publicAccess: true
+        output: Styleguide/Sources/Styleguide/Generated/Colors.swift
+
+  - inputs:
+      - Styleguide/Sources/Styleguide/Resources/Assets/Images.xcassets
+    outputs:
+      - templateName: swift5
+        params:
+          enumName: Images
+          forceProvidesNamespaces: true
+          publicAccess: true
+        output: Styleguide/Sources/Styleguide/Generated/Images.swift
 
 
 ## Generate constants for custom fonts
