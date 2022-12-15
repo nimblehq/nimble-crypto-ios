@@ -32,6 +32,10 @@ internal enum Strings {
       /// Total Coins
       internal static let title = Strings.tr("Localizable", "home.totalCoins.title", fallback: "Total Coins")
     }
+    internal enum TrendingCoins {
+      /// Trending 🔥
+      internal static let title = Strings.tr("Localizable", "home.trendingCoins.title", fallback: "Trending 🔥")
+    }
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
