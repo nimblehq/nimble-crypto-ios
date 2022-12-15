@@ -49,11 +49,11 @@ class Fastfile: LaneFile {
             targets: [
                 Constant.testTarget,
                 Constant.uiTestTarget,
-//                Constant.dataTestTarget,
+                Constant.dataTestTarget,
                 Constant.homeTestTarget,
-                Constant.myCoinTestTarget
-//                Constant.styleguideTestTarget,
-//                Constant.useCaseTestTarget
+                Constant.myCoinTestTarget,
+                Constant.styleguideTestTarget,
+                Constant.useCaseTestTarget
             ],
             devices: Constant.devices
         )
