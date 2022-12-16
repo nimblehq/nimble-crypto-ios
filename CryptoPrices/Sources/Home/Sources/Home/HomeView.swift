@@ -15,6 +15,7 @@ public struct HomeView: View {
                 homeTitle
                 WalletStatisticSection()
                 MyCoinSection()
+                TrendingCoinSection()
             }
         }
         .padding(.top, 24.0)
