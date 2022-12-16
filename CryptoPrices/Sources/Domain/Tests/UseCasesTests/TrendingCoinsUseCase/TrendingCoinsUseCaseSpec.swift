@@ -14,10 +14,24 @@ import TestHelpers
 final class TrendingCoinsUseCaseSpec: QuickSpec {
 
     override func spec() {
+
         var useCase: TrendingCoinsUseCase!
         var coinRepository: MockCoinRepository!
 
-        describe("the MyCoinsUseCase") {
+        let mockCoinIDs = [
+            "bitcoin",
+            "ethereum",
+            "binancecoin",
+            "ripple",
+            "cardano",
+            "solana",
+            "polkadot",
+            "near",
+            "tron",
+            "dogecoin"
+        ]
+
+        describe("the TrendingCoinsUseCase") {
 
             beforeEach {
                 coinRepository = MockCoinRepository()
@@ -31,12 +45,13 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
                     let expectedCoins = [MockCoin.single]
 
                     beforeEach {
-                        coinRepository.myCoinsReturnValue = .success(expectedCoins)
+                        coinRepository.trendingCoinsReturnValue = .success(expectedCoins)
                     }
 
                     it("returns correct value") {
+
                         await expect {
-                            try await useCase.execute().compactMap { $0 as? MockCoin }
+                            try await useCase.execute(coinIDs: mockCoinIDs).compactMap { $0 as? MockCoin }
                         }
                         .to(equal(expectedCoins))
                     }
@@ -47,12 +62,12 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinRepository.myCoinsReturnValue = .failure(expectedError)
+                        coinRepository.trendingCoinsReturnValue = .failure(expectedError)
                     }
 
                     it("returns correct error") {
                         await expect {
-                            try await useCase.execute()
+                            try await useCase.execute(coinIDs: mockCoinIDs)
                         }
                         .to(throwError { error in
                             expect(error).to(equal(expectedError))

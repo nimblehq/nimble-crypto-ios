@@ -21,8 +21,8 @@ public class CoinRepository: CoinRepositoryProtocol {
         return try await coinAPI.myCoins().map { $0 as Coin }
     }
 
-    public func trendingCoins() async throws -> [Coin] {
-        return try await coinAPI.trendingCoins().map { $0 as Coin }
+    public func trendingCoins(coinIDs: [String]) async throws -> [Coin] {
+        return try await coinAPI.trendingCoins(coinIDs: coinIDs).map { $0 as Coin }
     }
 
     // TODO: Update implementation, for e.g. mapping errors

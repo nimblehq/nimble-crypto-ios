@@ -7,6 +7,7 @@
 
 public struct TrendingCoinsParameters: Parameterable {
 
+    public let ids: String
     public let vsCurrency = "usd"
     public let perPage: Int
     public let page: Int

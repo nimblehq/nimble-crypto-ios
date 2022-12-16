@@ -17,8 +17,7 @@ public class TrendingCoinsUseCase: TrendingCoinsUseCaseProtocol {
         self.repository = repository
     }
 
-    // TODO: Update when implement
-    public func execute() async throws -> [Coin] {
-        return try await repository.trendingCoins()
+    public func execute(coinIDs: [String]) async throws -> [Coin] {
+        return try await repository.trendingCoins(coinIDs: coinIDs)
     }
 }

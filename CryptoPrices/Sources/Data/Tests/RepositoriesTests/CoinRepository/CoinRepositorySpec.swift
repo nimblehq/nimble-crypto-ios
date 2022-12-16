@@ -4,6 +4,7 @@
 //
 //  Created by Doan Thieu on 29/11/2022.
 //
+// swiftlint:disable function_body_length closure_body_length superfluous_disable_command
 
 import DataTestHelpers
 import NetworkCore
@@ -18,6 +19,19 @@ final class CoinRepositorySpec: QuickSpec {
 
         var coinAPI: MockCoinAPI!
         var coinRepository: CoinRepository!
+
+        let mockCoinIDs = [
+            "bitcoin",
+            "ethereum",
+            "binancecoin",
+            "ripple",
+            "cardano",
+            "solana",
+            "polkadot",
+            "near",
+            "tron",
+            "dogecoin"
+        ]
 
         describe("the CoinRepository") {
 
@@ -74,7 +88,7 @@ final class CoinRepositorySpec: QuickSpec {
 
                     it("returns correct value") {
                         await expect {
-                            try await coinRepository.trendingCoins().compactMap { $0 as? APICoin }
+                            try await coinRepository.trendingCoins(coinIDs: mockCoinIDs).compactMap { $0 as? APICoin }
                         }
                         .to(equal(expectedCoins))
                     }
@@ -90,7 +104,7 @@ final class CoinRepositorySpec: QuickSpec {
 
                     it("returns correct error") {
                         await expect {
-                            try await coinRepository.trendingCoins()
+                            try await coinRepository.trendingCoins(coinIDs: mockCoinIDs)
                         }
                         .to(throwError { error in
                             expect(error).to(equal(expectedError))

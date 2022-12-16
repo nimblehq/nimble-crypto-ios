@@ -27,7 +27,7 @@ public class MockCoinAPI: CoinAPIProtocol {
         }
     }
 
-    public func trendingCoins() async throws -> [APICoin] {
+    public func trendingCoins(coinIDs: [String]) async throws -> [APICoin] {
         guard let trendingCoinsReturnValue = trendingCoinsReturnValue else {
             fatalError("trendingCoinsReturnValue was not set!")
         }

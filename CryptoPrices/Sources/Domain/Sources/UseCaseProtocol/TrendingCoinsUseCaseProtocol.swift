@@ -9,6 +9,5 @@ import Entities
 
 public protocol TrendingCoinsUseCaseProtocol {
 
-    // TODO: Update when implement
-    func execute() async throws -> [Coin]
+    func execute(coinIDs: [String]) async throws -> [Coin]
 }
