@@ -221,9 +221,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D0A1DC029349D670038624D /* Build configuration list for PBXNativeTarget "CryptoPrices" */;
 			buildPhases = (
+				4D0A1D9929349D660038624D /* Frameworks */,
 				4D0A1D9829349D660038624D /* Sources */,
 				1CF4DD4D2939B61B0070B0EE /* Run Swiftlint */,
-				4D0A1D9929349D660038624D /* Frameworks */,
 				4D0A1D9A29349D660038624D /* Resources */,
 			);
 			buildRules = (
