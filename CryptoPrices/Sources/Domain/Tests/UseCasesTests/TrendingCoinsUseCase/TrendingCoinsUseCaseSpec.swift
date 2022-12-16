@@ -38,7 +38,7 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
                 useCase = TrendingCoinsUseCase(repository: coinRepository)
             }
 
-            context("when execute() is called") {
+            describe("its execute() call") {
 
                 context("when coinRepository returns success") {
 

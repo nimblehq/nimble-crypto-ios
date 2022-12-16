@@ -40,7 +40,7 @@ final class CoinRepositorySpec: QuickSpec {
                 coinRepository = CoinRepository(coinAPI: coinAPI)
             }
 
-            context("when myCoins() is called") {
+            describe("its myCoins() call") {
 
                 context("when the coinAPI returns success") {
                     let expectedCoins = APICoin.dummyCoins
@@ -76,7 +76,7 @@ final class CoinRepositorySpec: QuickSpec {
                 }
             }
 
-            context("when trendingCoins() is called") {
+            describe("its trendingCoins() call") {
 
                 context("when the coinAPI returns success") {
 
