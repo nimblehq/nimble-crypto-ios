@@ -10,20 +10,22 @@ import SwiftUI
 public struct HomeView: View {
 
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 40.0) {
-                headerView
-                WalletStatisticSection()
-                MyCoinSection(coins: viewModel.myCoins)
-                TrendingCoinSection()
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 40.0) {
+                    headerView
+                    WalletStatisticSection()
+                    MyCoinSection(coins: viewModel.myCoins)
+                    TrendingCoinSection()
+                }
             }
-        }
-        .padding(.top, 24.0)
-        .clipped(antialiased: false)
-        .frame(maxHeight: .infinity)
-        .background(Colors.bgMain.swiftUIColor)
-        .task {
-            await viewModel.fetchMyCoins()
+            .padding(.top, 24.0)
+            .clipped(antialiased: false)
+            .frame(maxHeight: .infinity)
+            .background(Colors.bgMain.swiftUIColor)
+            .task {
+                await viewModel.fetchMyCoins()
+            }
         }
     }
 
