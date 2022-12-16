@@ -48,7 +48,8 @@ class Fastfile: LaneFile {
             environment: .staging,
             targets: [
                 Constant.testTarget,
-                Constant.uiTestTarget,
+                // TODO: - Put back when we actually add UI tests
+//                Constant.uiTestTarget,
                 Constant.repositoriesTestTarget,
                 Constant.homeTestTarget,
                 Constant.myCoinTestTarget,
