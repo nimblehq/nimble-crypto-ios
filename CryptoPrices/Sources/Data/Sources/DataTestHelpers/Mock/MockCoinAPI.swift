@@ -12,10 +12,9 @@ import NetworkCore
 public class MockCoinAPI: CoinAPIProtocol {
 
     public var myCoinsReturnValue: Result<[APICoin], Error>?
+    public var trendingCoinsReturnValue: Result<[APICoin], Error>?
 
-    public init(myCoinsReturnValue: Result<[APICoin], Error>? = nil) {
-        self.myCoinsReturnValue = myCoinsReturnValue
-    }
+    public init() {}
 
     public func myCoins() async throws -> [APICoin] {
         guard let myCoinsReturnValue = myCoinsReturnValue else {
@@ -29,7 +28,14 @@ public class MockCoinAPI: CoinAPIProtocol {
     }
 
     public func trendingCoins() async throws -> [APICoin] {
-        fatalError("not implemented")
+        guard let trendingCoinsReturnValue = trendingCoinsReturnValue else {
+            fatalError("trendingCoinsReturnValue was not set!")
+        }
+
+        switch trendingCoinsReturnValue {
+        case let .success(trendingCoins): return trendingCoins
+        case let .failure(error): throw error
+        }
     }
 
     public func coinDetail() async throws -> APICoin {
