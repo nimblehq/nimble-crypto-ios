@@ -12,15 +12,15 @@ struct MyCoinSection: View {
     var body: some View {
         VStack {
             HStack {
-                Text(Strings.Home.myCoinTitle)
-                    .foregroundColor(Color.titleMedium)
-                    .font(.Inter.medium.font(for: .callout))
-                
+                Text(Strings.Home.MyCoin.title)
+                    .foregroundColor(Colors.titleMedium.swiftUIColor)
+                    .font(Fonts.Inter.medium.textStyle(.callout))
+
                 Spacer()
                 
-                Button(Strings.Home.seeAllText) {}
-                    .foregroundColor(.caribbeanGreen)
-                    .font(.Inter.medium.font(for: .subheadline))
+                Button(Strings.Home.SeeAll.text) {}
+                    .foregroundColor(Colors.caribbeanGreen.swiftUIColor)
+                    .font(Fonts.Inter.medium.textStyle(.subheadline))
             }
             .padding(16.0)
 

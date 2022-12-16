@@ -18,7 +18,7 @@ let package = Package(
             name: "Styleguide",
             dependencies: [],
             resources: [
-                .process("Resources/Inter")
+                .process("Resources")
             ]
         ),
         .testTarget(

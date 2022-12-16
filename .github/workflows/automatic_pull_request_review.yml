@@ -5,20 +5,6 @@ on:
     types: [opened, reopened, edited, synchronize]
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
-    - name: Run SwiftLint
-      uses: norio-nomura/action-swiftlint@3.1.0
-      with:
-        args: --strict
-
   review_pull_request:
     name: Pull request review
     runs-on: macOS-12
@@ -42,6 +28,9 @@ jobs:
 
     - name: Setup
       run: make setup
+
+    - name: Lint
+      run: make lint
 
     - name: Build and Test
       run: bundle exec fastlane buildAndTest

@@ -6,6 +6,7 @@
 //
 
 import Home
+import Styleguide
 import SwiftUI
 
 @main
@@ -18,6 +19,6 @@ struct CryptoPricesApp: App {
     }
 
     init() {
-        Font.Inter.registerFonts()
+        Fonts.registerAllCustomFonts()
     }
 }

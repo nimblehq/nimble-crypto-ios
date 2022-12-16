@@ -25,25 +25,30 @@ private extension WalletStatisticSection {
 
     var gradientBackground: some View {
         LinearGradient(
-            gradient: Gradient(colors: [.metallicSeaweed, .tiffanyBlue]),
+            gradient: Gradient(
+                colors: [
+                    Colors.metallicSeaweed.swiftUIColor,
+                    Colors.tiffanyBlue.swiftUIColor
+                ]
+            ),
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
         .cornerRadius(12.0)
         .padding(.horizontal, 16.0)
-        .shadow(color: .tiffanyBlue, radius: 16.0, x: 0.0, y: 16.0)
+        .shadow(color: Colors.tiffanyBlue.swiftUIColor, radius: 16.0, x: 0.0, y: 16.0)
     }
 
     var totalCoins: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
-                Text(Strings.Home.totalCoinsTitle)
-                    .foregroundColor(.lightSilver)
-                    .font(.Inter.medium.font(for: .callout))
+                Text(Strings.Home.TotalCoins.title)
+                    .foregroundColor(Colors.lightSilver.swiftUIColor)
+                    .font(Fonts.Inter.medium.textStyle(.callout))
 
                 Text("$7,273,291") // TODO: Handle showing this number with device locale
                     .foregroundColor(.white)
-                    .font(.Inter.bold.font(for: .title2))
+                    .font(Fonts.Inter.bold.textStyle(.title2))
             }
 
             Spacer()
@@ -53,26 +58,26 @@ private extension WalletStatisticSection {
     var todayProfit: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8.0) {
-                Text(Strings.Home.todayProfitTitle)
-                    .foregroundColor(.lightSilver)
-                    .font(.Inter.medium.font(for: .callout))
+                Text(Strings.Home.TodayProfit.title)
+                    .foregroundColor(Colors.lightSilver.swiftUIColor)
+                    .font(Fonts.Inter.medium.textStyle(.callout))
 
                 Text("$193,28") // TODO: Handle showing this number with device locale
                     .foregroundColor(.white)
-                    .font(.Inter.bold.font(for: .title2))
+                    .font(Fonts.Inter.bold.textStyle(.title2))
             }
 
             Spacer()
 
             Button(action: {}, label: {
                 HStack {
-                    Image("ic_arrow_up_green")
+                    Images.icArrowUpGreen.swiftUIImage
                     Text("2.41%")
                 }
             })
             .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))
-            .foregroundColor(.guppieGreen)
-            .background(Color.water)
+            .foregroundColor(Colors.guppieGreen.swiftUIColor)
+            .background(Colors.water.swiftUIColor)
             .cornerRadius(20.0)
         }
     }

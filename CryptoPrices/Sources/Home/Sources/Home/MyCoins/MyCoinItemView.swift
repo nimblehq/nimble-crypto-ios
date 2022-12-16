@@ -31,7 +31,7 @@ struct MyCoinItemView: View {
             .padding(8.0)
         }
         .frame(width: 180.0, height: 114.0)
-        .background(Color.currencyItemBackground)
+        .background(Colors.bgCurrencyItem.swiftUIColor)
         .cornerRadius(12.0)
     }
 }
@@ -40,7 +40,7 @@ private extension MyCoinItemView {
 
     var coinImage: some View {
         // TODO: - Remove dummy
-        Image("ic_bitcoin")
+        Images.icBitcoin.swiftUIImage
             .frame(width: 40.0, height: 40.0)
             .clipShape(Circle())
     }
@@ -49,31 +49,37 @@ private extension MyCoinItemView {
         // TODO: - Remove dummy
         VStack(alignment: .leading) {
             Text("BTC")
-                .foregroundColor(Color.textBold)
-                .font(.Inter.bold.font(for: .callout))
+                .foregroundColor(Colors.textBold.swiftUIColor)
+                .font(Fonts.Inter.bold.textStyle(.callout))
                 .padding(.bottom, 4.0)
 
             Text("Bitcoin")
-                .foregroundColor(Color.textMedium)
-                .font(.Inter.medium.font(for: .subheadline))
+                .foregroundColor(Colors.textMedium.swiftUIColor)
+                .font(Fonts.Inter.medium.textStyle(.subheadline))
         }
     }
     
     var currentPrice: some View {
         // TODO: - Remove dummy
         Text("$24,209")
-            .foregroundColor(Color.textBold)
-            .font(.Inter.bold.font(for: .callout))
+            .foregroundColor(Colors.textBold.swiftUIColor)
+            .font(Fonts.Inter.bold.textStyle(.callout))
     }
     
     var priceChangePercentage: some View {
         // TODO: - Remove dummy
         HStack {
-            Image(percentage < 0.0 ? "ic_arrow_down_red" : "ic_arrow_up_green")
+            percentage < 0.0
+            ? Images.icArrowDownRed.swiftUIImage
+            : Images.icArrowUpGreen.swiftUIImage
 
             Text("6.21%")
-                .font(.Inter.medium.font(for: .callout))
-                .foregroundColor(percentage < 0.0 ? .carnation : .guppieGreen)
+                .font(Fonts.Inter.bold.textStyle(.callout))
+                .foregroundColor(
+                    percentage < 0.0
+                    ? Colors.carnation.swiftUIColor
+                    : Colors.guppieGreen.swiftUIColor
+                )
         }
     }
 }

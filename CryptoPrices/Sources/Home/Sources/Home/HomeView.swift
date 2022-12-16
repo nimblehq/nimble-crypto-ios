@@ -20,13 +20,13 @@ public struct HomeView: View {
         .padding(.top, 24.0)
         .clipped(antialiased: false)
         .frame(maxHeight: .infinity)
-        .background(Color.mainBackground)
+        .background(Colors.bgMain.swiftUIColor)
     }
 
     var homeTitle: some View {
-        Text(Strings.Home.titleText)
+        Text(Strings.Home.Title.text)
             .multilineTextAlignment(.center)
-            .font(.Inter.bold.font(for: .title2))
+            .font(Fonts.Inter.bold.textStyle(.title2))
     }
 
     public init() {}
