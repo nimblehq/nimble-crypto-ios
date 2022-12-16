@@ -20,6 +20,20 @@
                ReferencedContainer = "container:CryptoPrices.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D0A1DB529349D670038624D"
+               BuildableName = "CryptoPricesUITests.xctest"
+               BlueprintName = "CryptoPricesUITests"
+               ReferencedContainer = "container:CryptoPrices.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -29,7 +43,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4D0A1DAB29349D670038624D"
@@ -39,13 +54,57 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UseCasesTests"
+               BuildableName = "UseCasesTests"
+               BlueprintName = "UseCasesTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Domain">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HomeTests"
+               BuildableName = "HomeTests"
+               BlueprintName = "HomeTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Home">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MyCoinTests"
+               BuildableName = "MyCoinTests"
+               BlueprintName = "MyCoinTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/MyCoin">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "StyleguideTests"
+               BuildableName = "StyleguideTests"
+               BlueprintName = "StyleguideTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Styleguide">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D0A1DB529349D670038624D"
-               BuildableName = "CryptoPricesUITests.xctest"
-               BlueprintName = "CryptoPricesUITests"
-               ReferencedContainer = "container:CryptoPrices.xcodeproj">
+               BlueprintIdentifier = "RepositoriesTests"
+               BuildableName = "RepositoriesTests"
+               BlueprintName = "RepositoriesTests"
+               ReferencedContainer = "container:CryptoPrices/Sources/Data">
             </BuildableReference>
          </TestableReference>
       </Testables>
