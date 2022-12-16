@@ -18,9 +18,9 @@ struct MyCoinSection: View {
                 Text(Strings.Home.MyCoin.title)
                     .foregroundColor(Colors.titleMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
-
-                Spacer()
                 
+                Spacer()
+
                 Button(Strings.Home.SeeAll.text) {}
                     .foregroundColor(Colors.caribbeanGreen.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.subheadline))
@@ -29,18 +29,17 @@ struct MyCoinSection: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(coins) {
-                        NavigationLink(destination: MyCoinView(), isActive: $isActive) {
-                            MyCoinItemView($0)
-                                .padding(.trailing, 8.0)
-                                .onTapGesture {
-                                    isActive = true
-                                }
-                        }
+                    ForEach(coins) {_ in
+                        MyCoinItemView($0)
+                            .padding(.trailing, 8.0)
+                            .onTapGesture {
+                                isActive = true
+                            }
                     }
                 }
                 .padding(.leading, 16.0)
             }
+            NavigationLink(destination: MyCoinView(), isActive: $isActive) {}
         }
     }
 
