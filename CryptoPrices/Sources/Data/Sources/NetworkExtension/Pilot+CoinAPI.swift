@@ -19,7 +19,11 @@ extension Pilot: CoinAPIProtocol where R == CoinRoute {
     }
 
     public func trendingCoins() async throws -> [APICoin] {
-        return try await request(.trendingCoins, target: [APICoin].self, decoder: .apiDecoder)
+        return try await request(
+            .trendingCoins(TrendingCoinsParameters(perPage: 10, page: 1)),
+            target: [APICoin].self,
+            decoder: .apiDecoder
+        )
     }
 
     public func coinDetail() async throws -> APICoin {
