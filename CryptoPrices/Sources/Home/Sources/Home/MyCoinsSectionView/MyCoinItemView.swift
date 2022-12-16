@@ -77,17 +77,17 @@ private extension MyCoinItemView {
     }
     
     var priceChangePercentage: some View {
-        HStack(spacing: 0.0) {
+        HStack {
             coinItem.isPriceUp
-            ? Images.icArrowDownRed.swiftUIImage
-            : Images.icArrowUpGreen.swiftUIImage
+            ? Images.icArrowUpGreen.swiftUIImage
+            : Images.icArrowDownRed.swiftUIImage
 
             Text(coinItem.priceChangePercentage, format: .percentage)
                 .font(Fonts.Inter.bold.textStyle(.callout))
                 .foregroundColor(
                     coinItem.isPriceUp
-                    ? Colors.carnation.swiftUIColor
-                    : Colors.guppieGreen.swiftUIColor
+                    ? Colors.guppieGreen.swiftUIColor
+                    : Colors.carnation.swiftUIColor
                 )
         }
     }
