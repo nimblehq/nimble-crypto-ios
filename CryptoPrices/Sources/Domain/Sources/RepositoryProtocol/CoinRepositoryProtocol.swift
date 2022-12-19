@@ -11,6 +11,6 @@ public protocol CoinRepositoryProtocol {
 
     // TODO: Update when implement
     func myCoins() async throws -> [Coin]
-    func trendingCoins() async throws -> [Coin]
+    func trendingCoins(coinIDs: [String]) async throws -> [Coin]
     func coinDetail() async throws -> Coin
 }

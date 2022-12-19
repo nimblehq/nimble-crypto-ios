@@ -12,7 +12,7 @@ public enum CoinRoute {
 
     // TODO: Update when implement
     case myCoins(MyCoinsParameters)
-    case trendingCoins
+    case trendingCoins(TrendingCoinsParameters)
     case coinDetail
 }
 
@@ -24,6 +24,7 @@ extension CoinRoute: Route {
     public var path: String {
         switch self {
         case .myCoins: return "/coins/market"
+        case .trendingCoins: return "/coins/markets"
             // TODO: Update when implement
         default: return ""
         }
@@ -35,6 +36,7 @@ extension CoinRoute: Route {
     public var parameters: Parameters? {
         switch self {
         case let .myCoins(parameters): return parameters.encoded()
+        case let .trendingCoins(parameters): return parameters.encoded()
             // TODO: Update when implement
         default:
             return nil

@@ -1,20 +1,41 @@
+//
+//  TrendingCoinsUseCaseSpec.swift
+//  UseCaseTests
+//
+//  Created by Minh Pham on 16/12/2022.
+//
+
 import DomainTestHelpers
 import Nimble
 import Quick
 import TestHelpers
 @testable import UseCases
 
-final class MyCoinsUseCaseSpec: QuickSpec {
+final class TrendingCoinsUseCaseSpec: QuickSpec {
 
     override func spec() {
-        var myCoinsUseCase: MyCoinsUseCase!
+
+        var useCase: TrendingCoinsUseCase!
         var coinRepository: MockCoinRepository!
 
-        describe("the MyCoinsUseCase") {
+        let mockCoinIDs = [
+            "bitcoin",
+            "ethereum",
+            "binancecoin",
+            "ripple",
+            "cardano",
+            "solana",
+            "polkadot",
+            "near",
+            "tron",
+            "dogecoin"
+        ]
+
+        describe("the TrendingCoinsUseCase") {
 
             beforeEach {
                 coinRepository = MockCoinRepository()
-                myCoinsUseCase = MyCoinsUseCase(repository: coinRepository)
+                useCase = TrendingCoinsUseCase(repository: coinRepository)
             }
 
             describe("its execute() call") {
@@ -24,12 +45,13 @@ final class MyCoinsUseCaseSpec: QuickSpec {
                     let expectedCoins = [MockCoin.single]
 
                     beforeEach {
-                        coinRepository.myCoinsReturnValue = .success(expectedCoins)
+                        coinRepository.trendingCoinsReturnValue = .success(expectedCoins)
                     }
 
                     it("returns correct value") {
+
                         await expect {
-                            try await myCoinsUseCase.execute().compactMap { $0 as? MockCoin }
+                            try await useCase.execute(coinIDs: mockCoinIDs).compactMap { $0 as? MockCoin }
                         }
                         .to(equal(expectedCoins))
                     }
@@ -40,12 +62,12 @@ final class MyCoinsUseCaseSpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinRepository.myCoinsReturnValue = .failure(expectedError)
+                        coinRepository.trendingCoinsReturnValue = .failure(expectedError)
                     }
 
                     it("returns correct error") {
                         await expect {
-                            try await myCoinsUseCase.execute()
+                            try await useCase.execute(coinIDs: mockCoinIDs)
                         }
                         .to(throwError { error in
                             expect(error).to(equal(expectedError))
