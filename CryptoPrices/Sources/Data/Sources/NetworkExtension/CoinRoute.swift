@@ -23,14 +23,14 @@ extension CoinRoute: Route {
 
     public var path: String {
         switch self {
-        case .myCoins: return "/coins/markets"
-        case .trendingCoins: return "/coins/markets"
+        case .myCoins, .trendingCoins: return "/coins/markets"
             // TODO: Update when implement
         default: return ""
         }
     }
 
     public var httpMethod: HttpMethod { .get }
+
     public var httpHeaders: HttpHeaders {
         ["Content-Type": "application/json"]
     }
