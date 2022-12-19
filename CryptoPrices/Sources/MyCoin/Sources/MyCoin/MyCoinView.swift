@@ -9,14 +9,17 @@ import SwiftUI
 
 public struct MyCoinView: View {
 
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var myCoinState: MyCoinState
 
     public var body: some View {
         // TODO: Remove dummy
-        Text("MyCoin View")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: backButton, trailing: likeButton)
-            .navigationTitle("Ethereum")
+        NavigationView {
+            Text("MyCoin View")
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: backButton, trailing: likeButton)
+                .navigationTitle("Ethereum")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 
     public init() {}
@@ -26,7 +29,7 @@ private extension MyCoinView {
 
     var backButton: some View {
         Button {
-            presentationMode.wrappedValue.dismiss()
+            myCoinState.didSelectBack = true
         } label: {
             Images.icBack.swiftUIImage
         }

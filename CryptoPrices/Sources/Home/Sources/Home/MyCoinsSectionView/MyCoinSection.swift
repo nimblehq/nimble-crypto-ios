@@ -6,11 +6,10 @@
 
 import Styleguide
 import SwiftUI
-import MyCoin
 
 struct MyCoinSection: View {
 
-    @State var isActive: Bool = false
+    @EnvironmentObject var homeState: HomeState
 
     var body: some View {
         VStack {
@@ -29,17 +28,20 @@ struct MyCoinSection: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(coins) {_ in
+                    ForEach(coins) {
                         MyCoinItemView($0)
                             .padding(.trailing, 8.0)
                             .onTapGesture {
-                                isActive = true
+                                DispatchQueue.main.async {
+                                    withAnimation {
+                                        homeState.didSelectCoin = true
+                                    }
+                                }
                             }
                     }
                 }
                 .padding(.leading, 16.0)
             }
-            NavigationLink(destination: MyCoinView(), isActive: $isActive) {}
         }
     }
 
