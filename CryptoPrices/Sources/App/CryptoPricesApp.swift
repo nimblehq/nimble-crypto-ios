@@ -16,9 +16,11 @@ import UseCases
 @main
 struct CryptoPricesApp: App {
 
+    // TODO: Apply DI instead of manually initializing
     private let network = Pilot<CoinRoute>()
 
     var body: some Scene {
+        // TODO: Apply DI instead of manually initializing
         WindowGroup {
             HomeView(
                 viewModel: HomeViewModel(

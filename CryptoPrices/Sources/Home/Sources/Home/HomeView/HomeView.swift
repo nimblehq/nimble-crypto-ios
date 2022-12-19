@@ -49,6 +49,7 @@ import DomainTestHelpers
 struct HomeView_Previews: PreviewProvider {
 
     static var previews: some View {
+        // TODO: Apply DI instead of manually initializing
         Preview {
             HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCase()))
         }

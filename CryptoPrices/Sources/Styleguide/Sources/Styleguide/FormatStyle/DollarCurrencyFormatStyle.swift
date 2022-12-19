@@ -12,6 +12,6 @@ import Foundation
 public struct DollarCurrencyFormatStyle: FormatStyle {
 
     public func format(_ value: Decimal) -> String {
-        return "$ \(value.formatted(.number.precision(.fractionLength(0...2))))"
+        return "$\(value.formatted(.number.precision(.fractionLength(0...2))))"
     }
 }
