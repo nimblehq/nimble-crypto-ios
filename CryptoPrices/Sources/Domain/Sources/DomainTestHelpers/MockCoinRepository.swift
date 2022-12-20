@@ -13,10 +13,9 @@ import RepositoryProtocol
 public class MockCoinRepository: CoinRepositoryProtocol {
 
     public var myCoinsReturnValue: Result<[Coin], Error>?
+    public var trendingCoinsReturnValue: Result<[Coin], Error>?
 
-    public init(myCoinsReturnValue: Result<[Coin], Error>? = nil) {
-        self.myCoinsReturnValue = myCoinsReturnValue
-    }
+    public init() {}
 
     public func myCoins() async throws -> [Coin] {
         guard let myCoinsReturnValue = myCoinsReturnValue else {
@@ -29,8 +28,15 @@ public class MockCoinRepository: CoinRepositoryProtocol {
         }
     }
 
-    public func trendingCoins() async throws -> [Coin] {
-        fatalError("not implemented")
+    public func trendingCoins(coinIDs: [String]) async throws -> [Coin] {
+        guard let trendingCoinsReturnValue = trendingCoinsReturnValue else {
+            fatalError("trendingCoinsReturnValue was not set!")
+        }
+
+        switch trendingCoinsReturnValue {
+        case let .success(trendingCoins): return trendingCoins
+        case let .failure(error): throw error
+        }
     }
 
     public func coinDetail() async throws -> Coin {

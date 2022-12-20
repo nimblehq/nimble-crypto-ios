@@ -55,6 +55,11 @@ enum Constant {
 
     static let testTarget: String = "\(projectName)Tests"
     static let uiTestTarget: String = "\(projectName)UITests"
+    static let repositoriesTestTarget: String = "RepositoriesTests"
+    static let homeTestTarget: String = "HomeTests"
+    static let myCoinTestTarget: String = "MyCoinTests"
+    static let styleguideTestTarget: String = "StyleguideTests"
+    static let useCaseTestTarget: String = "UseCasesTests"
 }
 
 extension Constant {

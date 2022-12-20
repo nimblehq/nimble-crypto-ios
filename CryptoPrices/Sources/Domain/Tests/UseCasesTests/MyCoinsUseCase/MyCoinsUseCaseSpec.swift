@@ -11,13 +11,16 @@ final class MyCoinsUseCaseSpec: QuickSpec {
         var coinRepository: MockCoinRepository!
 
         describe("the MyCoinsUseCase") {
+
             beforeEach {
                 coinRepository = MockCoinRepository()
                 myCoinsUseCase = MyCoinsUseCase(repository: coinRepository)
             }
 
-            describe("its execute()") {
+            describe("its execute() call") {
+
                 context("when coinRepository returns success") {
+
                     let expectedCoins = [MockCoin.single]
 
                     beforeEach {
@@ -33,6 +36,7 @@ final class MyCoinsUseCaseSpec: QuickSpec {
                 }
 
                 context("when coinRepository returns failure") {
+
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {

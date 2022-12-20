@@ -10,6 +10,7 @@ import Foundation
 public protocol Coin {
 
     var id: String { get }
+    var symbol: String { get }
     var name: String { get }
     var image: URL { get }
     var currentPrice: Decimal { get }

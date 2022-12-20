@@ -10,6 +10,7 @@ import Foundation
 public struct APICoin: Decodable, Equatable {
 
     public let id: String
+    public let symbol: String
     public let name: String
     public let image: URL
     public let currentPrice: Decimal

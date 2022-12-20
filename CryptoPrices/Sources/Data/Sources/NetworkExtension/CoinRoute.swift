@@ -12,7 +12,7 @@ public enum CoinRoute {
 
     // TODO: Update when implement
     case myCoins(MyCoinsParameters)
-    case trendingCoins
+    case trendingCoins(TrendingCoinsParameters)
     case coinDetail
 }
 
@@ -23,23 +23,35 @@ extension CoinRoute: Route {
 
     public var path: String {
         switch self {
-        case .myCoins: return "/coins/market"
+        case .myCoins, .trendingCoins: return "/coins/markets"
             // TODO: Update when implement
         default: return ""
         }
     }
 
     public var httpMethod: HttpMethod { .get }
-    public var httpHeaders: HttpHeaders { .empty }
+
+    public var httpHeaders: HttpHeaders {
+        ["Content-Type": "application/json"]
+    }
 
     public var parameters: Parameters? {
         switch self {
         case let .myCoins(parameters): return parameters.encoded()
+        case let .trendingCoins(parameters): return parameters.encoded()
             // TODO: Update when implement
         default:
             return nil
         }
     }
 
-    public var parameterEncoding: ParameterEncoding? { .json }
+    public var parameterEncoding: ParameterEncoding? {
+        switch self {
+        case .myCoins: return .url
+        case .trendingCoins: return .json
+            // TODO: Update when implement
+        default:
+            return nil
+        }
+    }
 }
