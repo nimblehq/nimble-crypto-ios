@@ -58,7 +58,7 @@ private extension TrendingCoinItemView {
             ? Images.icArrowDownRed.swiftUIImage
             : Images.icArrowUpGreen.swiftUIImage
 
-            Text("6.21%")
+            Text(percentage, format: .percentage)
                 .font(Fonts.Inter.bold.textStyle(.callout))
                 .foregroundColor(
                     percentage < 0.0

@@ -23,15 +23,17 @@ extension CoinRoute: Route {
 
     public var path: String {
         switch self {
-        case .myCoins: return "/coins/market"
-        case .trendingCoins: return "/coins/markets"
+        case .myCoins, .trendingCoins: return "/coins/markets"
             // TODO: Update when implement
         default: return ""
         }
     }
 
     public var httpMethod: HttpMethod { .get }
-    public var httpHeaders: HttpHeaders { .empty }
+
+    public var httpHeaders: HttpHeaders {
+        ["Content-Type": "application/json"]
+    }
 
     public var parameters: Parameters? {
         switch self {
@@ -43,5 +45,13 @@ extension CoinRoute: Route {
         }
     }
 
-    public var parameterEncoding: ParameterEncoding? { .json }
+    public var parameterEncoding: ParameterEncoding? {
+        switch self {
+        case .myCoins: return .url
+        case .trendingCoins: return .json
+            // TODO: Update when implement
+        default:
+            return nil
+        }
+    }
 }
