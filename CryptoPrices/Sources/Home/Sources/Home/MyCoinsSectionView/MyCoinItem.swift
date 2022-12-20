@@ -43,7 +43,7 @@ public struct MyCoinItem: Identifiable, Equatable {
         self.iconUrl = coin.image
         self.currentPrice = coin.currentPrice
         self.priceChangePercentage = coin.priceChangePercentage24H
-        self.isPriceUp = coin.priceChangePercentage24H > 0
+        self.isPriceUp = coin.priceChangePercentage24H > 0.0
     }
 }
 

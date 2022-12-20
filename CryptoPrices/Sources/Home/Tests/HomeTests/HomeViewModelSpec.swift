@@ -26,7 +26,7 @@ final class HomeViewModelSpec: QuickSpec {
                 }
             }
 
-            describe("its fetchMyCoins()") {
+            describe("its fetchMyCoins() call") {
                 context("when myCoinsUseCase returns success") {
                     let myCoinsReturnValue = [MockCoin.single]
                     let expectedCoins = [MyCoinItem(coin: MockCoin.single)]
