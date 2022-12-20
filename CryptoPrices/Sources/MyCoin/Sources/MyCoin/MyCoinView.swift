@@ -9,12 +9,35 @@ import SwiftUI
 
 public struct MyCoinView: View {
 
+    @EnvironmentObject var myCoinState: MyCoinState
+
     public var body: some View {
-        // TODO: Handle to show correct view in the UI task
-        Text("MyCoin View")
+        // TODO: Remove dummy
+        NavigationView {
+            Text("MyCoin View")
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: backButton, trailing: likeButton)
+                .navigationTitle("Ethereum")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 
     public init() {}
+}
+
+private extension MyCoinView {
+
+    var backButton: some View {
+        Button {
+            myCoinState.didSelectBack = true
+        } label: {
+            Images.icBack.swiftUIImage
+        }
+    }
+
+    var likeButton: some View {
+        Images.icHeart.swiftUIImage
+    }
 }
 
 #if DEBUG

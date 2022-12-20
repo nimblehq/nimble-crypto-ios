@@ -9,6 +9,7 @@ import Home
 import NetworkExtension
 import Pilot
 import Repositories
+import MyCoin
 import Styleguide
 import SwiftUI
 import UseCases
@@ -19,16 +20,29 @@ struct CryptoPricesApp: App {
     // TODO: Apply DI instead of manually initializing
     private let network = Pilot<CoinRoute>()
 
+    @StateObject var appCoordinator = AppCoordinator()
+
     var body: some Scene {
         // TODO: Apply DI instead of manually initializing
         WindowGroup {
-            HomeView(
-                viewModel: HomeViewModel(
-                    myCoinsUseCase: MyCoinsUseCase(
-                        repository: CoinRepository(coinAPI: network)
+            switch appCoordinator.state {
+            case let .home(homeState):
+                HomeView(
+                    viewModel: HomeViewModel(
+                        myCoinsUseCase: MyCoinsUseCase(
+                            repository: CoinRepository(coinAPI: network)
+                        )
                     )
                 )
-            )
+                    .environmentObject(homeState)
+            case let .myCoin(myCoinState):
+                MyCoinView()
+                    .environmentObject(myCoinState)
+                    .transition(
+                        .move(edge: .trailing)
+                        .animation(.linear(duration: 1.0))
+                    )
+            }
         }
     }
 
