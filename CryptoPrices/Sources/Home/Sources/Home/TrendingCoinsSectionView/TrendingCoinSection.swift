@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TrendingCoinSection: View {
 
+    @EnvironmentObject var homeState: HomeState
+
     var body: some View {
         VStack {
             HStack {
@@ -30,6 +32,11 @@ struct TrendingCoinSection: View {
                     ForEach(0..<2) {_ in
                         TrendingCoinItemView()
                             .padding(.vertical, 8.0)
+                            .onTapGesture {
+                                withAnimation {
+                                    homeState.didSelectCoin = true
+                                }
+                            }
                     }
                 }
                 .padding(.horizontal, 16.0)

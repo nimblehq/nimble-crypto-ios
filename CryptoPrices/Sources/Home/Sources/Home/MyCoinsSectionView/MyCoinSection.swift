@@ -32,10 +32,8 @@ struct MyCoinSection: View {
                         MyCoinItemView($0)
                             .padding(.trailing, 8.0)
                             .onTapGesture {
-                                DispatchQueue.main.async {
-                                    withAnimation {
-                                        homeState.didSelectCoin = true
-                                    }
+                                withAnimation {
+                                    homeState.didSelectCoin = true
                                 }
                             }
                     }
