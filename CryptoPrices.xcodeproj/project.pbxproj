@@ -18,6 +18,12 @@
 		4D0A1DB129349D670038624D /* CryptoPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DB029349D670038624D /* CryptoPricesTests.swift */; };
 		4D0A1DBB29349D670038624D /* CryptoPricesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DBA29349D670038624D /* CryptoPricesUITests.swift */; };
 		4D0A1DBD29349D670038624D /* CryptoPricesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */; };
+		4DBA27B0294AD1C700D15E33 /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27AF294AD1C700D15E33 /* UseCases */; };
+		4DBA27B2294AD1F000D15E33 /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B1294AD1F000D15E33 /* Repositories */; };
+		4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B3294AD21300D15E33 /* NetworkExtension */; };
+		4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B6294AD26300D15E33 /* Pilot */; };
+		4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B8294AD26300D15E33 /* PilotTestSupport */; };
+		4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27BA294AD26300D15E33 /* PilotType */; };
 		4DF0741C293C8D3900E1274D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF0741B293C8D3900E1274D /* Home */; };
 /* End PBXBuildFile section */
 
@@ -62,11 +68,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C02C65F294B02B300ED7DFC /* Repositories in Frameworks */,
-				1C02C65B294B008A00ED7DFC /* UseCases in Frameworks */,
+				4DBA27B2294AD1F000D15E33 /* Repositories in Frameworks */,
+				4DBA27B0294AD1C700D15E33 /* UseCases in Frameworks */,
 				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
-				1C02C659294B007A00ED7DFC /* Styleguide in Frameworks */,
+				4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */,
+				4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */,
+				4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */,
 				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
+				4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +234,12 @@
 			packageProductDependencies = (
 				4DF0741B293C8D3900E1274D /* Home */,
 				249752BC2941901E003C6238 /* MyCoin */,
-				1C02C658294B007A00ED7DFC /* Styleguide */,
-				1C02C65A294B008A00ED7DFC /* UseCases */,
-				1C02C65E294B02B300ED7DFC /* Repositories */,
+				4DBA27AF294AD1C700D15E33 /* UseCases */,
+				4DBA27B1294AD1F000D15E33 /* Repositories */,
+				4DBA27B3294AD21300D15E33 /* NetworkExtension */,
+				4DBA27B6294AD26300D15E33 /* Pilot */,
+				4DBA27B8294AD26300D15E33 /* PilotTestSupport */,
+				4DBA27BA294AD26300D15E33 /* PilotType */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -302,6 +314,7 @@
 			);
 			mainGroup = 4D0A1D9329349D660038624D;
 			packageReferences = (
+				4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -487,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices.staging";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME) Staging";
@@ -618,7 +631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices.staging";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME) Staging";
@@ -807,7 +820,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -844,7 +857,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -984,6 +997,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Thieurom/Pilot";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		1C02C658294B007A00ED7DFC /* Styleguide */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1000,6 +1024,33 @@
 		249752BC2941901E003C6238 /* MyCoin */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MyCoin;
+		};
+		4DBA27AF294AD1C700D15E33 /* UseCases */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UseCases;
+		};
+		4DBA27B1294AD1F000D15E33 /* Repositories */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Repositories;
+		};
+		4DBA27B3294AD21300D15E33 /* NetworkExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkExtension;
+		};
+		4DBA27B6294AD26300D15E33 /* Pilot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */;
+			productName = Pilot;
+		};
+		4DBA27B8294AD26300D15E33 /* PilotTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */;
+			productName = PilotTestSupport;
+		};
+		4DBA27BA294AD26300D15E33 /* PilotType */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */;
+			productName = PilotType;
 		};
 		4DF0741B293C8D3900E1274D /* Home */ = {
 			isa = XCSwiftPackageProductDependency;

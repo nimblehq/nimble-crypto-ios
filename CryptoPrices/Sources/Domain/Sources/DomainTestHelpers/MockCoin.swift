@@ -11,6 +11,7 @@ import Foundation
 public struct MockCoin: Coin, Equatable {
 
     public var id: String
+    public let symbol: String
     public var name: String
     public var image: URL
     public var currentPrice: Decimal
@@ -23,8 +24,9 @@ public extension MockCoin {
 
     // swiftlint:disable force_unwrapping
     static var single = MockCoin(
-        id: "testcoin",
-        name: "TestCoin",
+        id: "mock",
+        symbol: "mockcoin",
+        name: "MockCoin",
         image: URL(string: "/")!,
         currentPrice: 12.34,
         marketCap: 567.89,

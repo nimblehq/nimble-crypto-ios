@@ -46,7 +46,8 @@ private extension WalletStatisticSection {
                     .foregroundColor(Colors.lightSilver.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
 
-                Text("$7,273,291") // TODO: Handle showing this number with device locale
+                // TODO: Remove hard-coded data
+                Text(7_273_291, format: .dollarCurrency)
                     .foregroundColor(.white)
                     .font(Fonts.Inter.bold.textStyle(.title2))
             }
@@ -62,7 +63,8 @@ private extension WalletStatisticSection {
                     .foregroundColor(Colors.lightSilver.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
 
-                Text("$193,28") // TODO: Handle showing this number with device locale
+                // TODO: Remove hard-coded data
+                Text(193.28, format: .dollarCurrency)
                     .foregroundColor(.white)
                     .font(Fonts.Inter.bold.textStyle(.title2))
             }
@@ -72,7 +74,8 @@ private extension WalletStatisticSection {
             Button(action: {}, label: {
                 HStack {
                     Images.icArrowUpGreen.swiftUIImage
-                    Text("2.41%")
+                    // TODO: Remove hard-coded data
+                    Text(2.41, format: .percentage)
                 }
             })
             .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))

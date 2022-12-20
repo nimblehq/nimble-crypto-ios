@@ -17,5 +17,5 @@ fastlane/test_output
 fastlane/FastlaneRunner
 
 # Bundler
-
+.bundle
 vendor/bundle

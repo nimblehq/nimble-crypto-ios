@@ -24,17 +24,22 @@ struct MyCoinSection: View {
             }
             .padding(16.0)
 
-            // TODO: - Remove dummy
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(0..<10) {_ in
-                        MyCoinItemView()
+                    ForEach(coins) {
+                        MyCoinItemView($0)
                             .padding(.trailing, 8.0)
                     }
                 }
                 .padding(.leading, 16.0)
             }
         }
+    }
+
+    private let coins: [MyCoinItem]
+
+    init(coins: [MyCoinItem]) {
+        self.coins = coins
     }
 }
 
@@ -43,7 +48,7 @@ struct MyCoinSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            MyCoinSection()
+            MyCoinSection(coins: Array(repeating: .mock, count: 10))
         }
     }
 }
