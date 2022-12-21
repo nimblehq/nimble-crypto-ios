@@ -47,12 +47,21 @@
         }
       },
       {
+<<<<<<< HEAD
         "package": "ShowTime",
         "repositoryURL": "https://github.com/KaneCheshire/ShowTime",
         "state": {
           "branch": null,
           "revision": "f4e976931fc5f9b7a7d011f40c62a250c4ff53ab",
           "version": "2.5.3"
+=======
+        "package": "Wormholy",
+        "repositoryURL": "https://github.com/ipavlidakis/Wormholy",
+        "state": {
+          "branch": "master",
+          "revision": "fa6cba3377498701c67720d4911d33b36a5d0bab",
+          "version": null
+>>>>>>> 46c715d ([#34] Add Wormhly package)
         }
       }
     ]
