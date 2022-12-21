@@ -59,18 +59,18 @@ extension CryptoPricesApp {
 
     // Config showing taps and gestures on screen on DEBUG
     private func enableVisualTouchesOnDebug() {
-    #if DEBUG
+        #if DEBUG
         ShowTime.enabled = .debugOnly
         ShowTime.fillColor = .lightGray.withAlphaComponent(0.7)
         ShowTime.strokeColor = .lightGray
         ShowTime.strokeWidth = 1
         ShowTime.disappearDelay = 0.1
-    #endif
+        #endif
     }
 
     private func configureWormhly() {
-    #if !DEBUG
+        #if !DEBUG
         Wormholy.shakeEnabled = false
-    #endif
+        #endif
     }
 }
