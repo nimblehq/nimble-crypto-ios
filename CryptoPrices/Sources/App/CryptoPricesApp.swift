@@ -10,6 +10,7 @@ import NetworkExtension
 import Pilot
 import Repositories
 import MyCoin
+import ShowTime
 import Styleguide
 import SwiftUI
 import UseCases
@@ -48,5 +49,20 @@ struct CryptoPricesApp: App {
 
     init() {
         Fonts.registerAllCustomFonts()
+        enableVisualTouchesOnDebug()
+    }
+}
+
+extension CryptoPricesApp {
+
+    // Config showing taps and gestures on screen on DEBUG
+    private func enableVisualTouchesOnDebug() {
+        #if DEBUG
+        ShowTime.enabled = .debugOnly
+        ShowTime.fillColor = .lightGray.withAlphaComponent(0.7)
+        ShowTime.strokeColor = .lightGray
+        ShowTime.strokeWidth = 1
+        ShowTime.disappearDelay = 0.1
+        #endif
     }
 }
