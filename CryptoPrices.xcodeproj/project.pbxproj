@@ -11,10 +11,14 @@
 		1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */; };
 		1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */ = {isa = PBXBuildFile; productRef = 1C3B441C2952B34D00AFCD81 /* Wormholy */; };
 		246DD0582953FCA0002BB9B9 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0572953FCA0002BB9B9 /* Factory */; };
+		246DD05A2953FD23002BB9B9 /* UseCaseProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0592953FD23002BB9B9 /* UseCaseProtocol */; };
 		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
 		24A9D1A22952C10B007DBBCB /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A12952C10B007DBBCB /* Styleguide */; };
 		24A9D1A42952C11E007DBBCB /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A32952C11E007DBBCB /* UseCases */; };
 		24A9D1A62952C123007DBBCB /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A52952C123007DBBCB /* Repositories */; };
+		24A9D1A82952C54E007DBBCB /* Container+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A9D1A72952C54E007DBBCB /* Container+Injection.swift */; };
+		24A9D1AA2952C695007DBBCB /* NetworkCore in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A92952C695007DBBCB /* NetworkCore */; };
+		24A9D1AC2952C7AA007DBBCB /* RepositoryProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
 		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
 		4D0A1DA429349D670038624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA329349D670038624D /* Assets.xcassets */; };
@@ -51,6 +55,7 @@
 		1C3B441129504D8200AFCD81 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		249752BB29418C64003C6238 /* MyCoin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoin; path = CryptoPrices/Sources/MyCoin; sourceTree = "<group>"; };
+		24A9D1A72952C54E007DBBCB /* Container+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Injection.swift"; sourceTree = "<group>"; };
 		4D0A1D9C29349D660038624D /* CryptoPrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoPrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesApp.swift; sourceTree = "<group>"; };
 		4D0A1DA129349D660038624D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A9D1A62952C123007DBBCB /* Repositories in Frameworks */,
+				24A9D1AA2952C695007DBBCB /* NetworkCore in Frameworks */,
 				24A9D1A42952C11E007DBBCB /* UseCases in Frameworks */,
 				24A9D1A22952C10B007DBBCB /* Styleguide in Frameworks */,
 				246DD0582953FCA0002BB9B9 /* Factory in Frameworks */,
@@ -82,7 +88,9 @@
 				4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */,
 				4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */,
 				4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */,
+				246DD05A2953FD23002BB9B9 /* UseCaseProtocol in Frameworks */,
 				4DF0743B2949766900E1274D /* ShowTime in Frameworks */,
+				24A9D1AC2952C7AA007DBBCB /* RepositoryProtocol in Frameworks */,
 				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
 				4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */,
 			);
@@ -117,6 +125,7 @@
 		24A9D1A02952BF91007DBBCB /* Dependencie Injection */ = {
 			isa = PBXGroup;
 			children = (
+				24A9D1A72952C54E007DBBCB /* Container+Injection.swift */,
 			);
 			path = "Dependencie Injection";
 			sourceTree = "<group>";
@@ -271,6 +280,9 @@
 				24A9D1A32952C11E007DBBCB /* UseCases */,
 				24A9D1A52952C123007DBBCB /* Repositories */,
 				246DD0572953FCA0002BB9B9 /* Factory */,
+				24A9D1A92952C695007DBBCB /* NetworkCore */,
+				24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */,
+				246DD0592953FD23002BB9B9 /* UseCaseProtocol */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -417,6 +429,7 @@
 				1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */,
 				1C3B441229504D8200AFCD81 /* AppState.swift in Sources */,
 				4D0A1DA229349D660038624D /* ContentView.swift in Sources */,
+				24A9D1A82952C54E007DBBCB /* Container+Injection.swift in Sources */,
 				4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1079,6 +1092,10 @@
 			package = 246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
 		};
+		246DD0592953FD23002BB9B9 /* UseCaseProtocol */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UseCaseProtocol;
+		};
 		249752BC2941901E003C6238 /* MyCoin */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MyCoin;
@@ -1094,6 +1111,14 @@
 		24A9D1A52952C123007DBBCB /* Repositories */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Repositories;
+		};
+		24A9D1A92952C695007DBBCB /* NetworkCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkCore;
+		};
+		24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RepositoryProtocol;
 		};
 		4DBA27B3294AD21300D15E33 /* NetworkExtension */ = {
 			isa = XCSwiftPackageProductDependency;
