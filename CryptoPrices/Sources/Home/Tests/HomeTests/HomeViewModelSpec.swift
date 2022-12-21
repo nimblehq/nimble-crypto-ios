@@ -1,4 +1,3 @@
-// swiftlint:disable closure_body_length
 import DomainTestHelpers
 import Nimble
 import Quick
