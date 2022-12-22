@@ -24,12 +24,13 @@ let package = Package(
             targets: ["UseCases"]
         ),
         .library(
-            name: "DomainTestHelpers",
-            targets: ["DomainTestHelpers"]
+            name: "DomainMocks",
+            targets: ["DomainMocks"]
         )
     ],
     dependencies: [
         .package(name: "TestHelpers", path: "../TestHelpers"),
+        .package(name: "BuildTools", path: "../BuildTools"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
@@ -40,11 +41,13 @@ let package = Package(
         ),
         .target(
             name: "RepositoryProtocol",
-            dependencies: ["Entities"]
+            dependencies: ["Entities"],
+            plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "UseCaseProtocol",
-            dependencies: ["Entities"]
+            dependencies: ["Entities"],
+            plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "UseCases",
@@ -54,17 +57,18 @@ let package = Package(
             ]
         ),
         .target(
-            name: "DomainTestHelpers",
+            name: "DomainMocks",
             dependencies: [
                 "Entities",
-                "RepositoryProtocol"
+                "RepositoryProtocol",
+                "UseCaseProtocol"
             ]
         ),
         .testTarget(
             name: "UseCasesTests",
             dependencies: [
                 "UseCases",
-                "DomainTestHelpers",
+                "DomainMocks",
                 .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")

@@ -1,4 +1,4 @@
-import DomainTestHelpers
+import DomainMocks
 import Nimble
 import Quick
 import TestHelpers
@@ -8,12 +8,12 @@ final class MyCoinsUseCaseSpec: QuickSpec {
 
     override func spec() {
         var myCoinsUseCase: MyCoinsUseCase!
-        var coinRepository: MockCoinRepository!
+        var coinRepository: MockCoinRepositoryProtocol!
 
         describe("the MyCoinsUseCase") {
 
             beforeEach {
-                coinRepository = MockCoinRepository()
+                coinRepository = MockCoinRepositoryProtocol()
                 myCoinsUseCase = MyCoinsUseCase(repository: coinRepository)
             }
 
@@ -24,7 +24,7 @@ final class MyCoinsUseCaseSpec: QuickSpec {
                     let expectedCoins = [MockCoin.single]
 
                     beforeEach {
-                        coinRepository.myCoinsReturnValue = .success(expectedCoins)
+                        coinRepository.myCoinsReturnValue = expectedCoins
                     }
 
                     it("returns correct value") {
@@ -40,7 +40,7 @@ final class MyCoinsUseCaseSpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinRepository.myCoinsReturnValue = .failure(expectedError)
+                        coinRepository.myCoinsThrowableError = expectedError
                     }
 
                     it("returns correct error") {
