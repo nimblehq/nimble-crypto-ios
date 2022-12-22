@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C02C659294B007A00ED7DFC /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C658294B007A00ED7DFC /* Styleguide */; };
-		1C02C65B294B008A00ED7DFC /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65A294B008A00ED7DFC /* UseCases */; };
-		1C02C65F294B02B300ED7DFC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65E294B02B300ED7DFC /* Repositories */; };
+                1C02C659294B007A00ED7DFC /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C658294B007A00ED7DFC /* Styleguide */; };
+                1C02C65B294B008A00ED7DFC /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65A294B008A00ED7DFC /* UseCases */; };
+                1C02C65F294B02B300ED7DFC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65E294B02B300ED7DFC /* Repositories */; };
 		1C3B441229504D8200AFCD81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441129504D8200AFCD81 /* AppState.swift */; };
 		1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */; };
+		1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */ = {isa = PBXBuildFile; productRef = 1C3B441C2952B34D00AFCD81 /* Wormholy */; };
 		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
 		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
@@ -76,6 +77,7 @@
 				4DBA27B2294AD1F000D15E33 /* Repositories in Frameworks */,
 				4DBA27B0294AD1C700D15E33 /* UseCases in Frameworks */,
 				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
+				1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */,
 				4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */,
 				4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */,
 				4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */,
@@ -249,6 +251,7 @@
 				4DBA27B8294AD26300D15E33 /* PilotTestSupport */,
 				4DBA27BA294AD26300D15E33 /* PilotType */,
 				4DF0743A2949766900E1274D /* ShowTime */,
+				1C3B441C2952B34D00AFCD81 /* Wormholy */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -325,6 +328,7 @@
 			packageReferences = (
 				4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */,
 				4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */,
+				1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -1010,6 +1014,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ipavlidakis/Wormholy";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Thieurom/Pilot";
@@ -1029,17 +1041,22 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1C02C658294B007A00ED7DFC /* Styleguide */ = {
+                1C02C658294B007A00ED7DFC /* Styleguide */ = {
+                        isa = XCSwiftPackageProductDependency;
+                        productName = Styleguide;
+                };
+                1C02C65A294B008A00ED7DFC /* UseCases */ = {
+                        isa = XCSwiftPackageProductDependency;
+                        productName = UseCases;
+                };
+                1C02C65E294B02B300ED7DFC /* Repositories */ = {
+                        isa = XCSwiftPackageProductDependency;
+                        productName = Repositories;
+                };
+		1C3B441C2952B34D00AFCD81 /* Wormholy */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Styleguide;
-		};
-		1C02C65A294B008A00ED7DFC /* UseCases */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UseCases;
-		};
-		1C02C65E294B02B300ED7DFC /* Repositories */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Repositories;
+			package = 1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */;
+			productName = Wormholy;
 		};
 		249752BC2941901E003C6238 /* MyCoin */ = {
 			isa = XCSwiftPackageProductDependency;
