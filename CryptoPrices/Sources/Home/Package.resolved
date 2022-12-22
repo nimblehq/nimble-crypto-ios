@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "factory",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hmlongco/Factory",
-      "state" : {
-        "revision" : "ca5788b8621b185a0fbe6ef05bb9a73b3ef2833f",
-        "version" : "1.2.9"
-      }
-    },
-    {
       "identity" : "nimble",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Quick/Nimble",
@@ -37,39 +28,12 @@
       }
     },
     {
-      "identity" : "pilot",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Thieurom/Pilot",
-      "state" : {
-        "revision" : "d0c990223f3447fd912ae716d03676fd1db714af",
-        "version" : "0.5.1"
-      }
-    },
-    {
       "identity" : "quick",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Quick/Quick",
       "state" : {
         "revision" : "16910e406be96e08923918315388c3e989deac9e",
         "version" : "6.1.0"
-      }
-    },
-    {
-      "identity" : "showtime",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/KaneCheshire/ShowTime",
-      "state" : {
-        "revision" : "f4e976931fc5f9b7a7d011f40c62a250c4ff53ab",
-        "version" : "2.5.3"
-      }
-    },
-    {
-      "identity" : "wormholy",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ipavlidakis/Wormholy",
-      "state" : {
-        "branch" : "master",
-        "revision" : "fa6cba3377498701c67720d4911d33b36a5d0bab"
       }
     }
   ],

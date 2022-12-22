@@ -1,6 +1,5 @@
-// swiftlint:disable closure_body_length
-
-import DomainTestHelpers
+// swiftlint:disable function_body_length closure_body_length superfluous_disable_command
+import DomainMocks
 import Nimble
 import Quick
 import TestHelpers
@@ -10,11 +9,11 @@ final class HomeViewModelSpec: QuickSpec {
 
     override func spec() {
         var homeViewModel: HomeViewModel!
-        var myCoinsUseCase: MockMyCoinsUseCase!
+        var myCoinsUseCase: MockMyCoinsUseCaseProtocol!
 
         describe("the HomeViewModel") {
             beforeEach {
-                myCoinsUseCase = MockMyCoinsUseCase()
+                myCoinsUseCase = MockMyCoinsUseCaseProtocol()
                 homeViewModel = await HomeViewModel(myCoinsUseCase: myCoinsUseCase)
             }
 
@@ -33,7 +32,7 @@ final class HomeViewModelSpec: QuickSpec {
                     let expectedCoins = [MyCoinItem(coin: MockCoin.single)]
 
                     beforeEach {
-                        myCoinsUseCase.myCoinsReturnValue = .success(myCoinsReturnValue)
+                        myCoinsUseCase.executeReturnValue = myCoinsReturnValue
                         await homeViewModel.fetchMyCoins()
                     }
 
@@ -49,7 +48,7 @@ final class HomeViewModelSpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        myCoinsUseCase.myCoinsReturnValue = .failure(expectedError)
+                        myCoinsUseCase.executeThrowableError = expectedError
                         await homeViewModel.fetchMyCoins()
                     }
 
