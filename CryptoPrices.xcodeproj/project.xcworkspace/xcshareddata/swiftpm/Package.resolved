@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Factory",
+        "repositoryURL": "https://github.com/hmlongco/Factory",
+        "state": {
+          "branch": null,
+          "revision": "ca5788b8621b185a0fbe6ef05bb9a73b3ef2833f",
+          "version": "1.2.9"
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble",
         "state": {
