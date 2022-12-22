@@ -151,7 +151,7 @@
 {% macro mockedVariableName variable %}{{ variable.name }}{% endmacro %}
 
 {% for type in types.protocols where type.based.AutoMockable or type|annotated:"AutoMockable" %}{% if type.name != "AutoMockable" %}
-// sourcery:file:Mock{{ type.name }}
+// sourcery:file:Mock{{ type.name }}.swift
 // swiftlint:disable all
 
 import Foundation
