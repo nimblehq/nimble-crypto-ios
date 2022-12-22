@@ -20,13 +20,14 @@ let package = Package(
             targets: ["Repositories"]
         ),
         .library(
-            name: "DataTestHelpers",
-            targets: ["DataTestHelpers"]
+            name: "DataMocks",
+            targets: ["DataMocks"]
         )
     ],
     dependencies: [
         .package(name: "Domain", path: "../Domain"),
         .package(name: "TestHelpers", path: "../TestHelpers"),
+        .package(name: "BuildTools", path: "../BuildTools"),
         .package(url: "https://github.com/Thieurom/Pilot", from: "0.5.1"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
@@ -34,7 +35,8 @@ let package = Package(
     targets: [
         .target(
             name: "NetworkCore",
-            dependencies: []
+            dependencies: [],
+            plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "NetworkExtension",
@@ -53,7 +55,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "DataTestHelpers",
+            name: "DataMocks",
             dependencies: [
                 "NetworkCore",
                 "NetworkExtension",
@@ -65,7 +67,7 @@ let package = Package(
             dependencies: [
                 "NetworkCore",
                 "Repositories",
-                "DataTestHelpers",
+                "DataMocks",
                 .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")

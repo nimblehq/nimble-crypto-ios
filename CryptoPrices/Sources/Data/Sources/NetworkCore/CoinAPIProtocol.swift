@@ -5,6 +5,7 @@
 //  Created by Doan Thieu on 01/12/2022.
 //
 
+// sourcery: AutoMockable
 public protocol CoinAPIProtocol {
 
     // TODO: Update when implement
