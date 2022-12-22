@@ -41,7 +41,7 @@ private extension HomeView {
     var headerView: some View {
         Text(Strings.Home.Title.text)
             .multilineTextAlignment(.center)
-            .font(Fonts.Inter.bold.textStyle(.title2))
+            .font(Fonts.Inter.bold.textStyle(.title))
     }
 }
 

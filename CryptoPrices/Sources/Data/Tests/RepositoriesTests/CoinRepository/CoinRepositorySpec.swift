@@ -4,7 +4,7 @@
 //
 //  Created by Doan Thieu on 29/11/2022.
 //
-// swiftlint:disable function_body_length closure_body_length superfluous_disable_command
+// swiftlint:disable function_body_length closure_body_length
 
 import DataTestHelpers
 import NetworkCore

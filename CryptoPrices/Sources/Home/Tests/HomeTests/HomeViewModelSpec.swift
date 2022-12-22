@@ -1,4 +1,4 @@
-// swiftlint:disable function_body_length closure_body_length superfluous_disable_command
+// swiftlint:disable closure_body_length
 
 import DomainTestHelpers
 import Nimble

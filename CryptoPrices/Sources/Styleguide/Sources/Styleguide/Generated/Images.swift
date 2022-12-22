@@ -26,8 +26,8 @@ public enum Images {
   public static let icArrowUpGreen = ImageAsset(name: "ic_arrow_up_green")
   public static let icBack = ImageAsset(name: "ic_back")
   public static let icBitcoin = ImageAsset(name: "ic_bitcoin")
-  public static let icHeart = ImageAsset(name: "ic_heart")
   public static let icEth = ImageAsset(name: "ic_eth")
+  public static let icHeart = ImageAsset(name: "ic_heart")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
