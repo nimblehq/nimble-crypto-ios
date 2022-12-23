@@ -16,7 +16,7 @@ import WormholySwift
 
 @main
 struct CryptoPricesApp: App {
-
+// note
     @StateObject var appCoordinator = AppCoordinator()
 
     @Injected(Container.homeViewModel) private var homeViewModel
