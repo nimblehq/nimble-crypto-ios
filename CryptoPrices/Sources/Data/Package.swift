@@ -20,8 +20,8 @@ let package = Package(
             targets: ["Repositories"]
         ),
         .library(
-            name: "DataMocks",
-            targets: ["DataMocks"]
+            name: "DataTestHelpers",
+            targets: ["DataTestHelpers"]
         )
     ],
     dependencies: [
@@ -55,7 +55,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "DataMocks",
+            name: "DataTestHelpers",
             dependencies: [
                 "NetworkCore",
                 "NetworkExtension",
@@ -67,7 +67,7 @@ let package = Package(
             dependencies: [
                 "NetworkCore",
                 "Repositories",
-                "DataMocks",
+                "DataTestHelpers",
                 .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")

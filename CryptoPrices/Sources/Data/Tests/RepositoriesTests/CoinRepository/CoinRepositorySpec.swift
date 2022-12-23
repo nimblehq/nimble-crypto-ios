@@ -6,7 +6,7 @@
 //
 // swiftlint:disable function_body_length closure_body_length
 
-import DataMocks
+import DataTestHelpers
 import NetworkCore
 import Nimble
 import Quick

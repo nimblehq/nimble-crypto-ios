@@ -1,8 +1,9 @@
 // swiftlint:disable function_body_length closure_body_length superfluous_disable_command
-import DomainMocks
+import DomainTestHelpers
 import Nimble
 import Quick
 import TestHelpers
+import UseCaseProtocol
 @testable import Home
 
 final class HomeViewModelSpec: QuickSpec {

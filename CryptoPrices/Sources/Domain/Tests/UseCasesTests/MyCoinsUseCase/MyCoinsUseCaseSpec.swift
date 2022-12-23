@@ -1,6 +1,7 @@
-import DomainMocks
+import DomainTestHelpers
 import Nimble
 import Quick
+import RepositoryProtocol
 import TestHelpers
 @testable import UseCases
 

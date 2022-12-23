@@ -26,14 +26,15 @@ let package = Package(
             dependencies: [
                 .product(name: "Styleguide", package: "Styleguide"),
                 .product(name: "UseCaseProtocol", package: "Domain"),
-                .product(name: "DomainMocks", package: "Domain")
+                .product(name: "DomainTestHelpers", package: "Domain")
             ]
         ),
         .testTarget(
             name: "HomeTests",
             dependencies: [
                 "Home",
-                .product(name: "DomainMocks", package: "Domain"),
+                .product(name: "UseCaseProtocol", package: "Domain"),
+                .product(name: "DomainTestHelpers", package: "Domain"),
                 .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")

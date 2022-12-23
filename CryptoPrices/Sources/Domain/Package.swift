@@ -24,8 +24,8 @@ let package = Package(
             targets: ["UseCases"]
         ),
         .library(
-            name: "DomainMocks",
-            targets: ["DomainMocks"]
+            name: "DomainTestHelpers",
+            targets: ["DomainTestHelpers"]
         )
     ],
     dependencies: [
@@ -57,7 +57,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "DomainMocks",
+            name: "DomainTestHelpers",
             dependencies: [
                 "Entities",
                 "RepositoryProtocol",
@@ -68,7 +68,8 @@ let package = Package(
             name: "UseCasesTests",
             dependencies: [
                 "UseCases",
-                "DomainMocks",
+                "RepositoryProtocol",
+                "DomainTestHelpers",
                 .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble")

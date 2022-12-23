@@ -12,11 +12,12 @@ struct SourceryPlugin: BuildToolPlugin {
             .appending(subpath: "sourcery/templates").string
 
         guard FileManager.default.fileExists(atPath: templatesPath) else {
-            Diagnostics.error("Could not find templates at: \(templatesPath)")
+            Diagnostics.error("Could not find templates for Sourcery at: \(templatesPath)")
             return []
         }
 
         let sourceryExecutable = try context.tool(named: "sourcery")
+        let generatedDirectory = context.pluginWorkDirectory.appending("SourceryGenerated")
 
         let sourceryCommand = Command.prebuildCommand(
             displayName: "Generate mocked types for \(target) target",
@@ -27,12 +28,12 @@ struct SourceryPlugin: BuildToolPlugin {
                 "--templates",
                 templatesPath,
                 "--args",
-                "autoMockableImports=\([target.name] + target.recursiveTargetDependencies.map(\.name))",
+                "autoMockableImports=\(target.recursiveTargetDependencies.map(\.name))",
                 "--output",
-                context.package.directory.appending("Sources", "\(context.package.displayName)Mocks"),
+                generatedDirectory,
                 "--verbose"
             ],
-            outputFilesDirectory: context.pluginWorkDirectory
+            outputFilesDirectory: generatedDirectory
         )
 
         return [sourceryCommand]

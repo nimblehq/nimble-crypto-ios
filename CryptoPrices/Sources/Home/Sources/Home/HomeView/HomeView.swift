@@ -4,6 +4,7 @@
 //  Created by Doan Thieu on 04/12/2022.
 //
 
+import UseCaseProtocol
 import Styleguide
 import SwiftUI
 
@@ -46,7 +47,7 @@ private extension HomeView {
 }
 
 #if DEBUG
-import DomainMocks
+import DomainTestHelpers
 
 struct HomeView_Previews: PreviewProvider {
 

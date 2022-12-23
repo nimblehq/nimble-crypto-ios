@@ -5,9 +5,10 @@
 //  Created by Minh Pham on 16/12/2022.
 //
 
-import DomainMocks
+import DomainTestHelpers
 import Nimble
 import Quick
+import RepositoryProtocol
 import TestHelpers
 @testable import UseCases
 
