@@ -60,19 +60,19 @@ private extension MyCoinItemView {
     var coinInfo: some View {
         VStack(alignment: .leading) {
             Text(coinItem.symbol)
-                .font(Fonts.Inter.bold.textStyle(.callout))
+                .font(Fonts.Inter.semiBold.textStyle(.body))
                 .foregroundColor(Colors.textBold.swiftUIColor)
                 .padding(.bottom, 4.0)
 
             Text(coinItem.name)
-                .font(Fonts.Inter.medium.textStyle(.subheadline))
+                .font(Fonts.Inter.medium.textStyle(.callout))
                 .foregroundColor(Colors.textMedium.swiftUIColor)
         }
     }
     
     var currentPrice: some View {
         Text(coinItem.currentPrice, format: .dollarCurrency)
-            .font(Fonts.Inter.bold.textStyle(.callout))
+            .font(Fonts.Inter.semiBold.textStyle(.body))
             .foregroundColor(Colors.textBold.swiftUIColor)
     }
     
@@ -83,7 +83,7 @@ private extension MyCoinItemView {
             : Images.icArrowDownRed.swiftUIImage
 
             Text(coinItem.priceChangePercentage, format: .percentage)
-                .font(Fonts.Inter.bold.textStyle(.callout))
+                .font(Fonts.Inter.medium.textStyle(.body))
                 .foregroundColor(
                     coinItem.isPriceUp
                     ? Colors.guppieGreen.swiftUIColor

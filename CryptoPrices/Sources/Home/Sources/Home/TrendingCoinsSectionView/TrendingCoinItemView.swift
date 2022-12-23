@@ -42,12 +42,12 @@ private extension TrendingCoinItemView {
         VStack(alignment: .leading) {
             Text("BTC")
                 .foregroundColor(Colors.textBold.swiftUIColor)
-                .font(Fonts.Inter.bold.textStyle(.callout))
+                .font(Fonts.Inter.semiBold.textStyle(.body))
                 .padding(.bottom, 4.0)
 
             Text("Bitcoin")
                 .foregroundColor(Colors.textMedium.swiftUIColor)
-                .font(Fonts.Inter.medium.textStyle(.subheadline))
+                .font(Fonts.Inter.medium.textStyle(.callout))
         }
     }
 
@@ -59,7 +59,7 @@ private extension TrendingCoinItemView {
             : Images.icArrowUpGreen.swiftUIImage
 
             Text(percentage, format: .percentage)
-                .font(Fonts.Inter.bold.textStyle(.callout))
+                .font(Fonts.Inter.medium.textStyle(.body))
                 .foregroundColor(
                     percentage < 0.0
                     ? Colors.carnation.swiftUIColor

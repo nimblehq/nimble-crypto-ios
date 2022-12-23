@@ -12,12 +12,11 @@ public struct MyCoinView: View {
     @EnvironmentObject var myCoinState: MyCoinState
 
     public var body: some View {
-        // TODO: Remove dummy
         NavigationView {
-            Text("MyCoin View")
+            contentView
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: backButton, trailing: likeButton)
-                .navigationTitle("Ethereum")
+                .navigationTitle("Ethereum") // TODO: Remove dummy
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -26,6 +25,15 @@ public struct MyCoinView: View {
 }
 
 private extension MyCoinView {
+
+    var contentView: some View {
+        ScrollView {
+            CurrentPriceSection()
+        }
+        .clipped(antialiased: false)
+        .frame(maxHeight: .infinity)
+        .background(Colors.bgMain.swiftUIColor)
+    }
 
     var backButton: some View {
         Button {

@@ -44,12 +44,12 @@ private extension WalletStatisticSection {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(Strings.Home.TotalCoins.title)
                     .foregroundColor(Colors.lightSilver.swiftUIColor)
-                    .font(Fonts.Inter.medium.textStyle(.callout))
+                    .font(Fonts.Inter.medium.textStyle(.body))
 
                 // TODO: Remove hard-coded data
                 Text(7_273_291, format: .dollarCurrency)
                     .foregroundColor(.white)
-                    .font(Fonts.Inter.bold.textStyle(.title2))
+                    .font(Fonts.Inter.semiBold.textStyle(.title))
             }
 
             Spacer()
@@ -61,12 +61,12 @@ private extension WalletStatisticSection {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(Strings.Home.TodayProfit.title)
                     .foregroundColor(Colors.lightSilver.swiftUIColor)
-                    .font(Fonts.Inter.medium.textStyle(.callout))
+                    .font(Fonts.Inter.medium.textStyle(.body))
 
                 // TODO: Remove hard-coded data
                 Text(193.28, format: .dollarCurrency)
                     .foregroundColor(.white)
-                    .font(Fonts.Inter.bold.textStyle(.title2))
+                    .font(Fonts.Inter.semiBold.textStyle(.title))
             }
 
             Spacer()
@@ -76,6 +76,7 @@ private extension WalletStatisticSection {
                     Images.icArrowUpGreen.swiftUIImage
                     // TODO: Remove hard-coded data
                     Text(2.41, format: .percentage)
+                        .font(Fonts.Inter.medium.textStyle(.body))
                 }
             })
             .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))
