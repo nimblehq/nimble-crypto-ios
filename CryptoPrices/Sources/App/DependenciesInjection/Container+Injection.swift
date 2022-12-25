@@ -35,6 +35,5 @@ extension Container {
     // UseCases
     static let myCoinsUseCase = Factory<MyCoinsUseCaseProtocol> {
         MyCoinsUseCase(repository: coinRepository.callAsFunction())
-
     }
 }
