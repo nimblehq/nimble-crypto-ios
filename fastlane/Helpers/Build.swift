@@ -51,8 +51,7 @@ enum Build {
             ]),
             buildPath: .userDefined(Constant.buildPath),
             derivedDataPath: .userDefined(Constant.derivedDataPath),
-            xcodebuildFormatter: "xcbeautify",
-            clonedSourcePackagesPath: .userDefined("SourcePackages")
+            xcodebuildFormatter: "xcbeautify"
         )
     }
 }

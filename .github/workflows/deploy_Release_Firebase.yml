@@ -24,7 +24,7 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Restore SPM
+    - name: Cache SPM
       uses: actions/cache@v3
       with:
         path: SourcePackages
