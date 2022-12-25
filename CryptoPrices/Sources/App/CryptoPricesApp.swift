@@ -19,22 +19,9 @@ struct CryptoPricesApp: App {
 
     @StateObject var appCoordinator = AppCoordinator()
 
-    @Injected(Container.homeViewModel) private var homeViewModel
-
     var body: some Scene {
         WindowGroup {
-            switch appCoordinator.state {
-            case let .home(homeState):
-                HomeView(viewModel: homeViewModel)
-                    .environmentObject(homeState)
-            case let .myCoin(myCoinState):
-                MyCoinView()
-                    .environmentObject(myCoinState)
-                    .transition(
-                        .move(edge: .trailing)
-                        .animation(.linear(duration: 1.0))
-                    )
-            }
+            AppView()
         }
     }
 

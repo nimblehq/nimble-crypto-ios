@@ -12,13 +12,11 @@ public struct MyCoinView: View {
     @EnvironmentObject var myCoinState: MyCoinState
 
     public var body: some View {
-        NavigationView {
-            contentView
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: backButton, trailing: likeButton)
-                .navigationTitle("Ethereum") // TODO: Remove dummy
-                .navigationBarTitleDisplayMode(.inline)
-        }
+        contentView
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: backButton, trailing: likeButton)
+            .navigationTitle("Ethereum") // TODO: Remove dummy
+            .navigationBarTitleDisplayMode(.inline)
     }
 
     public init() {}

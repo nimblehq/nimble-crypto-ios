@@ -15,4 +15,4 @@ generate:
 
 # Lint code
 lint:
-	swiftlint --strict
+	swiftlint

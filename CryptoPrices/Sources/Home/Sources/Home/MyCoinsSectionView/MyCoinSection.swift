@@ -28,12 +28,12 @@ struct MyCoinSection: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(coins) {
-                        MyCoinItemView($0)
+                    ForEach(coins) { coin in
+                        MyCoinItemView(coin)
                             .padding(.trailing, 8.0)
                             .onTapGesture {
                                 withAnimation {
-                                    homeState.didSelectCoin = true
+                                    homeState.didSelectCoin = coin.id
                                 }
                             }
                     }

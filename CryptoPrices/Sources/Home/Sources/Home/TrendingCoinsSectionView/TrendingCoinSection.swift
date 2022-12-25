@@ -34,7 +34,7 @@ struct TrendingCoinSection: View {
                             .padding(.vertical, 8.0)
                             .onTapGesture {
                                 withAnimation {
-                                    homeState.didSelectCoin = true
+//                                    homeState.didSelectCoin = true
                                 }
                             }
                     }

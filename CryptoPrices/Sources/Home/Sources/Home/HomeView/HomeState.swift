@@ -5,10 +5,11 @@
 //
 
 import Combine
+import Entities
 
 public final class HomeState: ObservableObject {
 
-    @Published public var didSelectCoin = false
+    @Published public var didSelectCoin: String?
 
     public init() {}
 }

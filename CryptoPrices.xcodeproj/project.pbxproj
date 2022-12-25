@@ -20,7 +20,7 @@
 		24A9D1AA2952C695007DBBCB /* NetworkCore in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A92952C695007DBBCB /* NetworkCore */; };
 		24A9D1AC2952C7AA007DBBCB /* RepositoryProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
-		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
+		4D0A1DA229349D660038624D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* AppView.swift */; };
 		4D0A1DA429349D670038624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA329349D670038624D /* Assets.xcassets */; };
 		4D0A1DA729349D670038624D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA629349D670038624D /* Preview Assets.xcassets */; };
 		4D0A1DB129349D670038624D /* CryptoPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DB029349D670038624D /* CryptoPricesTests.swift */; };
@@ -58,7 +58,7 @@
 		24A9D1A72952C54E007DBBCB /* Container+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Injection.swift"; sourceTree = "<group>"; };
 		4D0A1D9C29349D660038624D /* CryptoPrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoPrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesApp.swift; sourceTree = "<group>"; };
-		4D0A1DA129349D660038624D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D0A1DA129349D660038624D /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		4D0A1DA329349D670038624D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0A1DA629349D670038624D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D0A1DAC29349D670038624D /* CryptoPricesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPricesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,21 +113,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24A9D19F2952BF4D007DBBCB /* Navigation */ = {
+		24A9D19F2952BF4D007DBBCB /* AppView */ = {
 			isa = PBXGroup;
 			children = (
+				4D0A1DA129349D660038624D /* AppView.swift */,
 				1C3B441129504D8200AFCD81 /* AppState.swift */,
 				1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */,
 			);
-			path = Navigation;
+			path = AppView;
 			sourceTree = "<group>";
 		};
-		24A9D1A02952BF91007DBBCB /* Dependencie Injection */ = {
+		24A9D1A02952BF91007DBBCB /* DependenciesInjection */ = {
 			isa = PBXGroup;
 			children = (
 				24A9D1A72952C54E007DBBCB /* Container+Injection.swift */,
 			);
-			path = "Dependencie Injection";
+			path = DependenciesInjection;
 			sourceTree = "<group>";
 		};
 		24ADAFBD29374E0C00BF72D4 /* Configurations */ = {
@@ -235,10 +236,9 @@
 		4DF07419293C8AAA00E1274D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				24A9D1A02952BF91007DBBCB /* Dependencie Injection */,
-				24A9D19F2952BF4D007DBBCB /* Navigation */,
+				24A9D1A02952BF91007DBBCB /* DependenciesInjection */,
+				24A9D19F2952BF4D007DBBCB /* AppView */,
 				4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */,
-				4D0A1DA129349D660038624D /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 			files = (
 				1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */,
 				1C3B441229504D8200AFCD81 /* AppState.swift in Sources */,
-				4D0A1DA229349D660038624D /* ContentView.swift in Sources */,
+				4D0A1DA229349D660038624D /* AppView.swift in Sources */,
 				24A9D1A82952C54E007DBBCB /* Container+Injection.swift in Sources */,
 				4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */,
 			);
