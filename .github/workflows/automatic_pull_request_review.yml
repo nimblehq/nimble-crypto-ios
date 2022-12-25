@@ -25,12 +25,14 @@ jobs:
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-gems-
-# restore
-    - uses: actions/cache/restore@v3
-      id: cache
+# restore packages
+    - name: restore SwiftPM
+      uses: actions/cache@v3
       with:
-        path: SourcePackages/
-        key: spm-cache-{{ checksum "CryptoPrices.xcodeproj/project.xcworkspace/ xcshareddata/swiftpm/Package.resolved" }}
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
 
     - name: Setup
       run: make setup
@@ -39,14 +41,15 @@ jobs:
       run: make lint
 
     - name: Build and Test
-      run: bundle exec fastlane buildAndTest --verbose
+      run: bundle exec fastlane buildAndTest
       env:
         CI: true
 # save
-    - uses: actions/cache/save@v3
+    - name: Cache SwiftPM
+      uses: actions/cache@v3
       with:
-        path: SourcePackages/
-        key: spm-cache-{{ checksum "CryptoPrices.xcodeproj/project.xcworkspace/ xcshareddata/swiftpm/Package.resolved" }}
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
 
     - name: Clean up previous code coverage report
       run: bundle exec fastlane cleanUpOutput

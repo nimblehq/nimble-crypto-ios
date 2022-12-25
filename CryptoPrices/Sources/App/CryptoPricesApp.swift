@@ -59,6 +59,7 @@ extension CryptoPricesApp {
     }
 
     private func configureWormhly() {
+
         #if !DEBUG
         Wormholy.shakeEnabled = false
         #endif
