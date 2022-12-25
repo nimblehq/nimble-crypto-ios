@@ -26,6 +26,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
+    - name: Restore SPM
+      uses: actions/cache@v3
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
     - name: Setup
       run: make setup
 
@@ -36,6 +44,12 @@ jobs:
       run: bundle exec fastlane buildAndTest
       env:
         CI: true
+        
+    - name: Cache SPM
+      uses: actions/cache@v3
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
 
     - name: Clean up previous code coverage report
       run: bundle exec fastlane cleanUpOutput
