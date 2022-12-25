@@ -44,12 +44,6 @@ jobs:
       run: bundle exec fastlane buildAndTest
       env:
         CI: true
-# save
-    - name: Cache SwiftPM
-      uses: actions/cache@v3
-      with:
-        path: SourcePackages
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
 
     - name: Clean up previous code coverage report
       run: bundle exec fastlane cleanUpOutput

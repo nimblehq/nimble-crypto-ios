@@ -10,6 +10,7 @@
 		1C3B441229504D8200AFCD81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441129504D8200AFCD81 /* AppState.swift */; };
 		1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */; };
 		1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */ = {isa = PBXBuildFile; productRef = 1C3B441C2952B34D00AFCD81 /* Wormholy */; };
+		1CA4DB022958B1BE00058D96 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1CA4DB012958B1BE00058D96 /* Kingfisher */; };
 		246DD0582953FCA0002BB9B9 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0572953FCA0002BB9B9 /* Factory */; };
 		246DD05A2953FD23002BB9B9 /* UseCaseProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0592953FD23002BB9B9 /* UseCaseProtocol */; };
 		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
@@ -82,6 +83,7 @@
 				24A9D1AA2952C695007DBBCB /* NetworkCore in Frameworks */,
 				24A9D1A42952C11E007DBBCB /* UseCases in Frameworks */,
 				24A9D1A22952C10B007DBBCB /* Styleguide in Frameworks */,
+				1CA4DB022958B1BE00058D96 /* Kingfisher in Frameworks */,
 				246DD0582953FCA0002BB9B9 /* Factory in Frameworks */,
 				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
 				1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */,
@@ -283,6 +285,7 @@
 				24A9D1A92952C695007DBBCB /* NetworkCore */,
 				24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */,
 				246DD0592953FD23002BB9B9 /* UseCaseProtocol */,
+				1CA4DB012958B1BE00058D96 /* Kingfisher */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -361,6 +364,7 @@
 				4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */,
 				1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */,
 				246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */,
+				1CA4DB002958B1BE00058D96 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -1055,6 +1059,14 @@
 				kind = branch;
 			};
 		};
+		1CA4DB002958B1BE00058D96 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -1086,6 +1098,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */;
 			productName = Wormholy;
+		};
+		1CA4DB012958B1BE00058D96 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CA4DB002958B1BE00058D96 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		246DD0572953FCA0002BB9B9 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
