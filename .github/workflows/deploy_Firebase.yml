@@ -1,9 +1,8 @@
 name: Deploy Build To Firebase
 
 on:
-  push:
-    branches: [ develop ]
-  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
 
 jobs:  
   build:
@@ -28,7 +27,15 @@ jobs:
       run: |
         yarn add firebase-tools
         echo "$(yarn global bin)" >> $GITHUB_PATH
-            
+
+    - name: restore SwiftPM
+      uses: actions/cache@v3
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
     - name: Setup
       run: make setup
 

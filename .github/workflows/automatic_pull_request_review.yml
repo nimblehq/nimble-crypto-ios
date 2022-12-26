@@ -29,7 +29,7 @@ jobs:
     - name: restore SwiftPM
       uses: actions/cache@v3
       with:
-        path: SourcePacka
+        path: SourcePackages
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
