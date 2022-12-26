@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C02C659294B007A00ED7DFC /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C658294B007A00ED7DFC /* Styleguide */; };
-		1C02C65B294B008A00ED7DFC /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65A294B008A00ED7DFC /* UseCases */; };
-		1C02C65F294B02B300ED7DFC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 1C02C65E294B02B300ED7DFC /* Repositories */; };
+		1C3B441229504D8200AFCD81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441129504D8200AFCD81 /* AppState.swift */; };
+		1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */; };
+		1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */ = {isa = PBXBuildFile; productRef = 1C3B441C2952B34D00AFCD81 /* Wormholy */; };
+		246DD0582953FCA0002BB9B9 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0572953FCA0002BB9B9 /* Factory */; };
+		246DD05A2953FD23002BB9B9 /* UseCaseProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0592953FD23002BB9B9 /* UseCaseProtocol */; };
 		249752BD2941901E003C6238 /* MyCoin in Frameworks */ = {isa = PBXBuildFile; productRef = 249752BC2941901E003C6238 /* MyCoin */; };
+		24A9D1A22952C10B007DBBCB /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A12952C10B007DBBCB /* Styleguide */; };
+		24A9D1A42952C11E007DBBCB /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A32952C11E007DBBCB /* UseCases */; };
+		24A9D1A62952C123007DBBCB /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A52952C123007DBBCB /* Repositories */; };
+		24A9D1A82952C54E007DBBCB /* Container+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A9D1A72952C54E007DBBCB /* Container+Injection.swift */; };
+		24A9D1AA2952C695007DBBCB /* NetworkCore in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1A92952C695007DBBCB /* NetworkCore */; };
+		24A9D1AC2952C7AA007DBBCB /* RepositoryProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */; };
 		4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */; };
 		4D0A1DA229349D660038624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA129349D660038624D /* ContentView.swift */; };
 		4D0A1DA429349D670038624D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A1DA329349D670038624D /* Assets.xcassets */; };
@@ -18,13 +26,12 @@
 		4D0A1DB129349D670038624D /* CryptoPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DB029349D670038624D /* CryptoPricesTests.swift */; };
 		4D0A1DBB29349D670038624D /* CryptoPricesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DBA29349D670038624D /* CryptoPricesUITests.swift */; };
 		4D0A1DBD29349D670038624D /* CryptoPricesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */; };
-		4DBA27B0294AD1C700D15E33 /* UseCases in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27AF294AD1C700D15E33 /* UseCases */; };
-		4DBA27B2294AD1F000D15E33 /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B1294AD1F000D15E33 /* Repositories */; };
 		4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B3294AD21300D15E33 /* NetworkExtension */; };
 		4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B6294AD26300D15E33 /* Pilot */; };
 		4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27B8294AD26300D15E33 /* PilotTestSupport */; };
 		4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */ = {isa = PBXBuildFile; productRef = 4DBA27BA294AD26300D15E33 /* PilotType */; };
 		4DF0741C293C8D3900E1274D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF0741B293C8D3900E1274D /* Home */; };
+		4DF0743B2949766900E1274D /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF0743A2949766900E1274D /* ShowTime */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C3B441129504D8200AFCD81 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		249752BB29418C64003C6238 /* MyCoin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoin; path = CryptoPrices/Sources/MyCoin; sourceTree = "<group>"; };
+		24A9D1A72952C54E007DBBCB /* Container+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Injection.swift"; sourceTree = "<group>"; };
 		4D0A1D9C29349D660038624D /* CryptoPrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoPrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesApp.swift; sourceTree = "<group>"; };
 		4D0A1DA129349D660038624D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +66,7 @@
 		4D0A1DB629349D670038624D /* CryptoPricesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPricesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0A1DBA29349D670038624D /* CryptoPricesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITests.swift; sourceTree = "<group>"; };
 		4D0A1DBC29349D670038624D /* CryptoPricesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPricesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D6CA32C2952B37C00776EB6 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BuildTools; path = CryptoPrices/Sources/BuildTools; sourceTree = "<group>"; };
 		4DDA898B2938432000A487E2 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = CryptoPrices/Sources/Data; sourceTree = "<group>"; };
 		4DDA898C2938434800A487E2 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = CryptoPrices/Sources/Domain; sourceTree = "<group>"; };
 		4DF07418293C8AA200E1274D /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = CryptoPrices/Sources/Home; sourceTree = "<group>"; };
@@ -68,12 +79,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DBA27B2294AD1F000D15E33 /* Repositories in Frameworks */,
-				4DBA27B0294AD1C700D15E33 /* UseCases in Frameworks */,
+				24A9D1A62952C123007DBBCB /* Repositories in Frameworks */,
+				24A9D1AA2952C695007DBBCB /* NetworkCore in Frameworks */,
+				24A9D1A42952C11E007DBBCB /* UseCases in Frameworks */,
+				24A9D1A22952C10B007DBBCB /* Styleguide in Frameworks */,
+				246DD0582953FCA0002BB9B9 /* Factory in Frameworks */,
 				4DF0741C293C8D3900E1274D /* Home in Frameworks */,
+				1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */,
 				4DBA27BB294AD26300D15E33 /* PilotType in Frameworks */,
 				4DBA27B7294AD26300D15E33 /* Pilot in Frameworks */,
 				4DBA27B4294AD21300D15E33 /* NetworkExtension in Frameworks */,
+				246DD05A2953FD23002BB9B9 /* UseCaseProtocol in Frameworks */,
+				4DF0743B2949766900E1274D /* ShowTime in Frameworks */,
+				24A9D1AC2952C7AA007DBBCB /* RepositoryProtocol in Frameworks */,
 				249752BD2941901E003C6238 /* MyCoin in Frameworks */,
 				4DBA27B9294AD26300D15E33 /* PilotTestSupport in Frameworks */,
 			);
@@ -96,6 +114,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24A9D19F2952BF4D007DBBCB /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1C3B441129504D8200AFCD81 /* AppState.swift */,
+				1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		24A9D1A02952BF91007DBBCB /* Dependencie Injection */ = {
+			isa = PBXGroup;
+			children = (
+				24A9D1A72952C54E007DBBCB /* Container+Injection.swift */,
+			);
+			path = "Dependencie Injection";
+			sourceTree = "<group>";
+		};
 		24ADAFBD29374E0C00BF72D4 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +141,7 @@
 		4D0A1D9329349D660038624D = {
 			isa = PBXGroup;
 			children = (
+				4D6CA32C2952B37C00776EB6 /* BuildTools */,
 				4DF074382946D44500E1274D /* TestHelpers */,
 				4DF0741D293C90F100E1274D /* Styleguide */,
 				4DF07418293C8AA200E1274D /* Home */,
@@ -201,6 +237,8 @@
 		4DF07419293C8AAA00E1274D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				24A9D1A02952BF91007DBBCB /* Dependencie Injection */,
+				24A9D19F2952BF4D007DBBCB /* Navigation */,
 				4D0A1D9F29349D660038624D /* CryptoPricesApp.swift */,
 				4D0A1DA129349D660038624D /* ContentView.swift */,
 			);
@@ -234,12 +272,19 @@
 			packageProductDependencies = (
 				4DF0741B293C8D3900E1274D /* Home */,
 				249752BC2941901E003C6238 /* MyCoin */,
-				4DBA27AF294AD1C700D15E33 /* UseCases */,
-				4DBA27B1294AD1F000D15E33 /* Repositories */,
 				4DBA27B3294AD21300D15E33 /* NetworkExtension */,
 				4DBA27B6294AD26300D15E33 /* Pilot */,
 				4DBA27B8294AD26300D15E33 /* PilotTestSupport */,
 				4DBA27BA294AD26300D15E33 /* PilotType */,
+				4DF0743A2949766900E1274D /* ShowTime */,
+				1C3B441C2952B34D00AFCD81 /* Wormholy */,
+				24A9D1A12952C10B007DBBCB /* Styleguide */,
+				24A9D1A32952C11E007DBBCB /* UseCases */,
+				24A9D1A52952C123007DBBCB /* Repositories */,
+				246DD0572953FCA0002BB9B9 /* Factory */,
+				24A9D1A92952C695007DBBCB /* NetworkCore */,
+				24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */,
+				246DD0592953FD23002BB9B9 /* UseCaseProtocol */,
 			);
 			productName = CryptoPrices;
 			productReference = 4D0A1D9C29349D660038624D /* CryptoPrices.app */;
@@ -315,6 +360,9 @@
 			mainGroup = 4D0A1D9329349D660038624D;
 			packageReferences = (
 				4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */,
+				4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */,
+				1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */,
+				246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -380,7 +428,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */,
+				1C3B441229504D8200AFCD81 /* AppState.swift in Sources */,
 				4D0A1DA229349D660038624D /* ContentView.swift in Sources */,
+				24A9D1A82952C54E007DBBCB /* Container+Injection.swift in Sources */,
 				4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices.staging";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME) Staging";
@@ -631,7 +682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices.staging";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME) Staging";
@@ -820,7 +871,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -857,7 +908,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.nimblehq.crypto-prices";
 				PRODUCT_MODULE_NAME = CryptoPrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -998,6 +1049,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ipavlidakis/Wormholy";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		4DBA27B5294AD26300D15E33 /* XCRemoteSwiftPackageReference "Pilot" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Thieurom/Pilot";
@@ -1006,32 +1073,54 @@
 				minimumVersion = 0.5.1;
 			};
 		};
+		4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KaneCheshire/ShowTime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1C02C658294B007A00ED7DFC /* Styleguide */ = {
+		1C3B441C2952B34D00AFCD81 /* Wormholy */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Styleguide;
+			package = 1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */;
+			productName = Wormholy;
 		};
-		1C02C65A294B008A00ED7DFC /* UseCases */ = {
+		246DD0572953FCA0002BB9B9 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = UseCases;
+			package = 246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
-		1C02C65E294B02B300ED7DFC /* Repositories */ = {
+		246DD0592953FD23002BB9B9 /* UseCaseProtocol */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Repositories;
+			productName = UseCaseProtocol;
 		};
 		249752BC2941901E003C6238 /* MyCoin */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MyCoin;
 		};
-		4DBA27AF294AD1C700D15E33 /* UseCases */ = {
+		24A9D1A12952C10B007DBBCB /* Styleguide */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styleguide;
+		};
+		24A9D1A32952C11E007DBBCB /* UseCases */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UseCases;
 		};
-		4DBA27B1294AD1F000D15E33 /* Repositories */ = {
+		24A9D1A52952C123007DBBCB /* Repositories */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Repositories;
+		};
+		24A9D1A92952C695007DBBCB /* NetworkCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkCore;
+		};
+		24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RepositoryProtocol;
 		};
 		4DBA27B3294AD21300D15E33 /* NetworkExtension */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1055,6 +1144,11 @@
 		4DF0741B293C8D3900E1274D /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
+		};
+		4DF0743A2949766900E1274D /* ShowTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */;
+			productName = ShowTime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

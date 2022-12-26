@@ -29,6 +29,7 @@ public enum Colors {
   public static let guppieGreen = ColorAsset(name: "guppieGreen")
   public static let lightSilver = ColorAsset(name: "lightSilver")
   public static let metallicSeaweed = ColorAsset(name: "metallicSeaweed")
+  public static let scandal = ColorAsset(name: "scandal")
   public static let textBold = ColorAsset(name: "text_bold")
   public static let textMedium = ColorAsset(name: "text_medium")
   public static let tiffanyBlue = ColorAsset(name: "tiffanyBlue")

@@ -1,4 +1,4 @@
-// swift-tools-version: 5.5
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -30,6 +30,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "TestHelpers", path: "../TestHelpers"),
+        .package(name: "BuildTools", path: "../BuildTools"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
     ],
@@ -40,11 +41,13 @@ let package = Package(
         ),
         .target(
             name: "RepositoryProtocol",
-            dependencies: ["Entities"]
+            dependencies: ["Entities"],
+            plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "UseCaseProtocol",
-            dependencies: ["Entities"]
+            dependencies: ["Entities"],
+            plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "UseCases",
@@ -57,13 +60,15 @@ let package = Package(
             name: "DomainTestHelpers",
             dependencies: [
                 "Entities",
-                "RepositoryProtocol"
+                "RepositoryProtocol",
+                "UseCaseProtocol"
             ]
         ),
         .testTarget(
             name: "UseCasesTests",
             dependencies: [
                 "UseCases",
+                "RepositoryProtocol",
                 "DomainTestHelpers",
                 .product(name: "TestHelpers", package: "TestHelpers"),
                 .product(name: "Quick", package: "Quick"),

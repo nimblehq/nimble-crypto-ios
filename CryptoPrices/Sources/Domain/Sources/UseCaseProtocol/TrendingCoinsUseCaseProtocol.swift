@@ -7,6 +7,7 @@
 
 import Entities
 
+// sourcery: AutoMockable
 public protocol TrendingCoinsUseCaseProtocol {
 
     func execute(coinIDs: [String]) async throws -> [Coin]

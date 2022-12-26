@@ -19,3 +19,6 @@ fastlane/FastlaneRunner
 # Bundler
 .bundle
 vendor/bundle
+
+# SourcePackages folder
+SourcePackages

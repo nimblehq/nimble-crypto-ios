@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 public protocol Coin {
 
     var id: String { get }

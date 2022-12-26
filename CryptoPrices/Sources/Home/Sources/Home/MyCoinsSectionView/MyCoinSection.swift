@@ -9,15 +9,17 @@ import SwiftUI
 
 struct MyCoinSection: View {
 
+    @EnvironmentObject var homeState: HomeState
+
     var body: some View {
         VStack {
             HStack {
                 Text(Strings.Home.MyCoin.title)
                     .foregroundColor(Colors.titleMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
-
-                Spacer()
                 
+                Spacer()
+
                 Button(Strings.Home.SeeAll.text) {}
                     .foregroundColor(Colors.caribbeanGreen.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.subheadline))
@@ -29,6 +31,11 @@ struct MyCoinSection: View {
                     ForEach(coins) {
                         MyCoinItemView($0)
                             .padding(.trailing, 8.0)
+                            .onTapGesture {
+                                withAnimation {
+                                    homeState.didSelectCoin = true
+                                }
+                            }
                     }
                 }
                 .padding(.leading, 16.0)

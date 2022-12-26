@@ -30,6 +30,7 @@ enum Constant {
     static let derivedDataPath = "\(outputPath)/DerivedData"
     static let projectPath: String = "./\(projectName).xcodeproj"
     static let testOutputDirectoryPath = "./fastlane/test_output"
+    static let clonedSourcePackagesPath = "SourcePackages"
 
     // MARK: Platform
 

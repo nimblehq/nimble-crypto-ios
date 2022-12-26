@@ -7,6 +7,7 @@
 
 import Entities
 
+// sourcery: AutoMockable
 public protocol MyCoinsUseCaseProtocol {
 
     // TODO: Update when implement

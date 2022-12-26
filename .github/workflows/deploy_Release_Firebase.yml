@@ -15,7 +15,8 @@ jobs:
       with:
         access_token: ${{ github.token }}
 
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -23,7 +24,15 @@ jobs:
       uses: webfactory/ssh-agent@v0.5.4
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-            
+
+    - name: Cache Swift packages
+      uses: actions/cache@v3
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
     - name: Setup
       run: make setup
 

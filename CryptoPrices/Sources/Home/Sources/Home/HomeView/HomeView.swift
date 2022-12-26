@@ -4,26 +4,29 @@
 //  Created by Doan Thieu on 04/12/2022.
 //
 
+import UseCaseProtocol
 import Styleguide
 import SwiftUI
 
 public struct HomeView: View {
 
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 40.0) {
-                headerView
-                WalletStatisticSection()
-                MyCoinSection(coins: viewModel.myCoins)
-                TrendingCoinSection()
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 40.0) {
+                    headerView
+                    WalletStatisticSection()
+                    MyCoinSection(coins: viewModel.myCoins)
+                    TrendingCoinSection()
+                }
             }
-        }
-        .padding(.top, 24.0)
-        .clipped(antialiased: false)
-        .frame(maxHeight: .infinity)
-        .background(Colors.bgMain.swiftUIColor)
-        .task {
-            await viewModel.fetchMyCoins()
+            .padding(.top, 24.0)
+            .clipped(antialiased: false)
+            .frame(maxHeight: .infinity)
+            .background(Colors.bgMain.swiftUIColor)
+            .task {
+                await viewModel.fetchMyCoins()
+            }
         }
     }
 
@@ -39,7 +42,7 @@ private extension HomeView {
     var headerView: some View {
         Text(Strings.Home.Title.text)
             .multilineTextAlignment(.center)
-            .font(Fonts.Inter.bold.textStyle(.title2))
+            .font(Fonts.Inter.bold.textStyle(.title))
     }
 }
 
@@ -49,9 +52,8 @@ import DomainTestHelpers
 struct HomeView_Previews: PreviewProvider {
 
     static var previews: some View {
-        // TODO: Apply DI instead of manually initializing
         Preview {
-            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCase()))
+            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCaseProtocol()))
         }
     }
 }

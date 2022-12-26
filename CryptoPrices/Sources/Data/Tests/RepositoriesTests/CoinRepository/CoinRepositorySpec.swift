@@ -4,7 +4,7 @@
 //
 //  Created by Doan Thieu on 29/11/2022.
 //
-// swiftlint:disable function_body_length closure_body_length superfluous_disable_command
+// swiftlint:disable function_body_length closure_body_length
 
 import DataTestHelpers
 import NetworkCore
@@ -17,7 +17,7 @@ final class CoinRepositorySpec: QuickSpec {
 
     override func spec() {
 
-        var coinAPI: MockCoinAPI!
+        var coinAPI: MockCoinAPIProtocol!
         var coinRepository: CoinRepository!
 
         let mockCoinIDs = [
@@ -36,7 +36,7 @@ final class CoinRepositorySpec: QuickSpec {
         describe("the CoinRepository") {
 
             beforeEach {
-                coinAPI = MockCoinAPI()
+                coinAPI = MockCoinAPIProtocol()
                 coinRepository = CoinRepository(coinAPI: coinAPI)
             }
 
@@ -46,7 +46,7 @@ final class CoinRepositorySpec: QuickSpec {
                     let expectedCoins = APICoin.dummyCoins
 
                     beforeEach {
-                        coinAPI.myCoinsReturnValue = .success(expectedCoins)
+                        coinAPI.myCoinsReturnValue = expectedCoins
                     }
 
                     it("returns correct value") {
@@ -62,7 +62,7 @@ final class CoinRepositorySpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinAPI.myCoinsReturnValue = .failure(expectedError)
+                        coinAPI.myCoinsThrowableError = expectedError
                     }
 
                     it("returns correct error") {
@@ -83,7 +83,7 @@ final class CoinRepositorySpec: QuickSpec {
                     let expectedCoins = APICoin.dummyCoins
 
                     beforeEach {
-                        coinAPI.trendingCoinsReturnValue = .success(expectedCoins)
+                        coinAPI.trendingCoinsCoinIDsReturnValue = expectedCoins
                     }
 
                     it("returns correct value") {
@@ -99,7 +99,7 @@ final class CoinRepositorySpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinAPI.trendingCoinsReturnValue = .failure(expectedError)
+                        coinAPI.trendingCoinsCoinIDsThrowableError = expectedError
                     }
 
                     it("returns correct error") {
