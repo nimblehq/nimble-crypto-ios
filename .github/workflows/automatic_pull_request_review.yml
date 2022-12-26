@@ -14,11 +14,13 @@ jobs:
       with:
         access_token: ${{ github.token }}
 
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
-    - uses: actions/cache@v3
+    - name: Cache Ruby gems
+      uses: actions/cache@v3
       id: bunlderCache
       with:
         path: vendor/bundle
@@ -26,7 +28,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-    - name: Cache packages
+    - name: Cache Swift packages
       uses: actions/cache@v3
       with:
         path: SourcePackages

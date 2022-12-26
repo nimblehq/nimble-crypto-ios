@@ -15,7 +15,8 @@ jobs:
       with:
         access_token: ${{ github.token }}
 
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -29,7 +30,7 @@ jobs:
         yarn add firebase-tools
         echo "$(yarn global bin)" >> $GITHUB_PATH
 
-    - name: Cache SPM
+    - name: Cache Swift packages
       uses: actions/cache@v3
       with:
         path: SourcePackages
