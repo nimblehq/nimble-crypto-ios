@@ -8,6 +8,7 @@
 import DomainTestHelpers
 import Nimble
 import Quick
+import RepositoryProtocol
 import TestHelpers
 @testable import UseCases
 
@@ -16,7 +17,7 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
     override func spec() {
 
         var useCase: TrendingCoinsUseCase!
-        var coinRepository: MockCoinRepository!
+        var coinRepository: MockCoinRepositoryProtocol!
 
         let mockCoinIDs = [
             "bitcoin",
@@ -34,7 +35,7 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
         describe("the TrendingCoinsUseCase") {
 
             beforeEach {
-                coinRepository = MockCoinRepository()
+                coinRepository = MockCoinRepositoryProtocol()
                 useCase = TrendingCoinsUseCase(repository: coinRepository)
             }
 
@@ -45,7 +46,7 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
                     let expectedCoins = [MockCoin.single]
 
                     beforeEach {
-                        coinRepository.trendingCoinsReturnValue = .success(expectedCoins)
+                        coinRepository.trendingCoinsCoinIDsReturnValue = expectedCoins
                     }
 
                     it("returns correct value") {
@@ -62,7 +63,7 @@ final class TrendingCoinsUseCaseSpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinRepository.trendingCoinsReturnValue = .failure(expectedError)
+                        coinRepository.trendingCoinsCoinIDsThrowableError = expectedError
                     }
 
                     it("returns correct error") {

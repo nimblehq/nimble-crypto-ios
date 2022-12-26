@@ -4,6 +4,7 @@
 //  Created by Doan Thieu on 04/12/2022.
 //
 
+import UseCaseProtocol
 import Styleguide
 import SwiftUI
 
@@ -52,7 +53,7 @@ struct HomeView_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCase()))
+            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCaseProtocol()))
         }
     }
 }

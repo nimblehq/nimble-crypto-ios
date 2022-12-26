@@ -1,4 +1,4 @@
-// swift-tools-version: 5.5
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -27,6 +27,7 @@ let package = Package(
     dependencies: [
         .package(name: "Domain", path: "../Domain"),
         .package(name: "TestHelpers", path: "../TestHelpers"),
+        .package(name: "BuildTools", path: "../BuildTools"),
         .package(url: "https://github.com/Thieurom/Pilot", from: "0.5.1"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
@@ -34,7 +35,8 @@ let package = Package(
     targets: [
         .target(
             name: "NetworkCore",
-            dependencies: []
+            dependencies: [],
+            plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "NetworkExtension",
