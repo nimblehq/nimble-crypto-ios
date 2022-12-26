@@ -1,8 +1,9 @@
 name: Deploy Build To Firebase
 
 on:
-  pull_request:
-    types: [opened, reopened, edited, synchronize]
+  push:
+    branches: [ release/** ]
+  workflow_dispatch:
 
 jobs:  
   build:

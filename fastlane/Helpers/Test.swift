@@ -22,6 +22,8 @@ enum Test {
             xcodebuildFormatter: "xcbeautify",
             resultBundle: .userDefined(true),
             clonedSourcePackagesPath: .userDefined("SourcePackages"),
+//            skipPackageDependenciesResolution: .userDefined(true),
+            disablePackageAutomaticUpdates: .userDefined(true),
             failBuild: .userDefined(false)
         )
     }
