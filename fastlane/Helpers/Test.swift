@@ -21,7 +21,7 @@ enum Test {
             outputDirectory: Constant.testOutputDirectoryPath,
             xcodebuildFormatter: "xcbeautify",
             resultBundle: .userDefined(true),
-            clonedSourcePackagesPath: .userDefined("SourcePackages"),
+//            clonedSourcePackagesPath: .userDefined("SourcePackages"),
             failBuild: .userDefined(false)
         )
     }
