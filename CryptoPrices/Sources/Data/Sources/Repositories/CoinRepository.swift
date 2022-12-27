@@ -37,8 +37,8 @@ public class CoinRepository: CoinRepositoryProtocol {
 
     // TODO: Update implementation, for e.g. mapping errors
 
-    public func coinDetail() async throws -> Coin {
-        let apiCoin = try await coinAPI.coinDetail()
+    public func coinDetail(id: String) async throws -> Coin {
+        let apiCoin = try await coinAPI.coinDetail(id: id)
         return apiCoin as Coin
     }
 }

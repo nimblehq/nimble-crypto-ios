@@ -13,6 +13,6 @@ public protocol CoinRepositoryProtocol {
     // TODO: Update when implement
     func myCoins() async throws -> [Coin]
     func trendingCoins(coinIDs: [String]) async throws -> [Coin]
-    func coinDetail() async throws -> Coin
     func getChartPrices(coinID: String, filter: TimeFilter) async throws -> [ChartDataPoint]
+    func coinDetail(id: String) async throws -> Coin
 }
