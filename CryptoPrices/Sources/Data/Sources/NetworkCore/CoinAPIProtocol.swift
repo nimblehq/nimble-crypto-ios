@@ -12,4 +12,5 @@ public protocol CoinAPIProtocol {
     func myCoins() async throws -> [APICoin]
     func trendingCoins(coinIDs: [String]) async throws -> [APICoin]
     func coinDetail() async throws -> APICoin
+    func getChartPrices(coinID: String, filter: TimeFilter) async throws -> APIPrices
 }
