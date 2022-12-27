@@ -37,7 +37,9 @@ final class GetChartPricesUseCaseSpec: QuickSpec {
 
                     it("returns correct value") {
                         await expect {
-                            try await useCase.execute(coinID: "bitcoin", filter: .oneDay).compactMap { $0 as? MockDataPoint }
+                            try await useCase.execute(coinID: "bitcoin", filter: .oneDay).compactMap {
+                                $0 as? MockDataPoint
+                            }
                         }
                         .to(equal(expectedDataPoints))
                     }

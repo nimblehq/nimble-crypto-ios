@@ -18,7 +18,7 @@ public enum TimeFilter {
         case .oneWeek: return 7
         case .oneMonth: return 30
         case .oneYear: return 365
-        case .fiveYears: return 1285 // 365*5
+        case .fiveYears: return 1_285 // 365*5
         }
     }
 }

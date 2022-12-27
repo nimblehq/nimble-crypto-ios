@@ -32,6 +32,10 @@ extension Pilot: CoinAPIProtocol where R == CoinRoute {
     }
 
     public func getChartPrices(coinID: String, filter: TimeFilter) async throws -> APIPrices {
-        return try await request(.chart(GetChartPricesParameters(id: coinID, days: filter.daysCount.description)), target: APIPrices.self, decoder: .apiDecoder)
+        return try await request(
+            .chart(GetChartPricesParameters(id: coinID, days: filter.daysCount.description)),
+            target: APIPrices.self,
+            decoder: .apiDecoder
+        )
     }
 }

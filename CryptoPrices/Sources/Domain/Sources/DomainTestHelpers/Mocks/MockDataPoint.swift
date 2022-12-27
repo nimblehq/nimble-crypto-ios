@@ -4,8 +4,8 @@
 //
 //  Created by Minh Pham on 27/12/2022.
 //
+// swiftlint:disable number_separator
 
-import Foundation
 import Entities
 import Foundation
 
