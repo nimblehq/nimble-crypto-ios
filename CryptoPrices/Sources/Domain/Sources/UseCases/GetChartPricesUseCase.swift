@@ -6,7 +6,6 @@
 //
 
 import Entities
-import NetworkCore
 import RepositoryProtocol
 import UseCaseProtocol
 

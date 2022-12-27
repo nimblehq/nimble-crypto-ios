@@ -112,6 +112,43 @@ final class CoinRepositorySpec: QuickSpec {
                     }
                 }
             }
+
+            describe("its getChartPrices() call") {
+
+                context("when the coinAPI returns success") {
+
+                    let expectedPrices = APIPrices.dummyPrices
+
+                    beforeEach {
+                        coinAPI.getChartPricesCoinIDFilterReturnValue = expectedPrices
+                    }
+
+                    it("returns correct value") {
+                        await expect {
+                            try await coinAPI.getChartPrices(coinID: "bitcoin", filter: .oneYear)
+                        }
+                        .to(equal(expectedPrices))
+                    }
+                }
+
+                context("when coinAPI returns failure") {
+
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        coinAPI.getChartPricesCoinIDFilterThrowableError = expectedError
+                    }
+
+                    it("returns correct error") {
+                        await expect {
+                            try await coinRepository.getChartPrices(coinID: "bitcoin", filter: .oneYear)
+                        }
+                        .to(throwError { error in
+                            expect(error).to(equal(expectedError))
+                        })
+                    }
+                }
+            }
         }
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Entities
-import NetworkCore
 
 // sourcery: AutoMockable
 public protocol GetChartPricesUseCaseProtocol {
