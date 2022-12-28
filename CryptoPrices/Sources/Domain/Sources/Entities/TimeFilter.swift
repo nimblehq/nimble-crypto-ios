@@ -6,6 +6,7 @@
 //
 
 public enum TimeFilter {
+
     case oneDay
     case oneWeek
     case oneMonth

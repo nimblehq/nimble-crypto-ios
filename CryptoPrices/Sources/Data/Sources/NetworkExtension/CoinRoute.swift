@@ -25,7 +25,7 @@ extension CoinRoute: Route {
     public var path: String {
         switch self {
         case .myCoins, .trendingCoins: return "/coins/markets"
-        case .chart(let parameters): return "/coins/\(parameters.id)/market_chart"
+        case let .chart(parameters): return "/coins/\(parameters.id)/market_chart"
             // TODO: Update when implement
         default: return ""
         }
