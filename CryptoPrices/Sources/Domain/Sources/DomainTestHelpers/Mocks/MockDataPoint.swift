@@ -12,7 +12,7 @@ import Foundation
 public struct MockDataPoint: ChartDataPoint, Equatable {
 
     public var timestamp: TimeInterval
-    public var price: Double
+    public var price: Decimal
 }
 
 public extension MockDataPoint {

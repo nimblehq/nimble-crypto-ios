@@ -10,6 +10,6 @@ import Foundation
 // sourcery: AutoMockable
 public protocol ChartDataPoint {
 
-    var price: Double { get }
+    var price: Decimal { get }
     var timestamp: TimeInterval { get }
 }

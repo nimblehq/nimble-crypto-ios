@@ -10,9 +10,9 @@ import Foundation
 public struct DataPoint {
 
     public let timestamp: TimeInterval
-    public let price: Double
+    public let price: Decimal
 
-    public init(timestamp: TimeInterval, price: Double) {
+    public init(timestamp: TimeInterval, price: Decimal) {
         self.timestamp = timestamp
         self.price = price
     }

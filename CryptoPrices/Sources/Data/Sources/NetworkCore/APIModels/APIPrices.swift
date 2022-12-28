@@ -9,5 +9,5 @@ import Foundation
 
 public struct APIPrices: Decodable, Equatable {
 
-    public let prices: [[Double]]
+    public let prices: [[Decimal]]
 }
