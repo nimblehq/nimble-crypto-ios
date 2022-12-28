@@ -12,13 +12,20 @@ public struct MyCoinView: View {
     @EnvironmentObject var myCoinState: MyCoinState
 
     public var body: some View {
-        NavigationView {
-            contentView
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: backButton, trailing: likeButton)
-                .navigationTitle("Ethereum") // TODO: Remove dummy
-                .navigationBarTitleDisplayMode(.inline)
-        }
+        contentView
+            .navigationBarBackButtonHidden()
+            .navigationBarItems(leading: backButton, trailing: likeButton)
+            .navigationTitle("Ethereum") // TODO: Remove dummy
+            .navigationBarTitleDisplayMode(.inline)
+            .gesture(
+                DragGesture()
+                    .onEnded { value in
+                        // Handle swipe left-to-right
+                        if value.startLocation.x < 20.0 && value.translation.width > 50.0 {
+                            myCoinState.didSelectBack = true
+                        }
+                    }
+            )
     }
 
     public init() {}

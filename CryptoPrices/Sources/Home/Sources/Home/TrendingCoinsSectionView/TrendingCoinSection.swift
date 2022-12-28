@@ -29,13 +29,12 @@ struct TrendingCoinSection: View {
             // TODO: - Remove dummy
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    ForEach(0..<2) {_ in
+                    ForEach(0..<2) { _ in
                         TrendingCoinItemView()
                             .padding(.vertical, 8.0)
                             .onTapGesture {
-                                withAnimation {
-                                    homeState.didSelectCoin = true
-                                }
+                                // TODO: Remove hard-coded data
+                                homeState.didSelectCoin = "bitcoin"
                             }
                     }
                 }
