@@ -120,14 +120,14 @@ final class CoinRepositorySpec: QuickSpec {
                     let expectedPrices = APIPrices.dummyPrices
 
                     beforeEach {
-                        coinAPI.getChartPricesCoinIDFilterReturnValue = expectedPrices
+                        coinAPI.getChartPricesCoinIDNumberOfDaysReturnValue = expectedPrices
                     }
 
                     it("returns correct value") {
                         await expect {
-                            try await coinAPI.getChartPrices(coinID: "bitcoin", filter: .oneYear)
-                        }
-                        .to(equal(expectedPrices))
+                            try await coinRepository.getChartPrices(coinID: "bitcoin", filter: .oneYear)
+                                .compactMap { $0 as? DataPoint }
+                        }.to(equal(expectedPrices.toDataPoints()))
                     }
                 }
 
@@ -136,7 +136,7 @@ final class CoinRepositorySpec: QuickSpec {
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
-                        coinAPI.getChartPricesCoinIDFilterThrowableError = expectedError
+                        coinAPI.getChartPricesCoinIDNumberOfDaysThrowableError = expectedError
                     }
 
                     it("returns correct error") {

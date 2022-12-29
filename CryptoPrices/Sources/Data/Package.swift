@@ -35,16 +35,13 @@ let package = Package(
     targets: [
         .target(
             name: "NetworkCore",
-            dependencies: [
-                .product(name: "Entities", package: "Domain")
-            ],
+            dependencies: [],
             plugins: [.plugin(name: "SourceryPlugin", package: "BuildTools")]
         ),
         .target(
             name: "NetworkExtension",
             dependencies: [
                 "NetworkCore",
-                .product(name: "Entities", package: "Domain"),
                 .product(name: "Pilot", package: "Pilot"),
                 .product(name: "PilotType", package: "Pilot")
             ]

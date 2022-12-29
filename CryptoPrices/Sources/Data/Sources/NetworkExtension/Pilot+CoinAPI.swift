@@ -5,7 +5,6 @@
 //  Created by Doan Thieu on 01/12/2022.
 //
 
-import Entities
 import NetworkCore
 import Pilot
 
@@ -31,9 +30,9 @@ extension Pilot: CoinAPIProtocol where R == CoinRoute {
         return try await request(.coinDetail, target: APICoin.self, decoder: .apiDecoder)
     }
 
-    public func getChartPrices(coinID: String, filter: TimeFilter) async throws -> APIPrices {
+    public func getChartPrices(coinID: String, numberOfDays: String) async throws -> APIPrices {
         return try await request(
-            .chart(GetChartPricesParameters(id: coinID, days: filter.daysCount.description)),
+            .chart(GetChartPricesParameters(id: coinID, days: numberOfDays)),
             target: APIPrices.self,
             decoder: .apiDecoder
         )

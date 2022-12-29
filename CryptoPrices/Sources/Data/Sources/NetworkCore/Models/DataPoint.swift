@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DataPoint {
+public struct DataPoint: Equatable {
 
     public let timestamp: TimeInterval
     public let price: Decimal

@@ -27,12 +27,11 @@ public class CoinRepository: CoinRepositoryProtocol {
     }
 
     public func getChartPrices(coinID: String, filter: TimeFilter) async throws -> [ChartDataPoint] {
-        let chartData = try await coinAPI.getChartPrices(coinID: coinID, filter: filter)
-        let dataPoints = chartData.prices.map {
-            let timestamp = NSDecimalNumber(decimal: $0.first ?? 0.0).doubleValue
-            let price = $0.last ?? 0.0
-            return DataPoint(timestamp: timestamp, price: price)
-        }
+        let chartData = try await coinAPI.getChartPrices(
+            coinID: coinID,
+            numberOfDays: filter.daysCount.description
+        )
+        let dataPoints = chartData.toDataPoints()
         return dataPoints
     }
 
