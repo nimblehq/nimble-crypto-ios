@@ -260,13 +260,13 @@
 			buildConfigurationList = 4D0A1DC029349D670038624D /* Build configuration list for PBXNativeTarget "CryptoPrices" */;
 			buildPhases = (
 				4D0A1D9829349D660038624D /* Sources */,
-				1CF4DD4D2939B61B0070B0EE /* Run Swiftlint */,
 				4D0A1D9929349D660038624D /* Frameworks */,
 				4D0A1D9A29349D660038624D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4D2029F5296BBD5400C62B71 /* PBXTargetDependency */,
 			);
 			name = CryptoPrices;
 			packageProductDependencies = (
@@ -401,28 +401,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1CF4DD4D2939B61B0070B0EE /* Run Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftlint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif [ -z \"$CI\" ]; then\n  if which swiftlint > /dev/null; then\n    make lint\n  else\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  fi\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		4D0A1D9829349D660038624D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -465,6 +443,10 @@
 			isa = PBXTargetDependency;
 			target = 4D0A1D9B29349D660038624D /* CryptoPrices */;
 			targetProxy = 4D0A1DB729349D670038624D /* PBXContainerItemProxy */;
+		};
+		4D2029F5296BBD5400C62B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 4D2029F4296BBD5400C62B71 /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1121,6 +1103,10 @@
 		24A9D1AB2952C7AA007DBBCB /* RepositoryProtocol */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RepositoryProtocol;
+		};
+		4D2029F4296BBD5400C62B71 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "plugin:SwiftLintPlugin";
 		};
 		4DBA27B3294AD21300D15E33 /* NetworkExtension */ = {
 			isa = XCSwiftPackageProductDependency;
