@@ -14,4 +14,5 @@ public protocol CoinRepositoryProtocol {
     func myCoins() async throws -> [Coin]
     func trendingCoins(coinIDs: [String]) async throws -> [Coin]
     func coinDetail() async throws -> Coin
+    func getChartPrices(coinID: String, filter: TimeFilter) async throws -> [ChartDataPoint]
 }

@@ -6,6 +6,7 @@
 //
 
 import Entities
+import Foundation
 import NetworkCore
 import RepositoryProtocol
 
@@ -25,6 +26,15 @@ public class CoinRepository: CoinRepositoryProtocol {
         return try await coinAPI.trendingCoins(coinIDs: coinIDs).map { $0 as Coin }
     }
 
+    public func getChartPrices(coinID: String, filter: TimeFilter) async throws -> [ChartDataPoint] {
+        let chartData = try await coinAPI.getChartPrices(
+            coinID: coinID,
+            numberOfDays: filter.daysCount.description
+        )
+        let dataPoints = chartData.toDataPoints()
+        return dataPoints
+    }
+
     // TODO: Update implementation, for e.g. mapping errors
 
     public func coinDetail() async throws -> Coin {
@@ -34,3 +44,5 @@ public class CoinRepository: CoinRepositoryProtocol {
 }
 
 extension APICoin: Coin {}
+
+extension DataPoint: ChartDataPoint {}

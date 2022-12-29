@@ -13,6 +13,7 @@ public enum CoinRoute {
     // TODO: Update when implement
     case myCoins(MyCoinsParameters)
     case trendingCoins(TrendingCoinsParameters)
+    case chart(GetChartPricesParameters)
     case coinDetail
 }
 
@@ -24,6 +25,7 @@ extension CoinRoute: Route {
     public var path: String {
         switch self {
         case .myCoins, .trendingCoins: return "/coins/markets"
+        case let .chart(parameters): return "/coins/\(parameters.id)/market_chart"
             // TODO: Update when implement
         default: return ""
         }
@@ -39,6 +41,11 @@ extension CoinRoute: Route {
         switch self {
         case let .myCoins(parameters): return parameters.encoded()
         case let .trendingCoins(parameters): return parameters.encoded()
+        case let .chart(parameters):
+            var finalPayload = parameters.encoded()
+            // The id is already encapsulated in the URL path so we need to remove it from the payload
+            finalPayload.removeValue(forKey: "id")
+            return finalPayload
             // TODO: Update when implement
         default:
             return nil
@@ -47,7 +54,7 @@ extension CoinRoute: Route {
 
     public var parameterEncoding: ParameterEncoding? {
         switch self {
-        case .myCoins: return .url
+        case .myCoins, .chart: return .url
         case .trendingCoins: return .json
             // TODO: Update when implement
         default:
