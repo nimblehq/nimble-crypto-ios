@@ -5,7 +5,6 @@
 //
 
 import Entities
-import Foundation
 
 public struct MockImage: Image, Equatable {
 

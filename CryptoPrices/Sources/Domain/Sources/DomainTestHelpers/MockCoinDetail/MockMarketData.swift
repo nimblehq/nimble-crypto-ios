@@ -8,14 +8,14 @@ import Entities
 
 public struct MockMarketData: MarketData, Equatable {
 
-    public let currentPrice: CurrentPrice
+    public let currentPrice: USDDecimalable
     public let priceChangePercentage24H: Double
-    public let marketCap: MarketCap
+    public let marketCap: USDDecimalable
     public let marketCapChangePercentage24H: Double
-    public let ath: Ath
-    public let athChangePercentage: AthChangePercentage
-    public let atl: Atl
-    public let atlChangePercentage: AtlChangePercentage
+    public let ath: USDDecimalable
+    public let athChangePercentage: USDDoublable
+    public let atl: USDDecimalable
+    public let atlChangePercentage: USDDoublable
     
     public static func == (lhs: MockMarketData, rhs: MockMarketData) -> Bool {
         lhs.currentPrice.usd == rhs.currentPrice.usd

@@ -9,23 +9,20 @@ import Foundation
 
 public struct APIMarketData: MarketData, Decodable, Equatable {
     
-    public var apiCurrentPrice: APICurrentPrice
-    public var apiMarketCap: APIMarketCap
-    public var apiAth: APIAth
-    public var apiAthChangePercentage: APIAthChangePercentage
-    public var apiAtl: APIAtl
-    public var apiAtlChangePercentage: APIAtlChangePercentage
-    
-    public var currentPrice: CurrentPrice { apiCurrentPrice }
-    public var marketCap: MarketCap { apiMarketCap }
-    public var ath: Ath { apiAth }
-    public var athChangePercentage: AthChangePercentage { apiAthChangePercentage }
-    public var atl: Atl { apiAtl }
-    public var atlChangePercentage: AtlChangePercentage { apiAtlChangePercentage }
-    
+    public let apiCurrentPrice: APIUSDDecimal
+    public let apiMarketCap: APIUSDDecimal
+    public let apiAth: APIUSDDecimal
+    public let apiAthChangePercentage: APIUSDDouble
+    public let apiAtl: APIUSDDecimal
+    public let apiAtlChangePercentage: APIUSDDouble
     public let priceChangePercentage24H: Double
     public let marketCapChangePercentage24H: Double
-
+    public var currentPrice: USDDecimalable { apiCurrentPrice }
+    public var marketCap: USDDecimalable { apiMarketCap }
+    public var ath: USDDecimalable { apiAth }
+    public var athChangePercentage: USDDoublable { apiAthChangePercentage }
+    public var atl: USDDecimalable { apiAtl }
+    public var atlChangePercentage: USDDoublable { apiAtlChangePercentage }
 }
 
 extension APIMarketData {

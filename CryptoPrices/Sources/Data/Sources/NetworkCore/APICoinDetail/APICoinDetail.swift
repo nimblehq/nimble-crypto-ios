@@ -9,11 +9,10 @@ import Foundation
 
 public struct APICoinDetail: CoinDetail, Decodable, Equatable {
 
-    public var apiImage: APIImage
-    public var apiMarketData: APIMarketData
+    public let apiImage: APIImage
+    public let apiMarketData: APIMarketData
     public var image: Image { apiImage }
     public var marketData: MarketData { apiMarketData}
-
     public let id: String
     public let symbol: String
     public let name: String

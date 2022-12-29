@@ -7,12 +7,12 @@
 // sourcery: AutoMockable
 public protocol MarketData {
 
-    var currentPrice: CurrentPrice { get }
+    var currentPrice: USDDecimalable { get }
     var priceChangePercentage24H: Double { get }
-    var marketCap: MarketCap { get }
+    var marketCap: USDDecimalable { get }
     var marketCapChangePercentage24H: Double { get }
-    var ath: Ath { get }
-    var athChangePercentage: AthChangePercentage { get }
-    var atl: Atl { get }
-    var atlChangePercentage: AtlChangePercentage { get }
+    var ath: USDDecimalable { get }
+    var athChangePercentage: USDDoublable { get }
+    var atl: USDDecimalable { get }
+    var atlChangePercentage: USDDoublable { get }
 }
