@@ -4,10 +4,7 @@
 //  Created by Khanh on 28/12/2022.
 //
 
-import Entities
-import Foundation
-
-public struct APIMarketData: MarketData, Decodable, Equatable {
+public struct APIMarketData: Decodable, Equatable {
     
     public let apiCurrentPrice: APIUSDDecimal
     public let apiMarketCap: APIUSDDecimal
@@ -17,12 +14,6 @@ public struct APIMarketData: MarketData, Decodable, Equatable {
     public let apiAtlChangePercentage: APIUSDDouble
     public let priceChangePercentage24H: Double
     public let marketCapChangePercentage24H: Double
-    public var currentPrice: USDDecimalable { apiCurrentPrice }
-    public var marketCap: USDDecimalable { apiMarketCap }
-    public var ath: USDDecimalable { apiAth }
-    public var athChangePercentage: USDDoublable { apiAthChangePercentage }
-    public var atl: USDDecimalable { apiAtl }
-    public var atlChangePercentage: USDDoublable { apiAtlChangePercentage }
 }
 
 extension APIMarketData {

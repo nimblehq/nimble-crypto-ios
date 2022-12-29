@@ -46,3 +46,25 @@ public class CoinRepository: CoinRepositoryProtocol {
 extension APICoin: Coin {}
 
 extension DataPoint: ChartDataPoint {}
+
+extension APICoinDetail: CoinDetail {
+    
+    public var image: Image { apiImage }
+    public var marketData: MarketData { apiMarketData}
+}
+
+extension APIImage: Image {}
+
+extension APIUSDDouble: USDDoublable {}
+
+extension APIUSDDecimal: USDDecimalable {}
+
+extension APIMarketData: MarketData {
+
+    public var currentPrice: USDDecimalable { apiCurrentPrice }
+    public var marketCap: USDDecimalable { apiMarketCap }
+    public var ath: USDDecimalable { apiAth }
+    public var athChangePercentage: USDDoublable { apiAthChangePercentage }
+    public var atl: USDDecimalable { apiAtl }
+    public var atlChangePercentage: USDDoublable { apiAtlChangePercentage }
+}
