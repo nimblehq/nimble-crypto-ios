@@ -16,7 +16,7 @@ public struct HomeView: View {
                 headerView
                 WalletStatisticSection()
                 MyCoinSection(coins: viewModel.myCoins)
-                TrendingCoinSection()
+                TrendingCoinSection(coins: viewModel.trendingCoins)
             }
         }
         .padding(.top, 24.0)
@@ -25,6 +25,7 @@ public struct HomeView: View {
         .background(Colors.bgMain.swiftUIColor)
         .task {
             await viewModel.fetchMyCoins()
+            await viewModel.fetchTrendingCoins()
         }
     }
 
@@ -51,7 +52,12 @@ struct HomeView_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCaseProtocol()))
+            HomeView(viewModel:
+                        HomeViewModel(
+                            myCoinsUseCase: MockMyCoinsUseCaseProtocol(),
+                            trendingCoinsUseCase: MockTrendingCoinsUseCaseProtocol()
+                        )
+            )
         }
     }
 }
