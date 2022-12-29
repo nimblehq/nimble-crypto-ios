@@ -16,7 +16,7 @@ public class CoinDetailUseCase: CoinDetailUseCaseProtocol {
         self.repository = repository
     }
 
-    public func execute(id: String) async throws -> Entities.Coin {
+    public func execute(id: String) async throws -> CoinDetail {
         try await repository.coinDetail(id: id)
     }
 }

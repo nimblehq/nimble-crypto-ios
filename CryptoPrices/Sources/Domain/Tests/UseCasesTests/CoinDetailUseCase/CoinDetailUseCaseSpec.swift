@@ -31,7 +31,7 @@ final class CoinDetailUseCaseSpec: QuickSpec {
 
                 context("when coinRepository returns success") {
 
-                    let expectedCoin = MockCoin.single
+                    let expectedCoin = MockCoinDetail.single
 
                     beforeEach {
                         coinRepository.coinDetailIdReturnValue = expectedCoin
@@ -40,7 +40,7 @@ final class CoinDetailUseCaseSpec: QuickSpec {
                     it("returns correct value") {
 
                         await expect {
-                            try await useCase.execute(id: mockCoinID) as? MockCoin
+                            try await useCase.execute(id: mockCoinID) as? MockCoinDetail
                         }
                         .to(equal(expectedCoin))
                     }

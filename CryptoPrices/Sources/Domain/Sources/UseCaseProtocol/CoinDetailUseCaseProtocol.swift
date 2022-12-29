@@ -9,5 +9,5 @@ import Entities
 // sourcery: AutoMockable
 public protocol CoinDetailUseCaseProtocol {
 
-    func execute(id: String) async throws -> Coin
+    func execute(id: String) async throws -> CoinDetail
 }

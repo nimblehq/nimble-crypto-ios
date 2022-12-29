@@ -26,10 +26,10 @@ extension Pilot: CoinAPIProtocol where R == CoinRoute {
         )
     }
 
-    public func coinDetail(id: String) async throws -> APICoin {
+    public func coinDetail(id: String) async throws -> APICoinDetail {
         return try await request(
             .coinDetail(id),
-            target: APICoin.self,
+            target: APICoinDetail.self,
             decoder: .apiDecoder
         )
     }
