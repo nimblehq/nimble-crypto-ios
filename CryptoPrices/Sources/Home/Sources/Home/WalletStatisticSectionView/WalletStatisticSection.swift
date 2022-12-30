@@ -1,5 +1,5 @@
 //
-//  WalletStatisticSection..swift
+//  WalletStatisticSection.swift
 //  Home
 //
 //  Created by Minh Pham on 07/12/2022.

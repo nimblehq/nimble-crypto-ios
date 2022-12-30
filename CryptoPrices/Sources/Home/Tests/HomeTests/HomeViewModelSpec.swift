@@ -1,4 +1,11 @@
-// swiftlint:disable function_body_length closure_body_length superfluous_disable_command
+//
+//  HomeViewModelSpec.swift
+//  Home
+//
+//  Created by Mike Pham on 12/30/2022.
+//
+// swiftlint:disable function_body_length closure_body_length
+
 import DomainTestHelpers
 import Nimble
 import Quick
@@ -9,16 +16,24 @@ import UseCaseProtocol
 final class HomeViewModelSpec: QuickSpec {
 
     override func spec() {
+
         var homeViewModel: HomeViewModel!
         var myCoinsUseCase: MockMyCoinsUseCaseProtocol!
+        var trendingCoinsUseCase: MockTrendingCoinsUseCaseProtocol!
 
         describe("the HomeViewModel") {
+
             beforeEach {
                 myCoinsUseCase = MockMyCoinsUseCaseProtocol()
-                homeViewModel = await HomeViewModel(myCoinsUseCase: myCoinsUseCase)
+                trendingCoinsUseCase = MockTrendingCoinsUseCaseProtocol()
+                homeViewModel = await HomeViewModel(
+                    myCoinsUseCase: myCoinsUseCase,
+                    trendingCoinsUseCase: trendingCoinsUseCase
+                )
             }
 
             describe("its initial state") {
+
                 it("has the correct value for myCoins") {
                     await expect {
                         await homeViewModel.myCoins
@@ -28,7 +43,9 @@ final class HomeViewModelSpec: QuickSpec {
             }
 
             describe("its fetchMyCoins() call") {
+
                 context("when myCoinsUseCase returns success") {
+
                     let myCoinsReturnValue = [MockCoin.single]
                     let expectedCoins = [MyCoinItem(coin: MockCoin.single)]
 
@@ -38,14 +55,13 @@ final class HomeViewModelSpec: QuickSpec {
                     }
 
                     it("gets the correct value for myCoins") {
-                        await expect {
-                            await homeViewModel.myCoins
-                        }
-                        .to(equal(expectedCoins))
+                        await expect { await homeViewModel.myCoins }
+                            .to(equal(expectedCoins))
                     }
                 }
 
                 context("when myCoinsUseCase returns failure") {
+
                     let expectedError = TestError.fail("API error")
 
                     beforeEach {
@@ -56,6 +72,42 @@ final class HomeViewModelSpec: QuickSpec {
                     it("gets the correct value for myCoins") {
                         await expect {
                             await homeViewModel.myCoins
+                        }
+                        .to(beEmpty())
+                    }
+                }
+            }
+
+            describe("its fetchTrendingCoins() call") {
+
+                context("when trendingCoinsUseCase returns success") {
+
+                    let trendingCoinsReturnValue = [MockCoin.single]
+                    let expectedCoins = [TrendingCoinItem(coin: MockCoin.single)]
+
+                    beforeEach {
+                        trendingCoinsUseCase.executeCoinIDsReturnValue = trendingCoinsReturnValue
+                        await homeViewModel.fetchTrendingCoins()
+                    }
+
+                    it("gets the correct value for trendingCoins") {
+                        await expect { await homeViewModel.trendingCoins }
+                            .to(equal(expectedCoins))
+                    }
+                }
+
+                context("when trendingCoinsUseCase returns failure") {
+
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        trendingCoinsUseCase.executeCoinIDsThrowableError = expectedError
+                        await homeViewModel.fetchTrendingCoins()
+                    }
+
+                    it("gets the correct value for trendingCoins") {
+                        await expect {
+                            await homeViewModel.trendingCoins
                         }
                         .to(beEmpty())
                     }
