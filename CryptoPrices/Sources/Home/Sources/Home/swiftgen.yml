@@ -1,23 +1,14 @@
-input_dir: CryptoPrices/Sources
-output_dir: CryptoPrices/Sources
+input_dir: Resources
+output_dir: ${DERIVED_SOURCES_DIR}
 
 ## Generate constants for your localized strings.
 ##   Be sure that SwiftGen only parses ONE locale (typically Base.lproj, or en.lproj, or whichever your development region is); otherwise it will generate the same keys multiple times.
 ##   SwiftGen will parse all `.strings` files found in that folder.
 strings:
   inputs:
-    - Home/Sources/Home/Resources/en.lproj
+    - en.lproj
   outputs:
     - templateName: structured-swift5
       params:
         enumName: Strings
-      output: Home/Sources/Home/Localization/Strings.swift
-
-  inputs:
-    - MyCoin/Sources/MyCoin/Resources/en.lproj
-  outputs:
-    - templateName: structured-swift5
-      params:
-        enumName: Strings
-      output: MyCoin/Sources/MyCoin/Localization/Strings.swift
-
+      output: Strings.swift
