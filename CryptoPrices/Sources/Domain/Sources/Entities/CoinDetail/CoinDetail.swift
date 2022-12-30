@@ -1,5 +1,6 @@
 //
 //  CoinDetail.swift
+//  Domain
 //
 //  Created by Khanh on 28/12/2022.
 //

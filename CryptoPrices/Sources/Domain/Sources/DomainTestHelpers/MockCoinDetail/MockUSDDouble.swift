@@ -1,5 +1,6 @@
 //
 //  MockUSDDouble.swift
+//  Domain
 //
 //  Created by Khanh on 29/12/2022.
 //
