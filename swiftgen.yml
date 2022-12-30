@@ -21,37 +21,3 @@ strings:
         enumName: Strings
       output: MyCoin/Sources/MyCoin/Localization/Strings.swift
 
-## Generate constants for your Assets Catalogs, including constants for images, colors, ARKit resources, etc.
-xcassets:
-  - inputs:
-      - Styleguide/Sources/Styleguide/Resources/Assets/Colors.xcassets
-    outputs:
-      - templateName: swift5
-        params:
-          enumName: Colors
-          forceProvidesNamespaces: true
-          publicAccess: true
-        output: Styleguide/Sources/Styleguide/Generated/Colors.swift
-
-  - inputs:
-      - Styleguide/Sources/Styleguide/Resources/Assets/Images.xcassets
-    outputs:
-      - templateName: swift5
-        params:
-          enumName: Images
-          forceProvidesNamespaces: true
-          publicAccess: true
-        output: Styleguide/Sources/Styleguide/Generated/Images.swift
-
-
-## Generate constants for custom fonts
-fonts:
-  inputs:
-    - Styleguide/Sources/Styleguide/Resources/Fonts
-  outputs:
-    - templateName: swift5
-      params:
-        enumName: Fonts
-        forceProvidesNamespaces: true
-        publicAccess: true
-      output: Styleguide/Sources/Styleguide/Generated/Fonts.swift
