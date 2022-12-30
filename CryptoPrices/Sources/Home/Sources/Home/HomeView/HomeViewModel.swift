@@ -34,6 +34,8 @@ import UseCaseProtocol
     }
 
     public func fetchTrendingCoins() async {
+        // The list of trending coins are provided as per the requirement from this backend task:
+        // https://github.com/nimblehq/nimble-crypto-ios/issues/9
         let trendingCoinIDs = [
             "bitcoin",
             "ethereum",
