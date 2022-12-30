@@ -40,6 +40,13 @@ final class HomeViewModelSpec: QuickSpec {
                     }
                     .to(beEmpty())
                 }
+
+                it("has the correct value for trendingCoins") {
+                    await expect {
+                        await homeViewModel.trendingCoins
+                    }
+                    .to(beEmpty())
+                }
             }
 
             describe("its fetchMyCoins() call") {

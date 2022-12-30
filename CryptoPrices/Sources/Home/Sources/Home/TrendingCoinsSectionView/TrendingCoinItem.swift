@@ -10,14 +10,14 @@ import Entities
 import Foundation
 
 public struct TrendingCoinItem: Identifiable, Equatable {
-    
+
     public let id: String
     public let symbol: String
     public let name: String
     public let iconUrl: URL
     public let priceChangePercentage: Double
     public let isPriceUp: Bool
-    
+
     public init(coin: Coin) {
         id = coin.id
         symbol = coin.symbol.uppercased()
@@ -30,7 +30,7 @@ public struct TrendingCoinItem: Identifiable, Equatable {
 
 #if DEBUG
 extension TrendingCoinItem {
-    
+
     static let mock = TrendingCoinItem(coin: MockCoin.single)
 }
 #endif
