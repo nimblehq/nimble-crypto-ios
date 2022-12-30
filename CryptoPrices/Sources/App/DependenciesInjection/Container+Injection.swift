@@ -24,7 +24,10 @@ extension Container {
 
     // ViewModels
     static let homeViewModel = Factory {
-        HomeViewModel(myCoinsUseCase: myCoinsUseCase.callAsFunction())
+        HomeViewModel(
+            myCoinsUseCase: myCoinsUseCase.callAsFunction(),
+            trendingCoinsUseCase: trendingCoinsUseCase.callAsFunction()
+        )
     }
 
     // Repositories
@@ -35,5 +38,8 @@ extension Container {
     // UseCases
     static let myCoinsUseCase = Factory<MyCoinsUseCaseProtocol> {
         MyCoinsUseCase(repository: coinRepository.callAsFunction())
+    }
+    static let trendingCoinsUseCase = Factory<TrendingCoinsUseCaseProtocol> {
+        TrendingCoinsUseCase(repository: coinRepository.callAsFunction())
     }
 }

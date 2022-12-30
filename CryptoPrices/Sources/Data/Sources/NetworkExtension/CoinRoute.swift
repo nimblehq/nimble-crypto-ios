@@ -51,9 +51,7 @@ extension CoinRoute: Route {
 
     public var parameterEncoding: ParameterEncoding? {
         switch self {
-        case .myCoins, .chart: return .url
-        case .trendingCoins: return .json
-            // TODO: Update when implement
+        case .myCoins, .chart, .trendingCoins: return .url
         default:
             return nil
         }
