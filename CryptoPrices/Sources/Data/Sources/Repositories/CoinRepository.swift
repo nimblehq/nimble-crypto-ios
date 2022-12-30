@@ -37,12 +37,34 @@ public class CoinRepository: CoinRepositoryProtocol {
 
     // TODO: Update implementation, for e.g. mapping errors
 
-    public func coinDetail() async throws -> Coin {
-        let apiCoin = try await coinAPI.coinDetail()
-        return apiCoin as Coin
+    public func coinDetail(id: String) async throws -> CoinDetail {
+        let apiCoin = try await coinAPI.coinDetail(id: id)
+        return apiCoin as CoinDetail
     }
 }
 
 extension APICoin: Coin {}
 
 extension DataPoint: ChartDataPoint {}
+
+extension APICoinDetail: CoinDetail {
+    
+    public var image: Image { apiImage }
+    public var marketData: MarketData { apiMarketData}
+}
+
+extension APIImage: Image {}
+
+extension APIUSDDouble: USDDoublable {}
+
+extension APIUSDDecimal: USDDecimalable {}
+
+extension APIMarketData: MarketData {
+
+    public var currentPrice: USDDecimalable { apiCurrentPrice }
+    public var marketCap: USDDecimalable { apiMarketCap }
+    public var ath: USDDecimalable { apiAth }
+    public var athChangePercentage: USDDoublable { apiAthChangePercentage }
+    public var atl: USDDecimalable { apiAtl }
+    public var atlChangePercentage: USDDoublable { apiAtlChangePercentage }
+}

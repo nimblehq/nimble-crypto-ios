@@ -8,9 +8,8 @@
 // sourcery: AutoMockable
 public protocol CoinAPIProtocol {
 
-    // TODO: Update when implement
     func myCoins() async throws -> [APICoin]
     func trendingCoins(coinIDs: [String]) async throws -> [APICoin]
-    func coinDetail() async throws -> APICoin
     func getChartPrices(coinID: String, numberOfDays: String) async throws -> APIPrices
+    func coinDetail(id: String) async throws -> APICoinDetail
 }

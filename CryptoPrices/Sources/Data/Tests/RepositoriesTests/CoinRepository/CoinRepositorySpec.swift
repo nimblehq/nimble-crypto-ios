@@ -149,6 +149,43 @@ final class CoinRepositorySpec: QuickSpec {
                     }
                 }
             }
+
+            describe("its coinDetail() call") {
+
+                context("when the coinAPI returns success") {
+
+                    let expectedCoin = APICoinDetail.dummy
+
+                    beforeEach {
+                        coinAPI.coinDetailIdReturnValue = expectedCoin
+                    }
+
+                    it("returns correct value") {
+                        await expect {
+                            try await coinRepository.coinDetail(id: mockCoinIDs[0]) as? APICoinDetail
+                        }
+                        .to(equal(expectedCoin))
+                    }
+                }
+
+                context("when coinAPI returns failure") {
+
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        coinAPI.coinDetailIdThrowableError = expectedError
+                    }
+
+                    it("returns correct error") {
+                        await expect {
+                            try await coinRepository.coinDetail(id: mockCoinIDs[0])
+                        }
+                        .to(throwError { error in
+                            expect(error).to(equal(expectedError))
+                        })
+                    }
+                }
+            }
         }
     }
 }
