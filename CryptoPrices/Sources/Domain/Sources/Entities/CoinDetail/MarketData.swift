@@ -4,7 +4,6 @@
 //  Created by Khanh on 28/12/2022.
 //
 
-// sourcery: AutoMockable
 public protocol MarketData {
 
     var currentPrice: USDDecimalable { get }
