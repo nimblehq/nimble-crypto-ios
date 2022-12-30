@@ -7,7 +7,6 @@
 
 import Foundation
 
-// sourcery: AutoMockable
 public protocol USDDecimalable {
 
     var usd: Decimal { get }

@@ -45,7 +45,6 @@ extension CoinRoute: Route {
             // The id is already encapsulated in the URL path so we need to remove it from the payload
             finalPayload.removeValue(forKey: "id")
             return finalPayload
-            // TODO: Update when implement
         default: return nil
         }
     }
