@@ -8,7 +8,10 @@ import Combine
 
 public final class MyCoinState: ObservableObject {
 
+    @Published public var id: String = ""
     @Published public var didSelectBack = false
 
-    public init() {}
+    public init(id: String) {
+        self.id = id
+    }
 }

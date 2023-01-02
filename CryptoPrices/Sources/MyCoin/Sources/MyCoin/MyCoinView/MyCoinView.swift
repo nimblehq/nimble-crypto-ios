@@ -6,6 +6,7 @@
 
 import Styleguide
 import SwiftUI
+import UseCaseProtocol
 
 public struct MyCoinView: View {
 
@@ -15,7 +16,7 @@ public struct MyCoinView: View {
         contentView
             .navigationBarBackButtonHidden()
             .navigationBarItems(leading: backButton, trailing: likeButton)
-            .navigationTitle("Ethereum") // TODO: Remove dummy
+            .navigationTitle(viewModel.coinDetail?.name ?? "")
             .navigationBarTitleDisplayMode(.inline)
             .gesture(
                 DragGesture()
@@ -26,9 +27,16 @@ public struct MyCoinView: View {
                         }
                     }
             )
+            .task {
+                await viewModel.fetchCoinDetail(id: myCoinState.id)
+            }
     }
 
-    public init() {}
+    @ObservedObject private var viewModel: MyCoinViewModel
+
+    public init(viewModel: MyCoinViewModel) {
+        self.viewModel = viewModel
+    }
 }
 
 private extension MyCoinView {
@@ -56,11 +64,17 @@ private extension MyCoinView {
 }
 
 #if DEBUG
+import DomainTestHelpers
+
 struct MyCoinView_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            MyCoinView()
+            MyCoinView(
+                viewModel: MyCoinViewModel(
+                    coinDetailUseCase: MockCoinDetailUseCaseProtocol()
+                )
+            )
         }
     }
 }

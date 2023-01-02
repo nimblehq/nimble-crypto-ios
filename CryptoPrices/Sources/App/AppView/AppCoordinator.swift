@@ -19,7 +19,7 @@ final class AppCoordinator: ObservableObject {
         let myCoinStatePublisher = $homeState
             .flatMap(\.$didSelectCoin)
             .compactMap { $0 }
-            .map { _ in Just(MyCoinState()) }
+            .map { Just(MyCoinState(id: $0)) }
             .assertNoFailure()
             .switchToLatest()
             .share()
