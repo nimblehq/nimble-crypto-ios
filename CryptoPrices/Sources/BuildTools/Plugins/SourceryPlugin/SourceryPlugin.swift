@@ -16,9 +16,22 @@ struct SourceryPlugin: BuildToolPlugin {
             return []
         }
 
-        let sourceryExecutable = try context.tool(named: "sourcery")
         let generatedDirectory = context.pluginWorkDirectory.appending("SourceryGenerated")
 
+        // Command to remove the previously-generated codes
+        let clearCommand = Command.prebuildCommand(
+            displayName: "Clear previously-generated data",
+            executable: .init("/bin/rm"),
+            arguments: [
+                "-rf",
+                generatedDirectory
+            ],
+            outputFilesDirectory: generatedDirectory
+        )
+
+        let sourceryExecutable = try context.tool(named: "sourcery")
+
+        // Command to generate codes from latest changes
         let sourceryCommand = Command.prebuildCommand(
             displayName: "Generate mocked types for \(target) target",
             executable: sourceryExecutable.path,
@@ -36,6 +49,6 @@ struct SourceryPlugin: BuildToolPlugin {
             outputFilesDirectory: generatedDirectory
         )
 
-        return [sourceryCommand]
+        return [clearCommand, sourceryCommand]
     }
 }
