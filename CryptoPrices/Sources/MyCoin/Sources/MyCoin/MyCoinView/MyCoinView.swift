@@ -43,6 +43,7 @@ private extension MyCoinView {
     var contentView: some View {
         ScrollView {
             CurrentPriceSection()
+            CoinStatisticsSection()
         }
         .clipped(antialiased: false)
         .frame(maxHeight: .infinity)
