@@ -31,10 +31,7 @@ extension Container {
     }
     static let myCoinViewModel = Factory {
         MyCoinViewModel(
-            coinDetailUseCase:
-                CoinDetailUseCase(
-                    repository: coinRepository.callAsFunction()
-                )
+            coinDetailUseCase: coinDetailUseCase.callAsFunction()
         )
     }
 

@@ -9,12 +9,12 @@ import DomainTestHelpers
 import Entities
 import Foundation
 
-public struct CoinDetailItem: Identifiable, Equatable {
+public struct CoinDetailItem: Equatable {
 
     public let id: String
     public let symbol: String
     public let name: String
-    public let imageURL: URL
+    public let imageURL: URL?
     public let currentPrice: Decimal
     public let priceChangePercentage24H: Double
     public let marketCap: Decimal
@@ -24,14 +24,13 @@ public struct CoinDetailItem: Identifiable, Equatable {
     public let atl: Decimal
     public let atlChangePercentage: Double
 
-    // swiftlint:disable force_unwrapping
     public init(coinDetail: CoinDetail) {
         let marketData = coinDetail.marketData
         self.id = coinDetail.id
         self.symbol = coinDetail.symbol.uppercased()
         self.name = coinDetail.name
         self.currentPrice = marketData.currentPrice.usd
-        self.imageURL = URL(string: coinDetail.image.large)!
+        self.imageURL = URL(string: coinDetail.image.large)
         self.priceChangePercentage24H = marketData.priceChangePercentage24H
         self.marketCap = marketData.marketCap.usd
         self.marketCapChangePercentage24H = marketData.marketCapChangePercentage24H

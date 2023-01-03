@@ -6,7 +6,6 @@
 
 import Styleguide
 import SwiftUI
-import UseCaseProtocol
 
 public struct MyCoinView: View {
 
@@ -65,6 +64,7 @@ private extension MyCoinView {
 
 #if DEBUG
 import DomainTestHelpers
+import UseCaseProtocol
 
 struct MyCoinView_Previews: PreviewProvider {
 
