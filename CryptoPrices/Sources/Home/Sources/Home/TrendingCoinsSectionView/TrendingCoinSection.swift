@@ -26,22 +26,25 @@ struct TrendingCoinSection: View {
             }
             .padding(16.0)
 
-            // TODO: - Remove dummy
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    ForEach(0..<2) {_ in
-                        TrendingCoinItemView()
+                    ForEach(coins) { coin in
+                        TrendingCoinItemView(coin)
                             .padding(.vertical, 8.0)
                             .onTapGesture {
-                                withAnimation {
-                                    homeState.didSelectCoin = true
-                                }
+                                homeState.didSelectCoin = coin.id
                             }
                     }
                 }
                 .padding(.horizontal, 16.0)
             }
         }
+    }
+
+    private let coins: [TrendingCoinItem]
+
+    init(coins: [TrendingCoinItem]) {
+        self.coins = coins
     }
 }
 
@@ -50,7 +53,7 @@ struct TrendingCoinSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            TrendingCoinSection()
+            MyCoinSection(coins: Array(repeating: .mock, count: 10))
         }
     }
 }

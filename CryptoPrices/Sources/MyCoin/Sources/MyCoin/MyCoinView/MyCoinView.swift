@@ -12,16 +12,30 @@ public struct MyCoinView: View {
     @EnvironmentObject var myCoinState: MyCoinState
 
     public var body: some View {
-        NavigationView {
-            contentView
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: backButton, trailing: likeButton)
-                .navigationTitle("Ethereum") // TODO: Remove dummy
-                .navigationBarTitleDisplayMode(.inline)
-        }
+        contentView
+            .navigationBarBackButtonHidden()
+            .navigationBarItems(leading: backButton, trailing: likeButton)
+            .navigationTitle(viewModel.coinDetail?.name ?? "")
+            .navigationBarTitleDisplayMode(.inline)
+            .gesture(
+                DragGesture()
+                    .onEnded { value in
+                        // Handle swipe left-to-right
+                        if value.startLocation.x < 20.0 && value.translation.width > 50.0 {
+                            myCoinState.didSelectBack = true
+                        }
+                    }
+            )
+            .task {
+                await viewModel.fetchCoinDetail(id: myCoinState.id)
+            }
     }
 
-    public init() {}
+    @ObservedObject private var viewModel: MyCoinViewModel
+
+    public init(viewModel: MyCoinViewModel) {
+        self.viewModel = viewModel
+    }
 }
 
 private extension MyCoinView {
@@ -49,11 +63,18 @@ private extension MyCoinView {
 }
 
 #if DEBUG
+import DomainTestHelpers
+import UseCaseProtocol
+
 struct MyCoinView_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            MyCoinView()
+            MyCoinView(
+                viewModel: MyCoinViewModel(
+                    coinDetailUseCase: MockCoinDetailUseCaseProtocol()
+                )
+            )
         }
     }
 }

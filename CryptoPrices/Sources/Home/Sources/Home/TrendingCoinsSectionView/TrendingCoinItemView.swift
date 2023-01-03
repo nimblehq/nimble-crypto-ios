@@ -9,9 +9,6 @@ import SwiftUI
 
 struct TrendingCoinItemView: View {
 
-    // TODO: - Remove dummy
-    var percentage = 6.21
-
     var body: some View {
         HStack {
             HStack {
@@ -26,44 +23,57 @@ struct TrendingCoinItemView: View {
         .background(Colors.bgCurrencyItem.swiftUIColor)
         .cornerRadius(12.0)
     }
+
+    private let coinItem: TrendingCoinItem
+
+    init(_ coinItem: TrendingCoinItem) {
+        self.coinItem = coinItem
+    }
 }
 
 private extension TrendingCoinItemView {
 
     var coinImage: some View {
-        // TODO: - Remove dummy
-        Images.icBitcoin.swiftUIImage
-            .frame(width: 40.0, height: 40.0)
-            .clipShape(Circle())
+        AsyncImage(
+            url: coinItem.iconUrl,
+            content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            },
+            placeholder: {
+                // TODO: Update with proper placeholder or apply skeleton.
+                EmptyView()
+            }
+        )
+        .frame(width: 40.0, height: 40.0)
     }
 
     var coinInfo: some View {
-        // TODO: - Remove dummy
         VStack(alignment: .leading) {
-            Text("BTC")
+            Text(coinItem.symbol)
                 .foregroundColor(Colors.textBold.swiftUIColor)
                 .font(Fonts.Inter.semiBold.textStyle(.body))
                 .padding(.bottom, 4.0)
 
-            Text("Bitcoin")
+            Text(coinItem.name)
                 .foregroundColor(Colors.textMedium.swiftUIColor)
                 .font(Fonts.Inter.medium.textStyle(.callout))
         }
     }
 
     var priceChangePercentage: some View {
-        // TODO: - Remove dummy
         HStack {
-            percentage < 0.0
-            ? Images.icArrowDownRed.swiftUIImage
-            : Images.icArrowUpGreen.swiftUIImage
+            coinItem.isPriceUp
+            ? Images.icArrowUpGreen.swiftUIImage
+            : Images.icArrowDownRed.swiftUIImage
 
-            Text(percentage, format: .percentage)
+            Text(coinItem.priceChangePercentage, format: .percentage)
                 .font(Fonts.Inter.medium.textStyle(.body))
                 .foregroundColor(
-                    percentage < 0.0
-                    ? Colors.carnation.swiftUIColor
-                    : Colors.guppieGreen.swiftUIColor
+                    coinItem.isPriceUp
+                    ? Colors.guppieGreen.swiftUIColor
+                    : Colors.carnation.swiftUIColor
                 )
         }
     }
@@ -74,7 +84,7 @@ struct TrendingCoinItemView_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            TrendingCoinItemView()
+            TrendingCoinItemView(.mock)
         }
     }
 }

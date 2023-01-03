@@ -11,22 +11,23 @@ import SwiftUI
 public struct HomeView: View {
 
     public var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 40.0) {
-                    headerView
-                    WalletStatisticSection()
-                    MyCoinSection(coins: viewModel.myCoins)
-                    TrendingCoinSection()
+        ScrollView {
+            VStack(spacing: 40.0) {
+                headerView
+                WalletStatisticSection()
+                MyCoinSection(coins: viewModel.myCoins)
+                if !viewModel.trendingCoins.isEmpty {
+                    TrendingCoinSection(coins: viewModel.trendingCoins)
                 }
             }
-            .padding(.top, 24.0)
-            .clipped(antialiased: false)
-            .frame(maxHeight: .infinity)
-            .background(Colors.bgMain.swiftUIColor)
-            .task {
-                await viewModel.fetchMyCoins()
-            }
+        }
+        .padding(.top, 24.0)
+        .clipped(antialiased: false)
+        .frame(maxHeight: .infinity)
+        .background(Colors.bgMain.swiftUIColor)
+        .task {
+            await viewModel.fetchMyCoins()
+            await viewModel.fetchTrendingCoins()
         }
     }
 
@@ -52,9 +53,11 @@ import DomainTestHelpers
 struct HomeView_Previews: PreviewProvider {
 
     static var previews: some View {
-        Preview {
-            HomeView(viewModel: HomeViewModel(myCoinsUseCase: MockMyCoinsUseCaseProtocol()))
-        }
+        let homeViewModel = HomeViewModel(
+            myCoinsUseCase: MockMyCoinsUseCaseProtocol(),
+            trendingCoinsUseCase: MockTrendingCoinsUseCaseProtocol()
+        )
+        return Preview { HomeView(viewModel: homeViewModel) }
     }
 }
 #endif

@@ -1,5 +1,5 @@
 //
-//  APICoin+dummy.swift
+//  APICoin+Dummy.swift
 //  Data
 //
 //  Created by Doan Thieu on 09/12/2022.

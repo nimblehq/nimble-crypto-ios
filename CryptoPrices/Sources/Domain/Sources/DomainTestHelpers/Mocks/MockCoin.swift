@@ -24,10 +24,10 @@ public extension MockCoin {
 
     // swiftlint:disable force_unwrapping
     static var single = MockCoin(
-        id: "mock",
-        symbol: "mockcoin",
-        name: "MockCoin",
-        image: URL(string: "/")!,
+        id: "bitcoin",
+        symbol: "btc",
+        name: "Bitcoin",
+        image: URL(string: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579")!,
         currentPrice: 12.34,
         marketCap: 567.89,
         priceChangePercentage24H: 2.34,

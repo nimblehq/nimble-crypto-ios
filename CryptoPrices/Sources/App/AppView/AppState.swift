@@ -8,8 +8,8 @@
 import Home
 import MyCoin
 
-enum AppState {
+struct AppState {
 
-    case home(HomeState)
-    case myCoin(MyCoinState)
+    var home: HomeState = .init()
+    var myCoin: MyCoinState?
 }
