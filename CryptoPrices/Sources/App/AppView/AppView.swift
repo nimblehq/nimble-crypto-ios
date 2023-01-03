@@ -14,6 +14,7 @@ struct AppView: View {
 
     @StateObject private var appCoordinator: AppCoordinator = .init()
     @Injected(Container.homeViewModel) private var homeViewModel
+    @Injected(Container.myCoinViewModel) private var myCoinViewModel
     @State private var showingMyCoin = false
 
     var body: some View {
@@ -23,7 +24,7 @@ struct AppView: View {
                     .environmentObject(appCoordinator.homeState)
                 NavigationLink("", isActive: $showingMyCoin) {
                     if let myCoinState = appCoordinator.myCoinState {
-                        MyCoinView()
+                        MyCoinView(viewModel: myCoinViewModel)
                             .environmentObject(myCoinState)
                     }
                 }

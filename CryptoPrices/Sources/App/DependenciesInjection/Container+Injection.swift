@@ -29,6 +29,11 @@ extension Container {
             trendingCoinsUseCase: trendingCoinsUseCase.callAsFunction()
         )
     }
+    static let myCoinViewModel = Factory {
+        MyCoinViewModel(
+            coinDetailUseCase: coinDetailUseCase.callAsFunction()
+        )
+    }
 
     // Repositories
     static let coinRepository = Factory<CoinRepositoryProtocol> {
@@ -41,5 +46,8 @@ extension Container {
     }
     static let trendingCoinsUseCase = Factory<TrendingCoinsUseCaseProtocol> {
         TrendingCoinsUseCase(repository: coinRepository.callAsFunction())
+    }
+    static let coinDetailUseCase = Factory<CoinDetailUseCaseProtocol> {
+        CoinDetailUseCase(repository: coinRepository.callAsFunction())
     }
 }
