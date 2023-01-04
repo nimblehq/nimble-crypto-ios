@@ -50,16 +50,17 @@ private extension CoinStatisticsSection {
         percentage: Double
     ) -> some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(
+                alignment: .leading,
+                spacing: 16.0
+            ) {
                 Text(title)
                     .foregroundColor(Colors.textMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.caption))
-                    .padding(.vertical, 4.0)
-                
+
                 Text(price, format: .dollarCurrency)
                     .foregroundColor(Colors.titleMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
-                    .padding(.vertical, 4.0)
             }
 
             Spacer()
