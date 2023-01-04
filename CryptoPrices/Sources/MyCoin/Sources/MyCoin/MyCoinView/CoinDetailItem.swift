@@ -23,6 +23,10 @@ public struct CoinDetailItem: Equatable {
     public let athChangePercentage: Double
     public let atl: Decimal
     public let atlChangePercentage: Double
+    public let isPriceChangePercentage24HUp: Bool
+    public let isMarketCapChangePercentage24HUp: Bool
+    public let isAthChangePercentageUp: Bool
+    public let isAtlChangePercentageUp: Bool
 
     public init(coinDetail: CoinDetail) {
         let marketData = coinDetail.marketData
@@ -38,6 +42,10 @@ public struct CoinDetailItem: Equatable {
         self.athChangePercentage = marketData.athChangePercentage.usd
         self.atl = marketData.atl.usd
         self.atlChangePercentage = marketData.atlChangePercentage.usd
+        self.isPriceChangePercentage24HUp = marketData.priceChangePercentage24H > 0.0
+        self.isMarketCapChangePercentage24HUp = marketData.marketCapChangePercentage24H > 0.0
+        self.isAthChangePercentageUp = marketData.athChangePercentage.usd > 0.0
+        self.isAtlChangePercentageUp = marketData.atlChangePercentage.usd > 0.0
     }
 }
 
