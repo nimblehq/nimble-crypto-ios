@@ -12,7 +12,7 @@ struct TimeFrameSection: View {
     
     @State var selected: TimeFrameItem = .init(timeFrame: .oneDay)
     
-    var timeFrameList: [TimeFrameItem] = [
+    private var timeFrameList: [TimeFrameItem] = [
         .init(timeFrame: .oneDay),
         .init(timeFrame: .oneWeek),
         .init(timeFrame: .oneMonth),
@@ -21,7 +21,7 @@ struct TimeFrameSection: View {
     ]
 
     var body: some View {
-        ScrollView(.horizontal) {
+        VStack(alignment: .center) {
             HStack {
                 ForEach(timeFrameList) { item in
                     Button(item.title) {
@@ -39,12 +39,12 @@ struct TimeFrameSection: View {
                         : .clear
                     )
                     .cornerRadius(12.0)
-                    .padding(.trailing, 13.0)
+                    .padding(.horizontal, 6.0)
                 }
             }
+            .padding(.horizontal, 40.0)
+            .padding(.vertical, 24.0)
         }
-        .padding(.horizontal, 40.0)
-        .padding(.vertical, 24.0)
     }
 }
 
@@ -53,7 +53,7 @@ struct TimeFrameSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            TimeFrameSection(selected: TimeFrameItem(timeFrame: .oneDay))
+            TimeFrameSection()
         }
     }
 }
