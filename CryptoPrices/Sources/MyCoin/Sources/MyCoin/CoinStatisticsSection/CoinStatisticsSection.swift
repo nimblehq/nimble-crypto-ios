@@ -54,12 +54,12 @@ private extension CoinStatisticsSection {
                 Text(title)
                     .foregroundColor(Colors.textMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.caption))
-                    .frame(height: 22.0)
+                    .padding(.vertical, 4.0)
                 
                 Text(price, format: .dollarCurrency)
                     .foregroundColor(Colors.titleMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.callout))
-                    .frame(height: 28.0)
+                    .padding(.vertical, 4.0)
             }
 
             Spacer()
