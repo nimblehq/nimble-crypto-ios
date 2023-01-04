@@ -18,11 +18,6 @@ Open your terminal, then:
 
 3. Open `CryptoPrices.xcodeproj` with Xcode, hit `⌘R` to run.
 
-4. When adding/removing/updating any resources (colors and images assets, fonts, localized strings), please run the following before re-running the app from Xcode:
-   ```
-   make generate
-   ```
-
 ## License
 
 This project is Copyright (c) 2014 and onwards Nimble. It is free software and may be redistributed under the terms specified in the [LICENSE] file.
