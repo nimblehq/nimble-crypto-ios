@@ -48,6 +48,7 @@ private extension MyCoinView {
                 .frame(height: 196.0)
             // TODO: - Add time filter here
             // TODO: - Remove dummy
+            TimeFrameSection()
             CoinStatisticsSection(
                 coinDetailItem: CoinDetailItem(
                     coinDetail: MockCoinDetail.single
