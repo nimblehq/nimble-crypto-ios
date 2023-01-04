@@ -26,13 +26,13 @@ struct PriceLineChartView: UIViewRepresentable {
         uiView.noDataText = "No Data"
         uiView.data = LineChartData(dataSet: dataSet)
         uiView.rightAxis.enabled = false
-        if uiView.scaleX == 1.0 {
-            uiView.zoom(scaleX: 1.5, scaleY: 1, x: 0, y: 0)
-        }
+        uiView.leftAxis.enabled = false
+        uiView.xAxis.enabled = false
+        uiView.legend.enabled = false
+        uiView.minOffset = 0.0
+        uiView.isUserInteractionEnabled = false
+
         formatDataSet(dataSet: dataSet)
-        formatLeftAxis(leftAxis: uiView.leftAxis)
-        formatXAxis(xAxis: uiView.xAxis)
-        formatLegend(legend: uiView.legend)
         uiView.notifyDataSetChanged()
     }
 
@@ -50,7 +50,8 @@ struct PriceLineChartView: UIViewRepresentable {
 
         // Handle each data point drawing
         dataSet.drawIconsEnabled = false
-        dataSet.drawCircleHoleEnabled = false
+        dataSet.drawValuesEnabled = false
+        dataSet.drawCirclesEnabled = false
 
         // Draw gradient fill colors
         let gradientColors = [
@@ -63,30 +64,6 @@ struct PriceLineChartView: UIViewRepresentable {
         }
         dataSet.drawFilledEnabled = true
     }
-
-    func formatLeftAxis(leftAxis: YAxis) {
-        leftAxis.labelTextColor = .red
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .none
-        leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
-        leftAxis.axisMinimum = 0
-        leftAxis.drawAxisLineEnabled = false
-        leftAxis.drawGridLinesEnabled = false
-        leftAxis.drawLabelsEnabled = false
-    }
-
-    func formatXAxis(xAxis: XAxis) {
-        xAxis.valueFormatter = IndexAxisValueFormatter(values: [])
-        xAxis.labelPosition = .bottom
-        xAxis.drawAxisLineEnabled = false
-        xAxis.drawGridLinesEnabled = false
-        xAxis.labelTextColor = .red
-    }
-
-    func formatLegend(legend: Legend) {
-        legend.form = .line
-        legend.enabled = false
-    }
 }
 
 class ChartViewCoordinator: NSObject, ChartViewDelegate {
@@ -98,6 +75,7 @@ class ChartViewCoordinator: NSObject, ChartViewDelegate {
     }
 
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        // TODO: Handle chart data point interactions if needed
         print("Selected price - timestamp \(Int(entry.x)) and price \(Int(entry.y))")
     }
 }

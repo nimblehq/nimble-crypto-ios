@@ -29,6 +29,7 @@ public struct MyCoinView: View {
             .task {
                 await viewModel.fetchCoinDetail(id: myCoinState.id)
             }
+
     }
 
     @ObservedObject private var viewModel: MyCoinViewModel
