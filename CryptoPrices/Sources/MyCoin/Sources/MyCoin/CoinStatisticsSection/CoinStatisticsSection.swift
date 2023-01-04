@@ -12,19 +12,19 @@ struct CoinStatisticsSection: View {
 
     var body: some View {
         VStack {
-            setUpCoinStatisticsItemView(
+            coinStatisticsItemView(
                 title: Strings.MyCoin.MarketCap.title,
                 price: coinDetailItem.marketCap,
                 isPriceUp: coinDetailItem.isMarketCapChangePercentage24HUp,
                 percentage: coinDetailItem.marketCapChangePercentage24H
             )
-            setUpCoinStatisticsItemView(
+            coinStatisticsItemView(
                 title: Strings.MyCoin.Ath.title,
                 price: coinDetailItem.ath,
                 isPriceUp: coinDetailItem.isAthChangePercentageUp,
                 percentage: coinDetailItem.athChangePercentage
             )
-            setUpCoinStatisticsItemView(
+            coinStatisticsItemView(
                 title: Strings.MyCoin.Atl.title,
                 price: coinDetailItem.atl,
                 isPriceUp: coinDetailItem.isAtlChangePercentageUp,
@@ -43,7 +43,7 @@ struct CoinStatisticsSection: View {
 
 private extension CoinStatisticsSection {
 
-    func setUpCoinStatisticsItemView(
+    func coinStatisticsItemView(
         title: String,
         price: Decimal,
         isPriceUp: Bool,
@@ -53,7 +53,7 @@ private extension CoinStatisticsSection {
             VStack(alignment: .leading) {
                 Text(title)
                     .foregroundColor(Colors.textMedium.swiftUIColor)
-                    .font(Fonts.Inter.medium.textStyle(.callout))
+                    .font(Fonts.Inter.medium.textStyle(.caption))
                     .frame(height: 22.0)
                 
                 Text(price, format: .dollarCurrency)
