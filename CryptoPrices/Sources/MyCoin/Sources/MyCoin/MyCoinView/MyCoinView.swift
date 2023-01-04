@@ -43,6 +43,7 @@ private extension MyCoinView {
     var contentView: some View {
         ScrollView {
             CurrentPriceSection()
+            // TODO: - Add Chart and timeframe here
             CoinStatisticsSection()
         }
         .clipped(antialiased: false)

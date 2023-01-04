@@ -17,17 +17,17 @@ struct CoinStatisticsSection: View {
     var body: some View {
         VStack {
             setUpCoinStatisticsItem(
-                title: "Market Cap",
+                title: Strings.MyCoin.MarketCap.title,
                 price: coinDetailItem.marketCap,
                 percentage: coinDetailItem.marketCapChangePercentage24H
             )
             setUpCoinStatisticsItem(
-                title: "All Time High",
+                title: Strings.MyCoin.Ath.title,
                 price: coinDetailItem.ath,
                 percentage: coinDetailItem.athChangePercentage
             )
             setUpCoinStatisticsItem(
-                title: "All Time Low",
+                title: Strings.MyCoin.Atl.title,
                 price: coinDetailItem.atl,
                 percentage: coinDetailItem.atlChangePercentage
             )
