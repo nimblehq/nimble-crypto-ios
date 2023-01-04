@@ -29,7 +29,6 @@ public struct MyCoinView: View {
             .task {
                 await viewModel.fetchCoinDetail(id: myCoinState.id)
             }
-
     }
 
     @ObservedObject private var viewModel: MyCoinViewModel
@@ -45,7 +44,7 @@ private extension MyCoinView {
         ScrollView {
             CurrentPriceSection()
             Spacer(minLength: 38.0)
-            ChartSection()
+            PriceLineChartSection()
                 .frame(height: 196.0)
             // TODO: - Add time filter here
             // TODO: - Remove dummy

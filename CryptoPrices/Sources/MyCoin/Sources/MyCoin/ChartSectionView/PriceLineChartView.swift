@@ -23,6 +23,7 @@ struct PriceLineChartView: UIViewRepresentable {
 
     func updateUIView(_ uiView: LineChartView, context: Context) {
         let dataSet = LineChartDataSet(entries: entries)
+        // TODO: Localize this text for no data case in the integration task
         uiView.noDataText = "No Data"
         uiView.data = LineChartData(dataSet: dataSet)
         uiView.rightAxis.enabled = false
@@ -40,12 +41,9 @@ struct PriceLineChartView: UIViewRepresentable {
         return ChartViewCoordinator(parent: self)
     }
 
-    func formatDataSet(dataSet: LineChartDataSet) {
+    private func formatDataSet(dataSet: LineChartDataSet) {
+        // Setup line drawing
         dataSet.colors = [Colors.caribbeanGreen.color]
-        dataSet.valueColors = [Colors.caribbeanGreen.color]
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .none
-        dataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
         dataSet.lineWidth = 2.0
 
         // Handle each data point drawing
@@ -80,8 +78,11 @@ class ChartViewCoordinator: NSObject, ChartViewDelegate {
     }
 }
 
+#if DEBUG
 struct PriceLineChartView_Previews: PreviewProvider {
+    
     static var previews: some View {
         PriceLineChartView(entries: [])
     }
 }
+#endif
