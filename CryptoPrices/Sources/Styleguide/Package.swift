@@ -12,14 +12,17 @@ let package = Package(
             targets: ["Styleguide"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(name: "BuildTools", path: "../BuildTools")
+    ],
     targets: [
         .target(
             name: "Styleguide",
             dependencies: [],
             resources: [
                 .process("Resources")
-            ]
+            ],
+            plugins: [.plugin(name: "SwiftGenPlugin", package: "BuildTools")]
         ),
         .testTarget(
             name: "StyleguideTests",

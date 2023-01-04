@@ -14,6 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
+        .package(name: "BuildTools", path: "../BuildTools"),
         .package(name: "Styleguide", path: "../Styleguide"),
         .package(name: "Domain", path: "../Domain"),
         .package(name: "TestHelpers", path: "../TestHelpers"),
@@ -27,7 +28,8 @@ let package = Package(
                 .product(name: "Styleguide", package: "Styleguide"),
                 .product(name: "UseCaseProtocol", package: "Domain"),
                 .product(name: "DomainTestHelpers", package: "Domain")
-            ]
+            ],
+            plugins: [.plugin(name: "SwiftGenPlugin", package: "BuildTools")]
         ),
         .testTarget(
             name: "HomeTests",
