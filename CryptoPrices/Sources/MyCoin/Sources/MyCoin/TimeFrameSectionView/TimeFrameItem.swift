@@ -15,12 +15,11 @@ public struct TimeFrameItem: Identifiable, Equatable {
     public let timeFrame: TimeFilter
     public var title: String {
         switch timeFrame {
-        // TODO: - Localize texts after closing https://github.com/nimblehq/nimble-crypto-ios/pull/80
-        case .oneDay: return "1D"
-        case .oneWeek: return "1W"
-        case .oneMonth: return "1M"
-        case .oneYear: return "1Y"
-        case .fiveYears: return "5Y"
+        case .oneDay: return Strings.MyCoin.TimeFrame.oneDayText
+        case .oneWeek: return Strings.MyCoin.TimeFrame.oneWeekText
+        case .oneMonth: return Strings.MyCoin.TimeFrame.oneMonthText
+        case .oneYear: return Strings.MyCoin.TimeFrame.oneYearText
+        case .fiveYears: return Strings.MyCoin.TimeFrame.fiveYearText
         }
     }
 

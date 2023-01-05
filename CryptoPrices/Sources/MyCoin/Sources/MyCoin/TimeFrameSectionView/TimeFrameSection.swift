@@ -12,7 +12,7 @@ struct TimeFrameSection: View {
     
     @State var selected: TimeFrameItem = .init(timeFrame: .oneDay)
     
-    private var timeFrameList: [TimeFrameItem] = [
+    private let timeFrameList: [TimeFrameItem] = [
         .init(timeFrame: .oneDay),
         .init(timeFrame: .oneWeek),
         .init(timeFrame: .oneMonth),
@@ -25,6 +25,7 @@ struct TimeFrameSection: View {
             HStack {
                 ForEach(timeFrameList) { item in
                     Button(item.title) {
+                        // TODO: - handling loading chart logic
                         selected = TimeFrameItem(timeFrame: item.timeFrame)
                     }
                     .frame(width: 46.0, height: 32.0)
