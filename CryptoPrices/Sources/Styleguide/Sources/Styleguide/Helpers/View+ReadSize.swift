@@ -1,5 +1,5 @@
 //
-//  View+Size.swift
+//  View+ReadSize.swift
 //  Styleguide
 //
 //  Created by Minh Pham on 04/01/2023.

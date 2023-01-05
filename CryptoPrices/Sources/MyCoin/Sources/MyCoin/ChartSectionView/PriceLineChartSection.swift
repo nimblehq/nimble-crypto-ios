@@ -34,7 +34,7 @@ struct PriceLineChartSection: View {
         // TODO: Update to use real data in the integrate task
         GeometryReader { geometry in
             VStack(alignment: .center, spacing: 0.0) {
-                Text("50774.067814743")
+                Text("$50,774.06")
                     .font(Fonts.Inter.medium.textStyle(.caption))
                     .foregroundColor(Colors.guppieGreen.swiftUIColor)
                     .readSize { textSize in
@@ -46,7 +46,7 @@ struct PriceLineChartSection: View {
                     }
                     .offset(x: highestPriceOffsetX)
                 PriceLineChartView(entries: testData)
-                Text("45938.02427172366")
+                Text("$43,647.14")
                     .font(Fonts.Inter.medium.textStyle(.caption))
                     .foregroundColor(Colors.carnation.swiftUIColor)
                     .readSize { textSize in
@@ -84,12 +84,13 @@ private extension PriceLineChartSection {
         let positionX = spaceInterval * CGFloat(index)
         let halfParentViewWidth = parentViewWidth / 2.0
         let halfLabelWidth = labelWidth / 2.0
+        let horizontalPadding: CGFloat = 8.0
 
         // Calculate the price label position if it exceeds the trailing/leading of the screen or not
-        if positionX + halfLabelWidth > parentViewWidth { // Exceed the trailing
-            return halfParentViewWidth - halfLabelWidth
-        } else if positionX - halfLabelWidth < 0 { // Exceed the leading
-            return -halfParentViewWidth + halfLabelWidth
+        if positionX + halfLabelWidth + horizontalPadding > parentViewWidth { // Exceed the trailing
+            return halfParentViewWidth - halfLabelWidth - horizontalPadding
+        } else if positionX - halfLabelWidth - horizontalPadding < 0 { // Exceed the leading
+            return -halfParentViewWidth + halfLabelWidth + horizontalPadding
         } else { // Within the screen region
             return positionX - halfParentViewWidth
         }

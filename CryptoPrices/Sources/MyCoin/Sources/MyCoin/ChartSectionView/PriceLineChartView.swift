@@ -13,7 +13,6 @@ import SwiftUI
 struct PriceLineChartView: UIViewRepresentable {
 
     let entries: [ChartDataEntry]
-
     let lineChart = LineChartView()
 
     func makeUIView(context: Context) -> LineChartView {
@@ -53,12 +52,12 @@ struct PriceLineChartView: UIViewRepresentable {
 
         // Draw gradient fill colors
         let gradientColors = [
-            Colors.caribbeanGreen.color.withAlphaComponent(0.5).cgColor,
-            Colors.caribbeanGreen.color.withAlphaComponent(0.001).cgColor
+            Colors.caribbeanGreen.color.withAlphaComponent(0.3).cgColor,
+            Color.clear.cgColor
         ]
-        dataSet.fillAlpha = 1
+        dataSet.fillAlpha = 1.0
         if let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil) {
-            dataSet.fill = LinearGradientFill(gradient: gradient, angle: -90)
+            dataSet.fill = LinearGradientFill(gradient: gradient, angle: -90.0)
         }
         dataSet.drawFilledEnabled = true
     }
