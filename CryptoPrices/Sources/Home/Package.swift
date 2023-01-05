@@ -18,7 +18,8 @@ let package = Package(
         .package(name: "Domain", path: "../Domain"),
         .package(name: "TestHelpers", path: "../TestHelpers"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
-        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1")
+        .package(url: "https://github.com/Quick/Nimble", from: "11.2.1"),
+        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: "6.6.2")
     ],
     targets: [
         .target(
@@ -27,6 +28,9 @@ let package = Package(
                 .product(name: "Styleguide", package: "Styleguide"),
                 .product(name: "UseCaseProtocol", package: "Domain"),
                 .product(name: "DomainTestHelpers", package: "Domain")
+            ],
+            plugins: [
+                .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")
             ]
         ),
         .testTarget(
