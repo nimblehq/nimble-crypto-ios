@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "MyCoin",
+    defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [
         .library(
