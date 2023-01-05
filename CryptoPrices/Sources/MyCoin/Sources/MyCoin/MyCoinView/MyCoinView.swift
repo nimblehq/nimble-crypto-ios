@@ -43,7 +43,10 @@ private extension MyCoinView {
     var contentView: some View {
         ScrollView {
             CurrentPriceSection()
-            // TODO: - Add Chart and timeframe here
+            Spacer(minLength: 38.0)
+            PriceLineChartSection()
+                .frame(height: 196.0)
+            // TODO: - Add time filter here
             // TODO: - Remove dummy
             CoinStatisticsSection(
                 coinDetailItem: CoinDetailItem(

@@ -19,7 +19,8 @@ let package = Package(
         .package(name: "Styleguide", path: "../Styleguide"),
         .package(url: "https://github.com/Quick/Quick", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble", from: "11.2.1"),
-        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: "6.6.2")
+        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: "6.6.2"),
+        .package(url: "https://github.com/danielgindi/Charts.git", .upToNextMajor(from: "4.1.0"))
     ],
     targets: [
         .target(
@@ -27,6 +28,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Styleguide", package: "Styleguide"),
                 .product(name: "UseCaseProtocol", package: "Domain"),
+                .product(name: "Charts", package: "Charts"),
                 .product(name: "DomainTestHelpers", package: "Domain")
             ],
             plugins: [
