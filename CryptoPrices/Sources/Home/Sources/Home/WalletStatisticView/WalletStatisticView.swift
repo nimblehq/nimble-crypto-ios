@@ -1,5 +1,5 @@
 //
-//  WalletStatisticSection.swift
+//  WalletStatisticView.swift
 //  Home
 //
 //  Created by Minh Pham on 07/12/2022.
@@ -8,22 +8,27 @@
 import Styleguide
 import SwiftUI
 
-struct WalletStatisticSection: View {
+struct WalletStatisticView: View {
 
     var body: some View {
-        VStack(spacing: 40.0) {
-            totalCoins
-            todayProfit
+        VStack(spacing: 0.0) {
+            VStack(spacing: 40.0) {
+                totalCoins
+                todayProfit
+            }
+            .padding(.horizontal, 16.0)
+            .padding(.vertical, 32.0)
         }
-        .padding(.horizontal, 32.0)
-        .padding(.vertical, 32.0)
-        .background(gradientBackground)
+        .background(mainBackground)
+        .background(blurBackground)
+        .padding(.horizontal, 16.0)
+        .padding(.bottom, 32.0)
     }
 }
 
-private extension WalletStatisticSection {
+private extension WalletStatisticView {
 
-    var gradientBackground: some View {
+    var mainBackground: some View {
         LinearGradient(
             gradient: Gradient(
                 colors: [
@@ -35,8 +40,23 @@ private extension WalletStatisticSection {
             endPoint: .bottomTrailing
         )
         .cornerRadius(12.0)
-        .padding(.horizontal, 16.0)
-        .shadow(color: Colors.tiffanyBlue.swiftUIColor, radius: 16.0, x: 0.0, y: 16.0)
+    }
+
+    var blurBackground: some View {
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    Colors.metallicSeaweed.swiftUIColor,
+                    Colors.tiffanyBlue.swiftUIColor
+                ]
+            ),
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+        .cornerRadius(12.0)
+        .padding(16.0)
+        .offset(x: 0.0, y: 32.0)
+        .blur(radius: 16.0)
     }
 
     var totalCoins: some View {
@@ -79,6 +99,7 @@ private extension WalletStatisticSection {
                         .font(Fonts.Inter.medium.textStyle(.body))
                 }
             })
+            .buttonStyle(.borderless)
             .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))
             .foregroundColor(Colors.guppieGreen.swiftUIColor)
             .background(Colors.water.swiftUIColor)
@@ -92,7 +113,7 @@ struct WalletStatisticSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            WalletStatisticSection()
+            WalletStatisticView()
         }
     }
 }
