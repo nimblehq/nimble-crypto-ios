@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TimeFrameSection: View {
     
-    @State var selected: TimeFrameItem = .init(timeFrame: .oneDay)
+    @State private var selected: TimeFrameItem = .init(timeFrame: .oneDay)
     
     private let timeFrameList: [TimeFrameItem] = [
         .init(timeFrame: .oneDay),
