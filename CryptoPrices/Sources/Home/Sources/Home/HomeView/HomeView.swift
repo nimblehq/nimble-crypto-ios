@@ -28,8 +28,10 @@ public struct HomeView: View {
                 .background(Colors.bgMain.swiftUIColor)
         })
         .task {
-            await viewModel.fetchMyCoins()
-            await viewModel.fetchTrendingCoins()
+            await viewModel.fetchAllData()
+        }
+        .refreshable {
+            await viewModel.fetchAllData()
         }
     }
 

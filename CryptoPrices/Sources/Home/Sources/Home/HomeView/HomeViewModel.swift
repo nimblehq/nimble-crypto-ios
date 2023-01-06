@@ -55,4 +55,12 @@ import UseCaseProtocol
             // TODO: Handle errors
         }
     }
+
+    public func fetchAllData() async {
+        // Make `fetchMyCoins` and `fetchTrendingCoins` run in parallel
+        await withTaskGroup(of: Void.self) { taskGroup in
+            taskGroup.addTask { await self.fetchMyCoins() }
+            taskGroup.addTask { await self.fetchTrendingCoins() }
+        }
+    }
 }
