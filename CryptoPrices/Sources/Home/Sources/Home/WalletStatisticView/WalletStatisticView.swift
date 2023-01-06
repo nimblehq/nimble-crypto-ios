@@ -28,14 +28,18 @@ struct WalletStatisticView: View {
 
 private extension WalletStatisticView {
 
+    var gradient: Gradient {
+        Gradient(
+            colors: [
+                Colors.metallicSeaweed.swiftUIColor,
+                Colors.tiffanyBlue.swiftUIColor
+            ]
+        )
+    }
+
     var mainBackground: some View {
         LinearGradient(
-            gradient: Gradient(
-                colors: [
-                    Colors.metallicSeaweed.swiftUIColor,
-                    Colors.tiffanyBlue.swiftUIColor
-                ]
-            ),
+            gradient: gradient,
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -44,12 +48,7 @@ private extension WalletStatisticView {
 
     var blurBackground: some View {
         LinearGradient(
-            gradient: Gradient(
-                colors: [
-                    Colors.metallicSeaweed.swiftUIColor,
-                    Colors.tiffanyBlue.swiftUIColor
-                ]
-            ),
+            gradient: gradient,
             startPoint: .leading,
             endPoint: .trailing
         )
