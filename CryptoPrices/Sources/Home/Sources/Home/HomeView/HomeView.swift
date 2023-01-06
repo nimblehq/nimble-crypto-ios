@@ -61,7 +61,7 @@ private extension HomeView {
             MyCoinsView(coins: viewModel.myCoins)
         } header: {
             Header(
-                title: Strings.Home.MyCoin.title,
+                title: Strings.Home.MyCoins.title,
                 actionTitle: Strings.Home.SeeAll.text,
                 action: {}
             )
