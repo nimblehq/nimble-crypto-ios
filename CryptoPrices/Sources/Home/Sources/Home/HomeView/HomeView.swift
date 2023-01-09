@@ -11,23 +11,27 @@ import SwiftUI
 public struct HomeView: View {
 
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 40.0) {
-                headerView
-                WalletStatisticSection()
-                MyCoinSection(coins: viewModel.myCoins)
-                if !viewModel.trendingCoins.isEmpty {
-                    TrendingCoinSection(coins: viewModel.trendingCoins)
-                }
-            }
+        List {
+            headerSection
+
+            myCoinsSection
+                .renderIf(!viewModel.myCoins.isEmpty)
+
+            trendingCoinsSection
+                .renderIf(!viewModel.trendingCoins.isEmpty)
         }
-        .padding(.top, 24.0)
-        .clipped(antialiased: false)
-        .frame(maxHeight: .infinity)
+        .listStyle(.plain)
         .background(Colors.bgMain.swiftUIColor)
+        .safeAreaInset(edge: .top, spacing: 0.0, content: {
+            EmptyView()
+                .frame(height: 1.0)
+                .background(Colors.bgMain.swiftUIColor)
+        })
         .task {
-            await viewModel.fetchMyCoins()
-            await viewModel.fetchTrendingCoins()
+            await viewModel.fetchAllData()
+        }
+        .refreshable {
+            await viewModel.fetchAllData()
         }
     }
 
@@ -40,10 +44,40 @@ public struct HomeView: View {
 
 private extension HomeView {
 
-    var headerView: some View {
-        Text(Strings.Home.Title.text)
-            .multilineTextAlignment(.center)
-            .font(Fonts.Inter.bold.textStyle(.title))
+    var headerSection: some View {
+        Section {
+            Text(Strings.Home.Title.text)
+                .multilineTextAlignment(.center)
+                .font(Fonts.Inter.semiBold.textStyle(.title))
+                .padding(.top, 24.0)
+                .padding(.bottom, 40.0)
+
+            WalletStatisticView()
+        }
+    }
+
+    var myCoinsSection: some View {
+        Section {
+            MyCoinsView(coins: viewModel.myCoins)
+        } header: {
+            HomeHeader(
+                title: Strings.Home.MyCoins.title,
+                actionTitle: Strings.Home.SeeAll.text,
+                action: {}
+            )
+        }
+    }
+
+    var trendingCoinsSection: some View {
+        Section {
+            TrendingCoinsView(coins: viewModel.trendingCoins)
+        } header: {
+            HomeHeader(
+                title: Strings.Home.TrendingCoins.title,
+                actionTitle: Strings.Home.SeeAll.text,
+                action: {}
+            )
+        }
     }
 }
 
