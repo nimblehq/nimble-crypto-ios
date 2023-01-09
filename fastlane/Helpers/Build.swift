@@ -51,6 +51,7 @@ enum Build {
             ]),
             buildPath: .userDefined(Constant.buildPath),
             derivedDataPath: .userDefined(Constant.derivedDataPath),
+            xcargs: .userDefined("-skipPackagePluginValidation"),
             xcodebuildFormatter: "xcbeautify",
             clonedSourcePackagesPath: .userDefined(Constant.clonedSourcePackagesPath)
         )
