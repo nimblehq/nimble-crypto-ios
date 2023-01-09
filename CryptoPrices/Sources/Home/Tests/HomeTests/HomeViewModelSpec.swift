@@ -144,9 +144,6 @@ final class HomeViewModelSpec: QuickSpec {
                             .to(equal(expectedTrendinglCoins))
                     }
                 }
-            }
-
-            describe("its fetchAllData() call") {
 
                 context("when myCoinsUseCase returns success, trendingCoinsUseCase returns failure") {
                     let returnValue = [MockCoin.single]
@@ -169,9 +166,6 @@ final class HomeViewModelSpec: QuickSpec {
                             .to(beEmpty())
                     }
                 }
-            }
-
-            describe("its fetchAllData() call") {
 
                 context("when myCoinsUseCase and trendingCoinsUseCase return failure") {
                     let expectedError = TestError.fail("API error")
