@@ -60,7 +60,7 @@ private extension HomeView {
         Section {
             MyCoinsView(coins: viewModel.myCoins)
         } header: {
-            Header(
+            HomeHeader(
                 title: Strings.Home.MyCoins.title,
                 actionTitle: Strings.Home.SeeAll.text,
                 action: {}
@@ -72,7 +72,7 @@ private extension HomeView {
         Section {
             TrendingCoinsView(coins: viewModel.trendingCoins)
         } header: {
-            Header(
+            HomeHeader(
                 title: Strings.Home.TrendingCoins.title,
                 actionTitle: Strings.Home.SeeAll.text,
                 action: {}

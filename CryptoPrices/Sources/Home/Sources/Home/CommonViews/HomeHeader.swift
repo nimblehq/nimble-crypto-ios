@@ -1,5 +1,5 @@
 //
-//  Header.swift
+//  HomeHeader.swift
 //  Home
 //
 //  Created by Doan Thieu on 05/01/2023.
@@ -8,7 +8,7 @@
 import Styleguide
 import SwiftUI
 
-struct Header: View {
+struct HomeHeader: View {
 
     let title: String
     let actionTitle: String

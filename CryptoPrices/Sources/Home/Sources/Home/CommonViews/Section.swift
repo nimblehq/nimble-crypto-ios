@@ -9,12 +9,12 @@
 import Styleguide
 import SwiftUI
 
-struct Section<Content>: View where Content: View {
+struct Section<Content, Header>: View where Content: View, Header: View {
 
     private let content: Content
     private let header: Header?
 
-    init(@ViewBuilder content: () -> Content) {
+    init(@ViewBuilder content: () -> Content) where Header == EmptyView {
         self.content = content()
         self.header = nil
     }
