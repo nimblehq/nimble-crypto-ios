@@ -9,7 +9,7 @@ import SwiftUI
 
 private struct RenderIfModifier: ViewModifier {
 
-    let condition: Bool
+    private let condition: Bool
 
     init(_ condition: Bool) {
         self.condition = condition
