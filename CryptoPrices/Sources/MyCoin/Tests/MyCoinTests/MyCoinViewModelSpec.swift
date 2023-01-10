@@ -50,7 +50,7 @@ final class MyCoinViewModelSpec: QuickSpec {
                 context("when coinDetailUseCase returns success") {
 
                     let coinDetailReturnValue = MockCoinDetail.single
-                    let expectedCoins = CoinDetailItem(coinDetail: MockCoinDetail.single)
+                    let expectedCoin = CoinDetailItem(coinDetail: MockCoinDetail.single)
 
                     beforeEach {
                         coinDetailUseCase.executeIdReturnValue = coinDetailReturnValue
@@ -59,7 +59,7 @@ final class MyCoinViewModelSpec: QuickSpec {
 
                     it("gets the correct value for coinDetail") {
                         await expect { await myCoinViewModel.coinDetail }
-                            .to(equal(expectedCoins))
+                            .to(equal(expectedCoin))
                     }
                 }
 

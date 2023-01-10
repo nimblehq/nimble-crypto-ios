@@ -70,7 +70,7 @@ private extension MyCoinView {
     var coinStatisticsSection: some View {
         Section {
             CoinStatisticsSection(
-                coinDetailItem: CoinDetailItem(
+                coinDetailItem: viewModel.coinDetail ?? CoinDetailItem(
                     coinDetail: MockCoinDetail.single
                 )
             )
