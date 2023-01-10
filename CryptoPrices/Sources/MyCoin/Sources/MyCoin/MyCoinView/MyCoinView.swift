@@ -4,6 +4,7 @@
 //  Created by Mike Pham on 04/12/2022.
 //
 
+import DomainTestHelpers
 import Styleguide
 import SwiftUI
 
@@ -43,6 +44,17 @@ private extension MyCoinView {
     var contentView: some View {
         ScrollView {
             CurrentPriceSection()
+            Spacer(minLength: 38.0)
+            PriceLineChartSection()
+                .frame(height: 196.0)
+            // TODO: - Add time filter here
+            // TODO: - Remove dummy
+            TimeFrameSection()
+            CoinStatisticsSection(
+                coinDetailItem: CoinDetailItem(
+                    coinDetail: MockCoinDetail.single
+                )
+            )
         }
         .clipped(antialiased: false)
         .frame(maxHeight: .infinity)

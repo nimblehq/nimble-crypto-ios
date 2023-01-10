@@ -120,6 +120,73 @@ final class HomeViewModelSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("its fetchAllData() call") {
+
+                context("when myCoinsUseCase and trendingCoinsUseCase return success") {
+                    let returnValue = [MockCoin.single]
+                    let expectedMyCoins = [MyCoinItem(coin: MockCoin.single)]
+                    let expectedTrendinglCoins = [TrendingCoinItem(coin: MockCoin.single)]
+
+                    beforeEach {
+                        myCoinsUseCase.executeReturnValue = returnValue
+                        trendingCoinsUseCase.executeCoinIDsReturnValue = returnValue
+                        await homeViewModel.fetchAllData()
+                    }
+
+                    it("gets the correct value for myCoins") {
+                        await expect { await homeViewModel.myCoins }
+                            .to(equal(expectedMyCoins))
+                    }
+
+                    it("gets the correct value for trendingCoins") {
+                        await expect { await homeViewModel.trendingCoins }
+                            .to(equal(expectedTrendinglCoins))
+                    }
+                }
+
+                context("when myCoinsUseCase returns success, trendingCoinsUseCase returns failure") {
+                    let returnValue = [MockCoin.single]
+                    let expectedMyCoins = [MyCoinItem(coin: MockCoin.single)]
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        myCoinsUseCase.executeReturnValue = returnValue
+                        trendingCoinsUseCase.executeCoinIDsThrowableError = expectedError
+                        await homeViewModel.fetchAllData()
+                    }
+
+                    it("gets the correct value for myCoins") {
+                        await expect { await homeViewModel.myCoins }
+                            .to(equal(expectedMyCoins))
+                    }
+
+                    it("gets the correct value for trendingCoins") {
+                        await expect { await homeViewModel.trendingCoins }
+                            .to(beEmpty())
+                    }
+                }
+
+                context("when myCoinsUseCase and trendingCoinsUseCase return failure") {
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        myCoinsUseCase.executeThrowableError = expectedError
+                        trendingCoinsUseCase.executeCoinIDsThrowableError = expectedError
+                        await homeViewModel.fetchAllData()
+                    }
+
+                    it("gets the correct value for myCoins") {
+                        await expect { await homeViewModel.myCoins }
+                            .to(beEmpty())
+                    }
+
+                    it("gets the correct value for trendingCoins") {
+                        await expect { await homeViewModel.trendingCoins }
+                            .to(beEmpty())
+                    }
+                }
+            }
         }
     }
 }

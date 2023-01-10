@@ -1,0 +1,8 @@
+"myCoin.marketCap.title" = "Market Cap";
+"myCoin.ath.title" = "All Time High";
+"myCoin.atl.title" = "All Time Low";
+"myCoin.timeFrame.oneDayText" = "1D";
+"myCoin.timeFrame.oneWeekText" = "1W";
+"myCoin.timeFrame.oneMonthText" = "1M";
+"myCoin.timeFrame.oneYearText" = "1Y";
+"myCoin.timeFrame.fiveYearText" = "5Y";

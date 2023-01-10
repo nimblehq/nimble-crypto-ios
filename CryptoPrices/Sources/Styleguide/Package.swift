@@ -12,13 +12,18 @@ let package = Package(
             targets: ["Styleguide"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: "6.6.2")
+    ],
     targets: [
         .target(
             name: "Styleguide",
             dependencies: [],
             resources: [
                 .process("Resources")
+            ],
+            plugins: [
+                .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")
             ]
         ),
         .testTarget(
