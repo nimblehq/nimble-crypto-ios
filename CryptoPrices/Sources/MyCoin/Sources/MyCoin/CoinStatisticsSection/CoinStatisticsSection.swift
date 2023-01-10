@@ -77,7 +77,6 @@ private extension CoinStatisticsSection {
                     : Colors.carnation.swiftUIColor
                 )
         }
-        .padding(.bottom, 24.0)
     }
 }
 
