@@ -17,7 +17,6 @@ public struct MyCoinItem: Identifiable, Equatable {
     public let iconUrl: URL
     public let currentPrice: Decimal
     public let priceChangePercentage: Double
-    public let isPriceUp: Bool
 
     public init(coin: Coin) {
         self.id = coin.id
@@ -26,7 +25,6 @@ public struct MyCoinItem: Identifiable, Equatable {
         self.iconUrl = coin.image
         self.currentPrice = coin.currentPrice
         self.priceChangePercentage = coin.priceChangePercentage24H
-        self.isPriceUp = coin.priceChangePercentage24H > 0.0
     }
 }
 
