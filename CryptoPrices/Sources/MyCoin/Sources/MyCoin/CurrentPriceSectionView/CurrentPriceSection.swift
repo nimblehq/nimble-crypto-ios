@@ -33,17 +33,8 @@ struct CurrentPriceSection: View {
 
                 Button(action: {}, label: {
                     HStack {
-                        coinItem.isPriceChangePercentage24HUp
-                        ? Images.icArrowUpGreen.swiftUIImage
-                        : Images.icArrowDownRed.swiftUIImage
-
-                        Text(coinItem.priceChangePercentage24H, format: .percentage)
+                        PercentageView(coinItem.priceChangePercentage24H)
                             .font(Fonts.Inter.medium.textStyle(.callout))
-                            .foregroundColor(
-                                coinItem.isPriceChangePercentage24HUp
-                                ? Colors.guppieGreen.swiftUIColor
-                                : Colors.carnation.swiftUIColor
-                            )
                     }
                 })
                 .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))

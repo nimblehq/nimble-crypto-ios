@@ -15,21 +15,20 @@ struct CoinStatisticsSection: View {
             coinStatisticsItemView(
                 title: Strings.MyCoin.MarketCap.title,
                 price: coinDetailItem.marketCap,
-                isPriceUp: coinDetailItem.isMarketCapChangePercentage24HUp,
                 percentage: coinDetailItem.marketCapChangePercentage24H
             )
             .padding(.bottom, 24.0)
+
             coinStatisticsItemView(
                 title: Strings.MyCoin.Ath.title,
                 price: coinDetailItem.ath,
-                isPriceUp: coinDetailItem.isAthChangePercentageUp,
                 percentage: coinDetailItem.athChangePercentage
             )
             .padding(.bottom, 24.0)
+
             coinStatisticsItemView(
                 title: Strings.MyCoin.Atl.title,
                 price: coinDetailItem.atl,
-                isPriceUp: coinDetailItem.isAtlChangePercentageUp,
                 percentage: coinDetailItem.atlChangePercentage
             )
         }
@@ -53,7 +52,6 @@ private extension CoinStatisticsSection {
     func coinStatisticsItemView(
         title: String,
         price: Decimal,
-        isPriceUp: Bool,
         percentage: Double
     ) -> some View {
         HStack {
@@ -80,26 +78,9 @@ private extension CoinStatisticsSection {
 
             Spacer()
 
-            if isPriceUp {
-                Images.icArrowUpGreen.swiftUIImage
-            } else {
-                Images.icArrowDownRed.swiftUIImage
-            }
-
-            ZStack(alignment: .trailing) {
-                Text(percentage, format: .percentage)
-                    .font(Fonts.Inter.medium.textStyle(.body))
-                    .foregroundColor(
-                        isPriceUp
-                        ? Colors.guppieGreen.swiftUIColor
-                        : Colors.carnation.swiftUIColor
-                    )
-                    .opacity(shouldShowData ? 1.0 : 0.0)
-
-                Text(Strings.MyCoin.NoData.text)
-                    .font(Fonts.Inter.medium.textStyle(.body))
-                    .opacity(shouldShowData ? 0.0 : 1.0)
-            }
+            PercentageView(percentage)
+                .font(Fonts.Inter.medium.textStyle(.body))
+                .opacity(shouldShowData ? 1.0 : 0.0)
         }
     }
 }
