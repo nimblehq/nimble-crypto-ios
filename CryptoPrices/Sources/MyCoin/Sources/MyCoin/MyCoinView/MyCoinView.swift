@@ -4,7 +4,6 @@
 //  Created by Mike Pham on 04/12/2022.
 //
 
-import DomainTestHelpers
 import Styleguide
 import SwiftUI
 
@@ -60,8 +59,10 @@ public struct MyCoinView: View {
 private extension MyCoinView {
 
     var currentPriceSection: some View {
-        Section {
-            CurrentPriceSection()
+        viewModel.coinDetail.map { coinDetail in
+            Section {
+                CurrentPriceSection(coinDetail)
+            }
         }
     }
 

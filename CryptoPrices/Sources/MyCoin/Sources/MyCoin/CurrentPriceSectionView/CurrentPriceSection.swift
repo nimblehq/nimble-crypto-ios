@@ -12,27 +12,38 @@ struct CurrentPriceSection: View {
 
     var body: some View {
         VStack(spacing: 8.0) {
-            // TODO: - Remove dummy
-            Images.icEth.swiftUIImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 60.0, height: 60.0)
-                .clipShape(Circle())
+            AsyncImage(
+                url: coinItem.imageURL,
+                content: { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                },
+                placeholder: {
+                    EmptyView()
+                }
+            )
+            .frame(width: 60.0, height: 60.0)
 
             VStack(spacing: 4.0) {
-                // TODO: Remove hard-coded data
-                Text(7_273_291, format: .dollarCurrency)
+                Text(coinItem.currentPrice, format: .dollarCurrency)
                     .foregroundColor(Colors.textBold.swiftUIColor)
                     .font(Fonts.Inter.semiBold.textStyle(.title))
                     .frame(height: 34.0)
 
                 Button(action: {}, label: {
                     HStack {
-                        Images.icArrowUpGreen.swiftUIImage
-                        // TODO: Remove hard-coded data
-                        Text(2.41, format: .percentage)
+                        coinItem.isPriceChangePercentage24HUp
+                        ? Images.icArrowUpGreen.swiftUIImage
+                        : Images.icArrowDownRed.swiftUIImage
+
+                        Text(coinItem.priceChangePercentage24H, format: .percentage)
                             .font(Fonts.Inter.medium.textStyle(.callout))
-                        
+                            .foregroundColor(
+                                coinItem.isPriceChangePercentage24HUp
+                                ? Colors.guppieGreen.swiftUIColor
+                                : Colors.carnation.swiftUIColor
+                            )
                     }
                 })
                 .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))
@@ -44,6 +55,12 @@ struct CurrentPriceSection: View {
         .padding(.vertical, 8.0)
         .frame(maxWidth: .infinity)
     }
+
+    private let coinItem: CoinDetailItem
+
+    init(_ coinItem: CoinDetailItem) {
+        self.coinItem = coinItem
+    }
 }
 
 #if DEBUG
@@ -51,7 +68,7 @@ struct CurrentPriceSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            CurrentPriceSection()
+            CurrentPriceSection(.mock)
         }
     }
 }
