@@ -8,7 +8,7 @@ import DomainTestHelpers
 import Styleguide
 import SwiftUI
 
-typealias Section = Styleguide.Section
+private typealias Section = Styleguide.Section
 
 public struct MyCoinView: View {
 
