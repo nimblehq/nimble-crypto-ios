@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09D09DEB296D7F20009F88AF /* KIF in Frameworks */ = {isa = PBXBuildFile; productRef = 09D09DEA296D7F20009F88AF /* KIF */; };
+		09D09DEE296D8077009F88AF /* KIF+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D09DED296D8077009F88AF /* KIF+Swift.swift */; };
+		09D09DF2296E44DE009F88AF /* HomeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D09DF1296E44DE009F88AF /* HomeSpec.swift */; };
+		09D09DF5296E454D009F88AF /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 09D09DF4296E454D009F88AF /* Nimble */; };
+		09D09DF8296E4782009F88AF /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 09D09DF7296E4782009F88AF /* Quick */; };
 		1C3B441229504D8200AFCD81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441129504D8200AFCD81 /* AppState.swift */; };
 		1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */; };
 		1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */ = {isa = PBXBuildFile; productRef = 1C3B441C2952B34D00AFCD81 /* Wormholy */; };
@@ -35,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		09D09DE2296D7EFA009F88AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D0A1D9429349D660038624D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D0A1D9B29349D660038624D;
+			remoteInfo = CryptoPrices;
+		};
 		4D0A1DAD29349D670038624D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D0A1D9429349D660038624D /* Project object */;
@@ -52,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09D09DDE296D7EFA009F88AF /* CryptoPricesKIFUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPricesKIFUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09D09DED296D8077009F88AF /* KIF+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Swift.swift"; sourceTree = "<group>"; };
+		09D09DF1296E44DE009F88AF /* HomeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSpec.swift; sourceTree = "<group>"; };
 		1C3B441129504D8200AFCD81 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		249752BB29418C64003C6238 /* MyCoin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoin; path = CryptoPrices/Sources/MyCoin; sourceTree = "<group>"; };
@@ -75,6 +90,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		09D09DDB296D7EFA009F88AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09D09DF8296E4782009F88AF /* Quick in Frameworks */,
+				09D09DEB296D7F20009F88AF /* KIF in Frameworks */,
+				09D09DF5296E454D009F88AF /* Nimble in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D0A1D9929349D660038624D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -114,6 +139,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09D09DDF296D7EFA009F88AF /* CryptoPricesKIFUITests */ = {
+			isa = PBXGroup;
+			children = (
+				09D09DEC296D7F31009F88AF /* Sources */,
+			);
+			path = CryptoPricesKIFUITests;
+			sourceTree = "<group>";
+		};
+		09D09DEC296D7F31009F88AF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				09D09DF0296E44C3009F88AF /* Specs */,
+				09D09DEF296E449B009F88AF /* Utilities */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		09D09DEF296E449B009F88AF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				09D09DED296D8077009F88AF /* KIF+Swift.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		09D09DF0296E44C3009F88AF /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				09D09DF1296E44DE009F88AF /* HomeSpec.swift */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
 		24A9D19F2952BF4D007DBBCB /* AppView */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +210,7 @@
 				4D0A1D9E29349D660038624D /* CryptoPrices */,
 				4D0A1DAF29349D670038624D /* CryptoPricesTests */,
 				4D0A1DB929349D670038624D /* CryptoPricesUITests */,
+				09D09DDF296D7EFA009F88AF /* CryptoPricesKIFUITests */,
 				4D0A1D9D29349D660038624D /* Products */,
 				4DF0741A293C8D3900E1274D /* Frameworks */,
 			);
@@ -163,6 +222,7 @@
 				4D0A1D9C29349D660038624D /* CryptoPrices.app */,
 				4D0A1DAC29349D670038624D /* CryptoPricesTests.xctest */,
 				4D0A1DB629349D670038624D /* CryptoPricesUITests.xctest */,
+				09D09DDE296D7EFA009F88AF /* CryptoPricesKIFUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +315,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		09D09DDD296D7EFA009F88AF /* CryptoPricesKIFUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09D09DE8296D7EFB009F88AF /* Build configuration list for PBXNativeTarget "CryptoPricesKIFUITests" */;
+			buildPhases = (
+				09D09DDA296D7EFA009F88AF /* Sources */,
+				09D09DDB296D7EFA009F88AF /* Frameworks */,
+				09D09DDC296D7EFA009F88AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09D09DE3296D7EFA009F88AF /* PBXTargetDependency */,
+			);
+			name = CryptoPricesKIFUITests;
+			packageProductDependencies = (
+				09D09DEA296D7F20009F88AF /* KIF */,
+				09D09DF4296E454D009F88AF /* Nimble */,
+				09D09DF7296E4782009F88AF /* Quick */,
+			);
+			productName = CryptoPricesKIFUITests;
+			productReference = 09D09DDE296D7EFA009F88AF /* CryptoPricesKIFUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4D0A1D9B29349D660038624D /* CryptoPrices */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D0A1DC029349D670038624D /* Build configuration list for PBXNativeTarget "CryptoPrices" */;
@@ -333,9 +416,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					09D09DDD296D7EFA009F88AF = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4D0A1D9B29349D660038624D;
+					};
 					4D0A1D9B29349D660038624D = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -363,6 +450,9 @@
 				4DF074392949766900E1274D /* XCRemoteSwiftPackageReference "ShowTime" */,
 				1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */,
 				246DD0562953FCA0002BB9B9 /* XCRemoteSwiftPackageReference "Factory" */,
+				09D09DE9296D7F20009F88AF /* XCRemoteSwiftPackageReference "KIF" */,
+				09D09DF3296E454C009F88AF /* XCRemoteSwiftPackageReference "Nimble" */,
+				09D09DF6296E4782009F88AF /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -371,11 +461,19 @@
 				4D0A1D9B29349D660038624D /* CryptoPrices */,
 				4D0A1DAB29349D670038624D /* CryptoPricesTests */,
 				4D0A1DB529349D670038624D /* CryptoPricesUITests */,
+				09D09DDD296D7EFA009F88AF /* CryptoPricesKIFUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		09D09DDC296D7EFA009F88AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D0A1D9A29349D660038624D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +522,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		09D09DDA296D7EFA009F88AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09D09DEE296D8077009F88AF /* KIF+Swift.swift in Sources */,
+				09D09DF2296E44DE009F88AF /* HomeSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D0A1D9829349D660038624D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +563,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		09D09DE3296D7EFA009F88AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D0A1D9B29349D660038624D /* CryptoPrices */;
+			targetProxy = 09D09DE2296D7EFA009F88AF /* PBXContainerItemProxy */;
+		};
 		4D0A1DAE29349D670038624D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4D0A1D9B29349D660038624D /* CryptoPrices */;
@@ -469,6 +581,78 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		09D09DE4296D7EFB009F88AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.CryptoPricesKIFUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptoPrices.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CryptoPrices";
+			};
+			name = Debug;
+		};
+		09D09DE5296D7EFB009F88AF /* Debug Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.CryptoPricesKIFUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptoPrices Staging.app/CryptoPrices Staging";
+			};
+			name = "Debug Staging";
+		};
+		09D09DE6296D7EFB009F88AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.CryptoPricesKIFUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptoPrices.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CryptoPrices";
+			};
+			name = Release;
+		};
+		09D09DE7296D7EFB009F88AF /* Release Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.CryptoPricesKIFUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptoPrices Staging.app/CryptoPrices Staging";
+			};
+			name = "Release Staging";
+		};
 		2432C9BA2935FD4D00BF56E2 /* Debug Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1002,6 +1186,17 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		09D09DE8296D7EFB009F88AF /* Build configuration list for PBXNativeTarget "CryptoPricesKIFUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09D09DE4296D7EFB009F88AF /* Debug */,
+				09D09DE5296D7EFB009F88AF /* Debug Staging */,
+				09D09DE6296D7EFB009F88AF /* Release */,
+				09D09DE7296D7EFB009F88AF /* Release Staging */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4D0A1D9729349D660038624D /* Build configuration list for PBXProject "CryptoPrices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1049,6 +1244,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		09D09DE9296D7F20009F88AF /* XCRemoteSwiftPackageReference "KIF" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kif-framework/KIF";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		09D09DF3296E454C009F88AF /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.2.1;
+			};
+		};
+		09D09DF6296E4782009F88AF /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ipavlidakis/Wormholy";
@@ -1084,6 +1303,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		09D09DEA296D7F20009F88AF /* KIF */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09D09DE9296D7F20009F88AF /* XCRemoteSwiftPackageReference "KIF" */;
+			productName = KIF;
+		};
+		09D09DF4296E454D009F88AF /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09D09DF3296E454C009F88AF /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		09D09DF7296E4782009F88AF /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09D09DF6296E4782009F88AF /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
 		1C3B441C2952B34D00AFCD81 /* Wormholy */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1C3B441B2952B34D00AFCD81 /* XCRemoteSwiftPackageReference "Wormholy" */;
