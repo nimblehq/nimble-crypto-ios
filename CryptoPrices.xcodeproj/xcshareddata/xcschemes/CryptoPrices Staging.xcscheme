@@ -40,7 +40,8 @@
       buildConfiguration = "Debug Staging"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -105,6 +106,17 @@
                BuildableName = "RepositoriesTests"
                BlueprintName = "RepositoriesTests"
                ReferencedContainer = "container:CryptoPrices/Sources/Data">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "09D09DDD296D7EFA009F88AF"
+               BuildableName = "CryptoPricesKIFUITests.xctest"
+               BlueprintName = "CryptoPricesKIFUITests"
+               ReferencedContainer = "container:CryptoPrices.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

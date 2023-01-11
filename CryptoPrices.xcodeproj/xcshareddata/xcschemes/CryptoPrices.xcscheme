@@ -50,6 +50,17 @@
                ReferencedContainer = "container:CryptoPrices.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "09D09DDD296D7EFA009F88AF"
+               BuildableName = "CryptoPricesKIFUITests.xctest"
+               BlueprintName = "CryptoPricesKIFUITests"
+               ReferencedContainer = "container:CryptoPrices.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
