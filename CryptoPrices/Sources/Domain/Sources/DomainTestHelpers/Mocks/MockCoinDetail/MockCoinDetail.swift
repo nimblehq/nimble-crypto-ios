@@ -16,7 +16,8 @@ public struct MockCoinDetail: CoinDetail, Equatable {
     public let marketData: MarketData
 
     public static func == (lhs: MockCoinDetail, rhs: MockCoinDetail) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id &&
+        MockMarketData(marketData: lhs.marketData) == MockMarketData(marketData: rhs.marketData)
     }
 }
 
