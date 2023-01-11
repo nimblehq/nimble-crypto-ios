@@ -41,6 +41,9 @@ public struct MyCoinView: View {
         .task {
             await viewModel.fetchData(id: myCoinState.id)
         }
+        .refreshable {
+            await viewModel.fetchAllData(id: myCoinState.id)
+        }
     }
 
     @ObservedObject private var viewModel: MyCoinViewModel

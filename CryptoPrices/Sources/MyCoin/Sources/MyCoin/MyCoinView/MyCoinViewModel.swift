@@ -43,7 +43,7 @@ import UseCaseProtocol
         }
     }
 
-    public func fetchData(id: String) async {
+    public func fetchAllData(id: String) async {
         await withTaskGroup(of: Void.self) { taskGroup in
             taskGroup.addTask { await self.fetchCoinDetail(id: id) }
             taskGroup.addTask { await self.fetchChartPricesData(id: id) }
