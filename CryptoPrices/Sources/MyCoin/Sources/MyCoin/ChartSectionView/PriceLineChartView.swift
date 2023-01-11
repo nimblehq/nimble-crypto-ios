@@ -22,9 +22,7 @@ struct PriceLineChartView: UIViewRepresentable {
 
     func updateUIView(_ uiView: LineChartView, context: Context) {
         let dataSet = LineChartDataSet(entries: entries)
-        // TODO: Localize this text for no data case in the integration task
-        uiView.noDataText = "No Data"
-        uiView.data = LineChartData(dataSet: dataSet)
+        uiView.data = entries.isEmpty ? nil : LineChartData(dataSet: dataSet)
         uiView.rightAxis.enabled = false
         uiView.leftAxis.enabled = false
         uiView.xAxis.enabled = false
@@ -32,6 +30,7 @@ struct PriceLineChartView: UIViewRepresentable {
         uiView.minOffset = 0.0
         uiView.isUserInteractionEnabled = false
 
+        formatNoDataText(uiView: uiView)
         formatDataSet(dataSet: dataSet)
         uiView.notifyDataSetChanged()
     }
@@ -60,6 +59,13 @@ struct PriceLineChartView: UIViewRepresentable {
             dataSet.fill = LinearGradientFill(gradient: gradient, angle: -90.0)
         }
         dataSet.drawFilledEnabled = true
+    }
+
+    private func formatNoDataText(uiView: LineChartView) {
+        uiView.noDataText = Strings.MyCoin.PriceLineChart.noDataText
+        uiView.noDataFont = Fonts.Inter.medium.font(size: 14.0)
+        uiView.noDataTextColor = Colors.textMedium.color
+        uiView.noDataTextAlignment = .center
     }
 }
 

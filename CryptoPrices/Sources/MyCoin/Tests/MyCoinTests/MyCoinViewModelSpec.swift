@@ -19,13 +19,16 @@ final class MyCoinViewModelSpec: QuickSpec {
 
         var myCoinViewModel: MyCoinViewModel!
         var coinDetailUseCase: MockCoinDetailUseCaseProtocol!
+        var getChartPricesUseCase: MockGetChartPricesUseCaseProtocol!
 
         describe("the MyCoinViewModel") {
 
             beforeEach {
                 coinDetailUseCase = MockCoinDetailUseCaseProtocol()
+                getChartPricesUseCase = MockGetChartPricesUseCaseProtocol()
                 myCoinViewModel = await MyCoinViewModel(
-                    coinDetailUseCase: coinDetailUseCase
+                    coinDetailUseCase: coinDetailUseCase,
+                    getChartPricesUseCase: getChartPricesUseCase
                 )
             }
 
