@@ -9,9 +9,9 @@ import Styleguide
 import SwiftUI
 
 struct TimeFrameSection: View {
-    
+
     @Binding var selected: TimeFrameItem
-    
+
     private let timeFrameList: [TimeFrameItem] = [
         .init(timeFrame: .oneDay),
         .init(timeFrame: .oneWeek),
