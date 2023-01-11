@@ -102,11 +102,14 @@ private extension PriceLineChartSection {
 }
 
 #if DEBUG
+import DomainTestHelpers
+
 struct PriceLineChartSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            PriceLineChartSection([])
+            let mockData = MockDataPoint.array.map { ChartDataPointUIModel(dataPoint: $0) }
+            PriceLineChartSection(mockData)
         }
     }
 }

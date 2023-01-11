@@ -4,7 +4,7 @@
 //
 //  Created by Khanh on 01/02/2023.
 //
-// swiftlint:disable closure_body_length
+// swiftlint:disable closure_body_length function_body_length
 
 import DomainTestHelpers
 import Nimble
@@ -40,6 +40,13 @@ final class MyCoinViewModelSpec: QuickSpec {
                     }
                     .to(beNil())
                 }
+
+                it("has empty chart data") {
+                    await expect {
+                        await myCoinViewModel.chartData
+                    }
+                    .to(equal([]))
+                }
             }
 
             describe("its fetchCoinDetail() call") {
@@ -74,6 +81,42 @@ final class MyCoinViewModelSpec: QuickSpec {
                             await myCoinViewModel.coinDetail
                         }
                         .to(beNil())
+                    }
+                }
+            }
+
+            describe("its fetchChartPricesData() call") {
+
+                context("when getChartPricesUseCase returns success") {
+
+                    let chartDataReturnValue = MockDataPoint.array
+                    let expectedChartData = chartDataReturnValue.map { ChartDataPointUIModel(dataPoint: $0) }
+
+                    beforeEach {
+                        getChartPricesUseCase.executeCoinIDFilterReturnValue = chartDataReturnValue
+                        await myCoinViewModel.fetchChartPricesData(id: "bitcoin")
+                    }
+
+                    it("gets the correct value for chartData") {
+                        await expect { await myCoinViewModel.chartData }
+                            .to(equal(expectedChartData))
+                    }
+                }
+
+                context("when getChartPricesUseCase returns failure") {
+
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        getChartPricesUseCase.executeCoinIDFilterThrowableError = expectedError
+                        await myCoinViewModel.fetchChartPricesData(id: "bitcoin")
+                    }
+
+                    it("returns empty chart data") {
+                        await expect {
+                            await myCoinViewModel.chartData
+                        }
+                        .to(equal([]))
                     }
                 }
             }
