@@ -45,8 +45,17 @@ struct TimeFrameSection: View {
             .padding(.horizontal, 40.0)
             .padding(.vertical, 24.0)
         }
-        .onChange(of: selected) { newValue in
-            print(newValue)
+        .animation(.default, value: selected)
+    }
+}
+
+#if DEBUG
+struct TimeFrameSection_Previews: PreviewProvider {
+
+    static var previews: some View {
+        Preview {
+            TimeFrameSection(selected: .constant(.init(timeFrame: .oneDay)))
         }
     }
 }
+#endif
