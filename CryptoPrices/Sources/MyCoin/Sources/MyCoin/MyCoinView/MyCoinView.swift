@@ -13,9 +13,10 @@ private typealias Section = Styleguide.Section
 public struct MyCoinView: View {
 
     @EnvironmentObject var myCoinState: MyCoinState
+    @State private var selectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
 
     public var body: some View {
-        List {
+        ScrollView {
             currentPriceSection
             priceChartSection
             coinStatisticsSection
@@ -39,7 +40,12 @@ public struct MyCoinView: View {
             footerView
         })
         .task {
-            await viewModel.fetchData(id: myCoinState.id)
+            await viewModel.fetchData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
+        }
+        .onChange(of: selectedTimeFrameItem) { _ in
+            Task {
+                await viewModel.fetchData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
+            }
         }
     }
 
@@ -63,7 +69,7 @@ private extension MyCoinView {
             PriceLineChartSection(viewModel.chartData)
                 .frame(height: 196.0)
 
-            TimeFrameSection()
+            TimeFrameSection(selected: $selectedTimeFrameItem)
         }
     }
 

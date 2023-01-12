@@ -33,20 +33,19 @@ import UseCaseProtocol
         }
     }
 
-    // TODO: Support different filters
-    public func fetchChartPricesData(id: String) async {
+    public func fetchChartPricesData(id: String, timeFrameItem: TimeFrameItem) async {
         do {
-            let dataPoints = try await getChartPricesUseCase.execute(coinID: id, filter: .oneDay)
+            let dataPoints = try await getChartPricesUseCase.execute(coinID: id, filter: timeFrameItem.timeFrame)
             chartData = dataPoints.map { ChartDataPointUIModel(dataPoint: $0) }
         } catch {
             // TODO: Handle errors
         }
     }
 
-    public func fetchData(id: String) async {
+    public func fetchData(id: String, timeFrameItem: TimeFrameItem) async {
         await withTaskGroup(of: Void.self) { taskGroup in
             taskGroup.addTask { await self.fetchCoinDetail(id: id) }
-            taskGroup.addTask { await self.fetchChartPricesData(id: id) }
+            taskGroup.addTask { await self.fetchChartPricesData(id: id, timeFrameItem: timeFrameItem) }
         }
     }
 }

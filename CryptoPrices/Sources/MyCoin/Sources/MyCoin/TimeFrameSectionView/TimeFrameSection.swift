@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TimeFrameSection: View {
     
-    @State private var selected: TimeFrameItem = .init(timeFrame: .oneDay)
+    @Binding var selected: TimeFrameItem
     
     private let timeFrameList: [TimeFrameItem] = [
         .init(timeFrame: .oneDay),
@@ -25,7 +25,6 @@ struct TimeFrameSection: View {
             HStack {
                 ForEach(timeFrameList) { item in
                     Button(item.title) {
-                        // TODO: - handling loading chart logic
                         selected = TimeFrameItem(timeFrame: item.timeFrame)
                     }
                     .frame(width: 46.0, height: 32.0)
@@ -46,16 +45,8 @@ struct TimeFrameSection: View {
             .padding(.horizontal, 40.0)
             .padding(.vertical, 24.0)
         }
-    }
-}
-
-#if DEBUG
-struct TimeFrameSection_Previews: PreviewProvider {
-
-    static var previews: some View {
-        Preview {
-            TimeFrameSection()
+        .onChange(of: selected) { newValue in
+            print(newValue)
         }
     }
 }
-#endif
