@@ -42,7 +42,7 @@ public struct MyCoinView: View {
             await viewModel.fetchData(id: myCoinState.id)
         }
         .refreshable {
-            await viewModel.fetchAllData(id: myCoinState.id)
+            await viewModel.fetchData(id: myCoinState.id)
         }
     }
 
