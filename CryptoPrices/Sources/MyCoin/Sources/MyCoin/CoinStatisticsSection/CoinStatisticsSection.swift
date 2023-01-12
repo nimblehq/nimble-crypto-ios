@@ -15,19 +15,16 @@ struct CoinStatisticsSection: View {
             coinStatisticsItemView(
                 title: Strings.MyCoin.MarketCap.title,
                 price: coinDetailItem.marketCap,
-                isPriceUp: coinDetailItem.isMarketCapChangePercentage24HUp,
                 percentage: coinDetailItem.marketCapChangePercentage24H
             )
             coinStatisticsItemView(
                 title: Strings.MyCoin.Ath.title,
                 price: coinDetailItem.ath,
-                isPriceUp: coinDetailItem.isAthChangePercentageUp,
                 percentage: coinDetailItem.athChangePercentage
             )
             coinStatisticsItemView(
                 title: Strings.MyCoin.Atl.title,
                 price: coinDetailItem.atl,
-                isPriceUp: coinDetailItem.isAtlChangePercentageUp,
                 percentage: coinDetailItem.atlChangePercentage
             )
         }
@@ -46,7 +43,6 @@ private extension CoinStatisticsSection {
     func coinStatisticsItemView(
         title: String,
         price: Decimal,
-        isPriceUp: Bool,
         percentage: Double
     ) -> some View {
         HStack {
@@ -65,17 +61,8 @@ private extension CoinStatisticsSection {
 
             Spacer()
 
-            isPriceUp
-            ? Images.icArrowUpGreen.swiftUIImage
-            : Images.icArrowDownRed.swiftUIImage
-
-            Text(percentage, format: .percentage)
+            PercentageView(percentage)
                 .font(Fonts.Inter.medium.textStyle(.body))
-                .foregroundColor(
-                    isPriceUp
-                    ? Colors.guppieGreen.swiftUIColor
-                    : Colors.carnation.swiftUIColor
-                )
         }
     }
 }
