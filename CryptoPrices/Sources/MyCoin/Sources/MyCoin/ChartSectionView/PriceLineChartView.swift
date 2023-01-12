@@ -13,26 +13,33 @@ import SwiftUI
 struct PriceLineChartView: UIViewRepresentable {
 
     let entries: [ChartDataEntry]
-    let lineChart = LineChartView()
 
     func makeUIView(context: Context) -> LineChartView {
+        let lineChart = LineChartView()
+
+        // Setup default configurations and delegation
+        lineChart.rightAxis.enabled = false
+        lineChart.leftAxis.enabled = false
+        lineChart.xAxis.enabled = false
+        lineChart.legend.enabled = false
+        lineChart.minOffset = 0.0
+        lineChart.isUserInteractionEnabled = false
         lineChart.delegate = context.coordinator
+
+        // Setup NoData text
+        formatNoDataText(uiView: lineChart)
+
         return lineChart
     }
 
     func updateUIView(_ uiView: LineChartView, context: Context) {
-        let dataSet = LineChartDataSet(entries: entries)
-        // TODO: Localize this text for no data case in the integration task
-        uiView.noDataText = "No Data"
-        uiView.data = LineChartData(dataSet: dataSet)
-        uiView.rightAxis.enabled = false
-        uiView.leftAxis.enabled = false
-        uiView.xAxis.enabled = false
-        uiView.legend.enabled = false
-        uiView.minOffset = 0.0
-        uiView.isUserInteractionEnabled = false
-
-        formatDataSet(dataSet: dataSet)
+        if entries.isEmpty {
+            uiView.data = nil
+        } else {
+            let dataSet = LineChartDataSet(entries: entries)
+            formatDataSet(dataSet: dataSet)
+            uiView.data = LineChartData(dataSet: dataSet)
+        }
         uiView.notifyDataSetChanged()
     }
 
@@ -60,6 +67,13 @@ struct PriceLineChartView: UIViewRepresentable {
             dataSet.fill = LinearGradientFill(gradient: gradient, angle: -90.0)
         }
         dataSet.drawFilledEnabled = true
+    }
+
+    private func formatNoDataText(uiView: LineChartView) {
+        uiView.noDataText = Strings.MyCoin.PriceLineChart.noDataText
+        uiView.noDataFont = Fonts.Inter.medium.font(size: 14.0)
+        uiView.noDataTextColor = Colors.textMedium.color
+        uiView.noDataTextAlignment = .center
     }
 }
 

@@ -39,7 +39,7 @@ public struct MyCoinView: View {
             footerView
         })
         .task {
-            await viewModel.fetchCoinDetail(id: myCoinState.id)
+            await viewModel.fetchData(id: myCoinState.id)
         }
     }
 
@@ -60,7 +60,7 @@ private extension MyCoinView {
 
     var priceChartSection: some View {
         Section {
-            PriceLineChartSection()
+            PriceLineChartSection(viewModel.chartData)
                 .frame(height: 196.0)
 
             TimeFrameSection()
@@ -116,7 +116,6 @@ private extension MyCoinView {
 }
 
 #if DEBUG
-import DomainTestHelpers
 import UseCaseProtocol
 
 struct MyCoinView_Previews: PreviewProvider {
@@ -125,7 +124,8 @@ struct MyCoinView_Previews: PreviewProvider {
         Preview {
             MyCoinView(
                 viewModel: MyCoinViewModel(
-                    coinDetailUseCase: MockCoinDetailUseCaseProtocol()
+                    coinDetailUseCase: MockCoinDetailUseCaseProtocol(),
+                    getChartPricesUseCase: MockGetChartPricesUseCaseProtocol()
                 )
             )
         }
