@@ -2,6 +2,7 @@
 "myCoin.atl.title" = "All Time Low";
 "myCoin.buyButton.title" = "Buy";
 "myCoin.marketCap.title" = "Market Cap";
+"myCoin.noData.text" = "-";
 "myCoin.sellButton.title" = "Sell";
 "myCoin.timeFrame.oneDayText" = "1D";
 "myCoin.timeFrame.oneWeekText" = "1W";

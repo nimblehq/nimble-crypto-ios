@@ -14,29 +14,29 @@ struct CoinStatisticsSection: View {
         VStack {
             coinStatisticsItemView(
                 title: Strings.MyCoin.MarketCap.title,
-                price: coinDetailItem.marketCap,
-                isPriceUp: coinDetailItem.isMarketCapChangePercentage24HUp,
-                percentage: coinDetailItem.marketCapChangePercentage24H
+                price: coinDetailItem?.marketCap,
+                isPriceUp: coinDetailItem?.isMarketCapChangePercentage24HUp ?? false,
+                percentage: coinDetailItem?.marketCapChangePercentage24H
             )
             coinStatisticsItemView(
                 title: Strings.MyCoin.Ath.title,
-                price: coinDetailItem.ath,
-                isPriceUp: coinDetailItem.isAthChangePercentageUp,
-                percentage: coinDetailItem.athChangePercentage
+                price: coinDetailItem?.ath,
+                isPriceUp: coinDetailItem?.isAthChangePercentageUp ?? false,
+                percentage: coinDetailItem?.athChangePercentage
             )
             coinStatisticsItemView(
                 title: Strings.MyCoin.Atl.title,
-                price: coinDetailItem.atl,
-                isPriceUp: coinDetailItem.isAtlChangePercentageUp,
-                percentage: coinDetailItem.atlChangePercentage
+                price: coinDetailItem?.atl,
+                isPriceUp: coinDetailItem?.isAtlChangePercentageUp ?? false,
+                percentage: coinDetailItem?.atlChangePercentage
             )
         }
         .padding(16.0)
     }
 
-    private let coinDetailItem: CoinDetailItem
+    private let coinDetailItem: CoinDetailItem?
 
-    init(coinDetailItem: CoinDetailItem) {
+    init(coinDetailItem: CoinDetailItem?) {
         self.coinDetailItem = coinDetailItem
     }
 }
@@ -45,9 +45,9 @@ private extension CoinStatisticsSection {
 
     func coinStatisticsItemView(
         title: String,
-        price: Decimal,
+        price: Decimal?,
         isPriceUp: Bool,
-        percentage: Double
+        percentage: Double?
     ) -> some View {
         HStack {
             VStack(
@@ -58,24 +58,35 @@ private extension CoinStatisticsSection {
                     .foregroundColor(Colors.textMedium.swiftUIColor)
                     .font(Fonts.Inter.medium.textStyle(.caption))
 
-                Text(price, format: .dollarCurrency)
-                    .foregroundColor(Colors.titleMedium.swiftUIColor)
-                    .font(Fonts.Inter.medium.textStyle(.callout))
+                if let price {
+                    Text(price, format: .dollarCurrency)
+                        .foregroundColor(Colors.titleMedium.swiftUIColor)
+                        .font(Fonts.Inter.medium.textStyle(.callout))
+                } else {
+                    Text(Strings.MyCoin.NoData.text)
+                        .foregroundColor(Colors.titleMedium.swiftUIColor)
+                        .font(Fonts.Inter.medium.textStyle(.callout))
+                }
             }
 
             Spacer()
 
-            isPriceUp
-            ? Images.icArrowUpGreen.swiftUIImage
-            : Images.icArrowDownRed.swiftUIImage
-
-            Text(percentage, format: .percentage)
-                .font(Fonts.Inter.medium.textStyle(.body))
-                .foregroundColor(
-                    isPriceUp
-                    ? Colors.guppieGreen.swiftUIColor
-                    : Colors.carnation.swiftUIColor
-                )
+            if let percentage {
+                isPriceUp
+                ? Images.icArrowUpGreen.swiftUIImage
+                : Images.icArrowDownRed.swiftUIImage
+                
+                Text(percentage, format: .percentage)
+                    .font(Fonts.Inter.medium.textStyle(.body))
+                    .foregroundColor(
+                        isPriceUp
+                        ? Colors.guppieGreen.swiftUIColor
+                        : Colors.carnation.swiftUIColor
+                    )
+            } else {
+                Text(Strings.MyCoin.NoData.text)
+                    .font(Fonts.Inter.medium.textStyle(.body))
+            }
         }
     }
 }
