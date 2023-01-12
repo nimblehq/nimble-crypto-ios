@@ -34,18 +34,14 @@ final class MyCoinViewModelSpec: QuickSpec {
 
             describe("its initial state") {
 
-                it("has the correct value for coinDetail") {
-                    await expect {
-                        await myCoinViewModel.coinDetail
-                    }
-                    .to(beNil())
+                it("returns nil for coinDetail") {
+                    await expect { await myCoinViewModel.coinDetail }
+                        .to(beNil())
                 }
 
-                it("has empty chart data") {
-                    await expect {
-                        await myCoinViewModel.chartData
-                    }
-                    .to(equal([]))
+                it("returns empty chart data") {
+                    await expect { await myCoinViewModel.chartData }
+                        .to(equal([]))
                 }
             }
 
@@ -76,11 +72,9 @@ final class MyCoinViewModelSpec: QuickSpec {
                         await myCoinViewModel.fetchCoinDetail(id: "bitcoin")
                     }
 
-                    it("gets the correct value for coinDetail") {
-                        await expect {
-                            await myCoinViewModel.coinDetail
-                        }
-                        .to(beNil())
+                    it("returns nil for coinDetail") {
+                        await expect { await myCoinViewModel.coinDetail }
+                            .to(beNil())
                     }
                 }
             }
@@ -113,10 +107,98 @@ final class MyCoinViewModelSpec: QuickSpec {
                     }
 
                     it("returns empty chart data") {
-                        await expect {
-                            await myCoinViewModel.chartData
-                        }
-                        .to(equal([]))
+                        await expect { await myCoinViewModel.chartData }
+                            .to(equal([]))
+                    }
+                }
+            }
+
+            describe("its fetchData() call") {
+
+                context("when coinDetailUseCase and getChartPricesUseCase return success") {
+                    let coinDetailReturnValue = MockCoinDetail.single
+                    let expectedCoin = CoinDetailItem(coinDetail: MockCoinDetail.single)
+                    let chartDataReturnValue = MockDataPoint.array
+                    let expectedChartData = chartDataReturnValue.map { ChartDataPointUIModel(dataPoint: $0) }
+
+                    beforeEach {
+                        coinDetailUseCase.executeIdReturnValue = coinDetailReturnValue
+                        getChartPricesUseCase.executeCoinIDFilterReturnValue = chartDataReturnValue
+                        await myCoinViewModel.fetchData(id: "bitcoin")
+                    }
+
+                    it("gets the correct value for coinDetail") {
+                        await expect { await myCoinViewModel.coinDetail }
+                            .to(equal(expectedCoin))
+                    }
+
+                    it("gets the correct value for chartData") {
+                        await expect { await myCoinViewModel.chartData }
+                            .to(equal(expectedChartData))
+                    }
+                }
+
+                context("when coinDetailUseCase returns success but getChartPricesUseCase returns failure") {
+                    let coinDetailReturnValue = MockCoinDetail.single
+                    let expectedCoin = CoinDetailItem(coinDetail: MockCoinDetail.single)
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        coinDetailUseCase.executeIdReturnValue = coinDetailReturnValue
+                        getChartPricesUseCase.executeCoinIDFilterThrowableError = expectedError
+                        await myCoinViewModel.fetchData(id: "bitcoin")
+                    }
+
+                    it("gets the correct value for coinDetail") {
+                        await expect { await myCoinViewModel.coinDetail }
+                            .to(equal(expectedCoin))
+                    }
+
+                    it("returns empty chart data") {
+                        await expect { await myCoinViewModel.chartData }
+                            .to(equal([]))
+                    }
+                }
+
+                context("when getChartPricesUseCase returns success but coinDetailUseCase returns failure") {
+                    let chartDataReturnValue = MockDataPoint.array
+                    let expectedChartData = chartDataReturnValue.map { ChartDataPointUIModel(dataPoint: $0) }
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        coinDetailUseCase.executeIdThrowableError = expectedError
+                        getChartPricesUseCase.executeCoinIDFilterReturnValue = chartDataReturnValue
+                        await myCoinViewModel.fetchData(id: "bitcoin")
+                    }
+
+                    it("returns nil for coinDetail") {
+                        await expect { await myCoinViewModel.coinDetail }
+                            .to(beNil())
+                    }
+
+                    it("gets the correct value for chartData") {
+                        await expect { await myCoinViewModel.chartData }
+                            .to(equal(expectedChartData))
+                    }
+                }
+
+                context("when coinDetailUseCase and getChartPricesUseCase both return failure") {
+                    let expectedError = TestError.fail("API error")
+
+                    beforeEach {
+                        coinDetailUseCase.executeIdThrowableError = expectedError
+                        getChartPricesUseCase.executeCoinIDFilterThrowableError = expectedError
+                        await myCoinViewModel.fetchData(id: "bitcoin")
+                    }
+
+                    it("returns nil for coinDetail") {
+                        await expect { await myCoinViewModel.coinDetail }
+                            .to(beNil())
+                    }
+
+                    it("returns empty chart data") {
+                        await expect { await myCoinViewModel.chartData }
+                            .to(equal([]))
                     }
                 }
             }

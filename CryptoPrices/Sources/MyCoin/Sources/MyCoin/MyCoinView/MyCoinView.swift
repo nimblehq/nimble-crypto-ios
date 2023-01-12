@@ -39,8 +39,7 @@ public struct MyCoinView: View {
             footerView
         })
         .task {
-            await viewModel.fetchCoinDetail(id: myCoinState.id)
-            await viewModel.fetchChartPricesData(id: myCoinState.id)
+            await viewModel.fetchData(id: myCoinState.id)
         }
     }
 
