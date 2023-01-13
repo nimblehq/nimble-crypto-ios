@@ -4,7 +4,6 @@
 //
 //  Created by Khanh on 03/01/2023.
 //
-// swiftlint:disable void_function_in_ternary
 
 import Styleguide
 import SwiftUI
@@ -38,14 +37,14 @@ struct CoinStatisticsSection: View {
     }
 
     private let coinDetailItem: CoinDetailItem
-    private let showData: Bool
+    private let shouldShowData: Bool
 
     init(
         coinDetailItem: CoinDetailItem,
-        showData: Bool
+        shouldShowData: Bool
     ) {
         self.coinDetailItem = coinDetailItem
-        self.showData = showData
+        self.shouldShowData = shouldShowData
     }
 }
 
@@ -70,20 +69,22 @@ private extension CoinStatisticsSection {
                     Text(price, format: .dollarCurrency)
                         .foregroundColor(Colors.titleMedium.swiftUIColor)
                         .font(Fonts.Inter.medium.textStyle(.callout))
-                        .opacity(showData ? 1.0 : 0.0)
+                        .opacity(shouldShowData ? 1.0 : 0.0)
                     
                     Text(Strings.MyCoin.NoData.text)
                         .foregroundColor(Colors.titleMedium.swiftUIColor)
                         .font(Fonts.Inter.medium.textStyle(.callout))
-                        .opacity(showData ? 0.0 : 1.0)
+                        .opacity(shouldShowData ? 0.0 : 1.0)
                 }
             }
 
             Spacer()
 
-            isPriceUp
-            ? Images.icArrowUpGreen.swiftUIImage.opacity(showData ? 1.0 : 0.0)
-            : Images.icArrowDownRed.swiftUIImage.opacity(showData ? 1.0 : 0.0)
+            if isPriceUp {
+                Images.icArrowUpGreen.swiftUIImage
+            } else {
+                Images.icArrowDownRed.swiftUIImage
+            }
 
             ZStack(alignment: .trailing) {
                 Text(percentage, format: .percentage)
@@ -93,11 +94,11 @@ private extension CoinStatisticsSection {
                         ? Colors.guppieGreen.swiftUIColor
                         : Colors.carnation.swiftUIColor
                     )
-                    .opacity(showData ? 1.0 : 0.0)
-                
+                    .opacity(shouldShowData ? 1.0 : 0.0)
+
                 Text(Strings.MyCoin.NoData.text)
                     .font(Fonts.Inter.medium.textStyle(.body))
-                    .opacity(showData ? 0.0 : 1.0)
+                    .opacity(shouldShowData ? 0.0 : 1.0)
             }
         }
     }
@@ -114,7 +115,7 @@ struct CoinStatisticsSection_Previews: PreviewProvider {
                 coinDetailItem: CoinDetailItem(
                     coinDetail: MockCoinDetail.single
                 ),
-                showData: true
+                shouldShowData: true
             )
         }
     }
