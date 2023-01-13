@@ -47,6 +47,9 @@ public struct MyCoinView: View {
                 await viewModel.fetchChartPricesData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
             }
         }
+        .refreshable {
+            await viewModel.fetchData(id: myCoinState.id)
+        }
     }
 
     @ObservedObject private var viewModel: MyCoinViewModel
