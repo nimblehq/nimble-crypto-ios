@@ -44,7 +44,7 @@ public struct MyCoinView: View {
         }
         .onChange(of: selectedTimeFrameItem) { _ in
             Task {
-                await viewModel.fetchData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
+                await viewModel.fetchChartPricesData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
             }
         }
     }
