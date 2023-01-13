@@ -88,7 +88,10 @@ final class MyCoinViewModelSpec: QuickSpec {
 
                     beforeEach {
                         getChartPricesUseCase.executeCoinIDFilterReturnValue = chartDataReturnValue
-                        await myCoinViewModel.fetchChartPricesData(id: "bitcoin")
+                        await myCoinViewModel.fetchChartPricesData(
+                            id: "bitcoin",
+                            timeFrameItem: .init(timeFrame: .oneWeek)
+                        )
                     }
 
                     it("gets the correct value for chartData") {
@@ -103,7 +106,10 @@ final class MyCoinViewModelSpec: QuickSpec {
 
                     beforeEach {
                         getChartPricesUseCase.executeCoinIDFilterThrowableError = expectedError
-                        await myCoinViewModel.fetchChartPricesData(id: "bitcoin")
+                        await myCoinViewModel.fetchChartPricesData(
+                            id: "bitcoin",
+                            timeFrameItem: .init(timeFrame: .oneDay)
+                        )
                     }
 
                     it("returns empty chart data") {
@@ -124,7 +130,7 @@ final class MyCoinViewModelSpec: QuickSpec {
                     beforeEach {
                         coinDetailUseCase.executeIdReturnValue = coinDetailReturnValue
                         getChartPricesUseCase.executeCoinIDFilterReturnValue = chartDataReturnValue
-                        await myCoinViewModel.fetchData(id: "bitcoin")
+                        await myCoinViewModel.fetchData(id: "bitcoin", timeFrameItem: .init(timeFrame: .oneDay))
                     }
 
                     it("gets the correct value for coinDetail") {
@@ -146,7 +152,7 @@ final class MyCoinViewModelSpec: QuickSpec {
                     beforeEach {
                         coinDetailUseCase.executeIdReturnValue = coinDetailReturnValue
                         getChartPricesUseCase.executeCoinIDFilterThrowableError = expectedError
-                        await myCoinViewModel.fetchData(id: "bitcoin")
+                        await myCoinViewModel.fetchData(id: "bitcoin", timeFrameItem: .init(timeFrame: .oneDay))
                     }
 
                     it("gets the correct value for coinDetail") {
@@ -168,7 +174,7 @@ final class MyCoinViewModelSpec: QuickSpec {
                     beforeEach {
                         coinDetailUseCase.executeIdThrowableError = expectedError
                         getChartPricesUseCase.executeCoinIDFilterReturnValue = chartDataReturnValue
-                        await myCoinViewModel.fetchData(id: "bitcoin")
+                        await myCoinViewModel.fetchData(id: "bitcoin", timeFrameItem: .init(timeFrame: .oneDay))
                     }
 
                     it("returns nil for coinDetail") {
@@ -188,7 +194,7 @@ final class MyCoinViewModelSpec: QuickSpec {
                     beforeEach {
                         coinDetailUseCase.executeIdThrowableError = expectedError
                         getChartPricesUseCase.executeCoinIDFilterThrowableError = expectedError
-                        await myCoinViewModel.fetchData(id: "bitcoin")
+                        await myCoinViewModel.fetchData(id: "bitcoin", timeFrameItem: .init(timeFrame: .oneDay))
                     }
 
                     it("returns nil for coinDetail") {
