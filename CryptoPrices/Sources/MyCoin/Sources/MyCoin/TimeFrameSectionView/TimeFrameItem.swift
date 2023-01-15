@@ -9,9 +9,8 @@ import DomainTestHelpers
 import Entities
 import Foundation
 
-public struct TimeFrameItem: Identifiable, Equatable {
+public struct TimeFrameItem: Equatable {
 
-    public let id = UUID()
     let timeFrame: TimeFilter
     var title: String {
         switch timeFrame {

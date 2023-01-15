@@ -16,7 +16,7 @@ public struct MyCoinView: View {
     @State private var selectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
 
     public var body: some View {
-        ScrollView {
+        List {
             currentPriceSection
             priceChartSection
             coinStatisticsSection
