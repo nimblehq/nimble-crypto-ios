@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098832EB297547ED0015BAC2 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 098832EA297547ED0015BAC2 /* OHHTTPStubsSwift */; };
+		098832F1297564680015BAC2 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098832F0297564680015BAC2 /* HomeTests.swift */; };
 		09D09DEB296D7F20009F88AF /* KIF in Frameworks */ = {isa = PBXBuildFile; productRef = 09D09DEA296D7F20009F88AF /* KIF */; };
 		09D09DEE296D8077009F88AF /* KIF+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D09DED296D8077009F88AF /* KIF+Swift.swift */; };
 		09D09DF2296E44DE009F88AF /* HomeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D09DF1296E44DE009F88AF /* HomeSpec.swift */; };
@@ -64,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		098832F0297564680015BAC2 /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		09D09DDE296D7EFA009F88AF /* CryptoPricesKIFUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoPricesKIFUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D09DED296D8077009F88AF /* KIF+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Swift.swift"; sourceTree = "<group>"; };
 		09D09DF1296E44DE009F88AF /* HomeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSpec.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 				09D09DF8296E4782009F88AF /* Quick in Frameworks */,
 				09D09DEB296D7F20009F88AF /* KIF in Frameworks */,
 				09D09DF5296E454D009F88AF /* Nimble in Frameworks */,
+				098832EB297547ED0015BAC2 /* OHHTTPStubsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				09D09DF1296E44DE009F88AF /* HomeSpec.swift */,
+				098832F0297564680015BAC2 /* HomeTests.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				09D09DEA296D7F20009F88AF /* KIF */,
 				09D09DF4296E454D009F88AF /* Nimble */,
 				09D09DF7296E4782009F88AF /* Quick */,
+				098832EA297547ED0015BAC2 /* OHHTTPStubsSwift */,
 			);
 			productName = CryptoPricesKIFUITests;
 			productReference = 09D09DDE296D7EFA009F88AF /* CryptoPricesKIFUITests.xctest */;
@@ -453,6 +459,7 @@
 				09D09DE9296D7F20009F88AF /* XCRemoteSwiftPackageReference "KIF" */,
 				09D09DF3296E454C009F88AF /* XCRemoteSwiftPackageReference "Nimble" */,
 				09D09DF6296E4782009F88AF /* XCRemoteSwiftPackageReference "Quick" */,
+				098832E9297547ED0015BAC2 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 			);
 			productRefGroup = 4D0A1D9D29349D660038624D /* Products */;
 			projectDirPath = "";
@@ -527,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09D09DEE296D8077009F88AF /* KIF+Swift.swift in Sources */,
+				098832F1297564680015BAC2 /* HomeTests.swift in Sources */,
 				09D09DF2296E44DE009F88AF /* HomeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1244,6 +1252,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		098832E9297547ED0015BAC2 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		09D09DE9296D7F20009F88AF /* XCRemoteSwiftPackageReference "KIF" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kif-framework/KIF";
@@ -1303,6 +1319,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		098832EA297547ED0015BAC2 /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 098832E9297547ED0015BAC2 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
 		09D09DEA296D7F20009F88AF /* KIF */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 09D09DE9296D7F20009F88AF /* XCRemoteSwiftPackageReference "KIF" */;
