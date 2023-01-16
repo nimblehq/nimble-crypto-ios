@@ -15,6 +15,7 @@ import UseCaseProtocol
 
     @Published public private(set) var coinDetail: CoinDetailItem?
     @Published public private(set) var chartData: [ChartDataPointUIModel] = []
+    @Published public private(set) var isSuccess = false
 
     public init(
         coinDetailUseCase: CoinDetailUseCaseProtocol,
@@ -37,7 +38,9 @@ import UseCaseProtocol
         do {
             let dataPoints = try await getChartPricesUseCase.execute(coinID: id, filter: timeFrameItem.timeFrame)
             chartData = dataPoints.map { ChartDataPointUIModel(dataPoint: $0) }
+            isSuccess = true
         } catch {
+            isSuccess = false
             // TODO: Handle errors
         }
     }
