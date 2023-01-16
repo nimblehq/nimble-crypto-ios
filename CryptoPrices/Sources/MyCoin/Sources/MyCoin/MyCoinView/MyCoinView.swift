@@ -13,6 +13,7 @@ private typealias Section = Styleguide.Section
 public struct MyCoinView: View {
 
     @EnvironmentObject var myCoinState: MyCoinState
+
     @State private var selectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
 
     public var body: some View {
