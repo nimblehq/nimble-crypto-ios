@@ -15,6 +15,7 @@ public struct MyCoinView: View {
     @EnvironmentObject var myCoinState: MyCoinState
 
     @State private var selectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
+    @State private var tempSelectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
 
     public var body: some View {
         List {
@@ -48,8 +49,16 @@ public struct MyCoinView: View {
                 await viewModel.fetchChartPricesData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
             }
         }
+        .onReceive(viewModel.$isSuccess) { isSuccess in
+            if isSuccess {
+                tempSelectedTimeFrameItem = selectedTimeFrameItem
+            } else {
+                selectedTimeFrameItem = tempSelectedTimeFrameItem
+            }
+        }
         .refreshable {
-            await viewModel.fetchData(id: myCoinState.id, timeFrameItem: .init(timeFrame: .oneDay))
+            selectedTimeFrameItem = .init(timeFrame: .oneDay)
+            await viewModel.fetchCoinDetail(id: myCoinState.id)
         }
     }
 

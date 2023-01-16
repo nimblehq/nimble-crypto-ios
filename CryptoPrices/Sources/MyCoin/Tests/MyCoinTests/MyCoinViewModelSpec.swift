@@ -142,6 +142,11 @@ final class MyCoinViewModelSpec: QuickSpec {
                         await expect { await myCoinViewModel.chartData }
                             .to(equal(expectedChartData))
                     }
+
+                    it("returns chart data successfully") {
+                        await expect { await myCoinViewModel.isSuccess }
+                            .to(equal(true))
+                    }
                 }
 
                 context("when coinDetailUseCase returns success but getChartPricesUseCase returns failure") {
@@ -163,6 +168,11 @@ final class MyCoinViewModelSpec: QuickSpec {
                     it("returns empty chart data") {
                         await expect { await myCoinViewModel.chartData }
                             .to(equal([]))
+                    }
+
+                    it("returns chart data unsuccessfully") {
+                        await expect { await myCoinViewModel.isSuccess }
+                            .to(equal(false))
                     }
                 }
 
@@ -186,6 +196,11 @@ final class MyCoinViewModelSpec: QuickSpec {
                         await expect { await myCoinViewModel.chartData }
                             .to(equal(expectedChartData))
                     }
+
+                    it("returns chart data successfully") {
+                        await expect { await myCoinViewModel.isSuccess }
+                            .to(equal(true))
+                    }
                 }
 
                 context("when coinDetailUseCase and getChartPricesUseCase both return failure") {
@@ -205,6 +220,11 @@ final class MyCoinViewModelSpec: QuickSpec {
                     it("returns empty chart data") {
                         await expect { await myCoinViewModel.chartData }
                             .to(equal([]))
+                    }
+
+                    it("returns chart data unsuccessfully") {
+                        await expect { await myCoinViewModel.isSuccess }
+                            .to(equal(false))
                     }
                 }
             }
