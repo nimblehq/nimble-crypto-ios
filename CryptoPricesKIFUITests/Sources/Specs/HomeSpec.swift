@@ -13,7 +13,7 @@ final class HomeSpec: QuickSpec {
 
     override func spec() {
 
-        describe("a Home screen") {
+        describe("a Home screen") { @MainActor in
 
             describe("its open") {
 
