@@ -8,6 +8,8 @@ import UseCaseProtocol
 import Styleguide
 import SwiftUI
 
+private typealias Section = Styleguide.Section
+
 public struct HomeView: View {
 
     public var body: some View {

@@ -9,9 +9,9 @@ import Styleguide
 import SwiftUI
 
 struct TimeFrameSection: View {
-    
-    @State private var selected: TimeFrameItem = .init(timeFrame: .oneDay)
-    
+
+    @Binding var selected: TimeFrameItem
+
     private let timeFrameList: [TimeFrameItem] = [
         .init(timeFrame: .oneDay),
         .init(timeFrame: .oneWeek),
@@ -23,11 +23,11 @@ struct TimeFrameSection: View {
     var body: some View {
         VStack(alignment: .center) {
             HStack {
-                ForEach(timeFrameList) { item in
+                ForEach(timeFrameList, id: \.timeFrame) { item in
                     Button(item.title) {
-                        // TODO: - handling loading chart logic
                         selected = TimeFrameItem(timeFrame: item.timeFrame)
                     }
+                    .buttonStyle(.borderless)
                     .frame(width: 46.0, height: 32.0)
                     .foregroundColor(
                         selected == TimeFrameItem(timeFrame: item.timeFrame)
@@ -46,6 +46,7 @@ struct TimeFrameSection: View {
             .padding(.horizontal, 40.0)
             .padding(.vertical, 24.0)
         }
+        .animation(.default, value: selected)
     }
 }
 
@@ -54,7 +55,7 @@ struct TimeFrameSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            TimeFrameSection()
+            TimeFrameSection(selected: .constant(.init(timeFrame: .oneDay)))
         }
     }
 }

@@ -31,7 +31,8 @@ extension Container {
     }
     static let myCoinViewModel = Factory {
         MyCoinViewModel(
-            coinDetailUseCase: coinDetailUseCase.callAsFunction()
+            coinDetailUseCase: coinDetailUseCase.callAsFunction(),
+            getChartPricesUseCase: getChartPricesUseCase.callAsFunction()
         )
     }
 
@@ -49,5 +50,8 @@ extension Container {
     }
     static let coinDetailUseCase = Factory<CoinDetailUseCaseProtocol> {
         CoinDetailUseCase(repository: coinRepository.callAsFunction())
+    }
+    static let getChartPricesUseCase = Factory<GetChartPricesUseCaseProtocol> {
+        GetChartPricesUseCase(repository: coinRepository.callAsFunction())
     }
 }

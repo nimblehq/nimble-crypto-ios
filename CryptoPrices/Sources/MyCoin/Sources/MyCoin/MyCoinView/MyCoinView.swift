@@ -8,28 +8,58 @@ import DomainTestHelpers
 import Styleguide
 import SwiftUI
 
+private typealias Section = Styleguide.Section
+
 public struct MyCoinView: View {
 
     @EnvironmentObject var myCoinState: MyCoinState
 
+    @State private var selectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
+    @State private var tempSelectedTimeFrameItem: TimeFrameItem = .init(timeFrame: .oneDay)
+
     public var body: some View {
-        contentView
-            .navigationBarBackButtonHidden()
-            .navigationBarItems(leading: backButton, trailing: likeButton)
-            .navigationTitle(viewModel.coinDetail?.name ?? "")
-            .navigationBarTitleDisplayMode(.inline)
-            .gesture(
-                DragGesture()
-                    .onEnded { value in
-                        // Handle swipe left-to-right
-                        if value.startLocation.x < 20.0 && value.translation.width > 50.0 {
-                            myCoinState.didSelectBack = true
-                        }
+        List {
+            currentPriceSection
+            priceChartSection
+            coinStatisticsSection
+        }
+        .listStyle(.plain)
+        .background(Colors.bgMain.swiftUIColor)
+        .navigationBarBackButtonHidden()
+        .navigationBarItems(leading: backButton, trailing: likeButton)
+        .navigationTitle(viewModel.coinDetail?.name ?? "")
+        .navigationBarTitleDisplayMode(.inline)
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    // Handle swipe left-to-right
+                    if value.startLocation.x < 20.0 && value.translation.width > 50.0 {
+                        myCoinState.didSelectBack = true
                     }
-            )
-            .task {
-                await viewModel.fetchCoinDetail(id: myCoinState.id)
+                }
+        )
+        .safeAreaInset(edge: .bottom, content: {
+            footerView
+        })
+        .task {
+            await viewModel.fetchData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
+        }
+        .onChange(of: selectedTimeFrameItem) { _ in
+            Task {
+                await viewModel.fetchChartPricesData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
             }
+        }
+        .onReceive(viewModel.$isSuccess) { isSuccess in
+            if isSuccess {
+                tempSelectedTimeFrameItem = selectedTimeFrameItem
+            } else {
+                selectedTimeFrameItem = tempSelectedTimeFrameItem
+            }
+        }
+        .refreshable {
+            selectedTimeFrameItem = .init(timeFrame: .oneDay)
+            await viewModel.fetchCoinDetail(id: myCoinState.id)
+        }
     }
 
     @ObservedObject private var viewModel: MyCoinViewModel
@@ -41,24 +71,30 @@ public struct MyCoinView: View {
 
 private extension MyCoinView {
 
-    var contentView: some View {
-        ScrollView {
-            CurrentPriceSection()
-            Spacer(minLength: 38.0)
-            PriceLineChartSection()
+    var currentPriceSection: some View {
+        viewModel.coinDetail.map { coinDetail in
+            Section {
+                CurrentPriceSection(coinDetail)
+            }
+        }
+    }
+
+    var priceChartSection: some View {
+        Section {
+            PriceLineChartSection(viewModel.chartData)
                 .frame(height: 196.0)
-            // TODO: - Add time filter here
-            // TODO: - Remove dummy
-            TimeFrameSection()
+
+            TimeFrameSection(selected: $selectedTimeFrameItem)
+        }
+    }
+
+    var coinStatisticsSection: some View {
+        Section {
             CoinStatisticsSection(
-                coinDetailItem: CoinDetailItem(
-                    coinDetail: MockCoinDetail.single
-                )
+                coinDetailItem: viewModel.coinDetail ?? CoinDetailItem(coinDetail: MockCoinDetail.single),
+                shouldShowData: viewModel.coinDetail != nil
             )
         }
-        .clipped(antialiased: false)
-        .frame(maxHeight: .infinity)
-        .background(Colors.bgMain.swiftUIColor)
     }
 
     var backButton: some View {
@@ -72,10 +108,34 @@ private extension MyCoinView {
     var likeButton: some View {
         Images.icHeart.swiftUIImage
     }
+
+    var sellButton: some View {
+        Button(action: {}, label: {
+            Text(Strings.MyCoin.SellButton.title)
+                .frame(maxWidth: .infinity)
+        })
+        .buttonStyle(SecondaryButtonStyle())
+    }
+
+    var buyButton: some View {
+        Button(action: {}, label: {
+            Text(Strings.MyCoin.BuyButton.title)
+                .frame(maxWidth: .infinity)
+        })
+        .buttonStyle(PrimaryButtonStyle())
+    }
+
+    var footerView: some View {
+        HStack(alignment: .center, spacing: 24.0) {
+            sellButton
+            buyButton
+        }
+        .padding(16.0)
+        .background(Colors.bgMain.swiftUIColor)
+    }
 }
 
 #if DEBUG
-import DomainTestHelpers
 import UseCaseProtocol
 
 struct MyCoinView_Previews: PreviewProvider {
@@ -84,7 +144,8 @@ struct MyCoinView_Previews: PreviewProvider {
         Preview {
             MyCoinView(
                 viewModel: MyCoinViewModel(
-                    coinDetailUseCase: MockCoinDetailUseCaseProtocol()
+                    coinDetailUseCase: MockCoinDetailUseCaseProtocol(),
+                    getChartPricesUseCase: MockGetChartPricesUseCaseProtocol()
                 )
             )
         }

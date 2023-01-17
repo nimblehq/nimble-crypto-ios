@@ -1,8 +1,12 @@
-"myCoin.marketCap.title" = "Market Cap";
 "myCoin.ath.title" = "All Time High";
 "myCoin.atl.title" = "All Time Low";
+"myCoin.buyButton.title" = "Buy";
+"myCoin.marketCap.title" = "Market Cap";
+"myCoin.noData.text" = "-";
+"myCoin.sellButton.title" = "Sell";
 "myCoin.timeFrame.oneDayText" = "1D";
 "myCoin.timeFrame.oneWeekText" = "1W";
 "myCoin.timeFrame.oneMonthText" = "1M";
 "myCoin.timeFrame.oneYearText" = "1Y";
 "myCoin.timeFrame.fiveYearText" = "5Y";
+"myCoin.priceLineChart.noDataText" = "No Data";

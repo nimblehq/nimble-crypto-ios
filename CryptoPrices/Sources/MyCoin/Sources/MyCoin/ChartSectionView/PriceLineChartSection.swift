@@ -14,52 +14,56 @@ struct PriceLineChartSection: View {
     @State private var highestPriceOffsetX: CGFloat = 0.0
     @State private var lowestPriceOffsetX: CGFloat = 0.0
 
-    // TODO: Update to use real data in the integrate task
-    // swiftlint:disable number_separator
-    let testData = [
-        ChartDataEntry(x: 1640649600000, y: 50774.067814743),
-        ChartDataEntry(x: 1640736000000, y: 47725.14804631933),
-        ChartDataEntry(x: 1640822400000, y: 46506.99464767938),
-        ChartDataEntry(x: 1640908800000, y: 47191.86838983951),
-        ChartDataEntry(x: 1640995200000, y: 46319.65108805251),
-        ChartDataEntry(x: 1641081600000, y: 47816.07767640849),
-        ChartDataEntry(x: 1641168000000, y: 47387.212167697246),
-        ChartDataEntry(x: 1641254400000, y: 46531.140860530526),
-        ChartDataEntry(x: 1641340800000, y: 45938.02427172366),
-        ChartDataEntry(x: 1641427200000, y: 43647.147508068054)
-    ]
+    private let chartData: [ChartDataPointUIModel]
+
+    private var chartDataEntry: [ChartDataEntry] {
+        chartData.map { $0.toChartDataEntry() }
+    }
+    private var maxPrice: Decimal {
+        guard let maxDataPoint = chartData.max(by: { $0.price < $1.price })?.price else { return 0.0 }
+        return maxDataPoint
+    }
+    private var minPrice: Decimal {
+        guard let minDataPoint = chartData.min(by: { $0.price < $1.price })?.price else { return 0.0 }
+        return minDataPoint
+    }
 
     var body: some View {
 
-        // TODO: Update to use real data in the integrate task
         GeometryReader { geometry in
             VStack(alignment: .center, spacing: 0.0) {
-                Text("$50,774.06")
+                Text(maxPrice, format: .dollarCurrency)
                     .font(Fonts.Inter.medium.textStyle(.caption))
                     .foregroundColor(Colors.guppieGreen.swiftUIColor)
                     .readSize { textSize in
                         highestPriceOffsetX = calculateDataPointOffsetX(
-                            data: testData,
+                            data: chartDataEntry,
                             parentViewWidth: geometry.size.width,
                             labelWidth: textSize.width
                         )
                     }
                     .offset(x: highestPriceOffsetX)
-                PriceLineChartView(entries: testData)
-                Text("$43,647.14")
+                    .renderIf(!chartData.isEmpty)
+                PriceLineChartView(entries: chartDataEntry)
+                Text(minPrice, format: .dollarCurrency)
                     .font(Fonts.Inter.medium.textStyle(.caption))
                     .foregroundColor(Colors.carnation.swiftUIColor)
                     .readSize { textSize in
                         lowestPriceOffsetX = calculateDataPointOffsetX(
-                            data: testData,
+                            data: chartDataEntry,
                             parentViewWidth: geometry.size.width,
                             labelWidth: textSize.width,
                             isHighest: false
                         )
                     }
                     .offset(x: lowestPriceOffsetX)
+                    .renderIf(!chartData.isEmpty)
             }
         }
+    }
+
+    init(_ chartData: [ChartDataPointUIModel]) {
+        self.chartData = chartData
     }
 }
 
@@ -98,11 +102,14 @@ private extension PriceLineChartSection {
 }
 
 #if DEBUG
+import DomainTestHelpers
+
 struct PriceLineChartSection_Previews: PreviewProvider {
 
     static var previews: some View {
         Preview {
-            PriceLineChartSection()
+            let mockData = MockDataPoint.array.map { ChartDataPointUIModel(dataPoint: $0) }
+            PriceLineChartSection(mockData)
         }
     }
 }
