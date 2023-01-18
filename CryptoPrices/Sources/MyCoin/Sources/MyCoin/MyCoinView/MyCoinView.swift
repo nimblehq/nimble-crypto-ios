@@ -41,6 +41,7 @@ public struct MyCoinView: View {
         .safeAreaInset(edge: .bottom, content: {
             footerView
         })
+        .spinner(isPresented: $showingSpinner)
         .task {
             await viewModel.fetchData(id: myCoinState.id, timeFrameItem: selectedTimeFrameItem)
         }
@@ -56,13 +57,21 @@ public struct MyCoinView: View {
                 selectedTimeFrameItem = tempSelectedTimeFrameItem
             }
         }
+        .onReceive(viewModel.$isFetchingData) {
+            showingSpinner = $0
+        }
         .refreshable {
             selectedTimeFrameItem = .init(timeFrame: .oneDay)
-            await viewModel.fetchCoinDetail(id: myCoinState.id)
+            await viewModel.fetchData(
+                id: myCoinState.id,
+                timeFrameItem: selectedTimeFrameItem,
+                isRefreshing: true
+            )
         }
     }
 
     @ObservedObject private var viewModel: MyCoinViewModel
+    @State private var showingSpinner = false
 
     public init(viewModel: MyCoinViewModel) {
         self.viewModel = viewModel
