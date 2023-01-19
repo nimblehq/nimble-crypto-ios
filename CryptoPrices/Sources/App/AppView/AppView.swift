@@ -13,22 +13,21 @@ import SwiftUI
 struct AppView: View {
 
     @StateObject private var appCoordinator: AppCoordinator = .init()
-    @Injected(Container.homeViewModel) private var homeViewModel
-    @Injected(Container.myCoinViewModel) private var myCoinViewModel
     @State private var showingMyCoin = false
 
     var body: some View {
         NavigationView {
             ZStack {
-                HomeView(viewModel: homeViewModel)
+                HomeView(viewModel: Container.homeViewModel())
                     .environmentObject(appCoordinator.homeState)
+
                 NavigationLink("", isActive: $showingMyCoin) {
-                    if let myCoinState = appCoordinator.myCoinState {
-                        MyCoinView(viewModel: myCoinViewModel)
-                            .environmentObject(myCoinState)
+                    appCoordinator.myCoinState.map {
+                        MyCoinView(viewModel: Container.myCoinViewModel())
+                            .environmentObject($0)
+                            .labelsHidden()
                     }
                 }
-                .labelsHidden()
             }
         }
         .onReceive(appCoordinator.$myCoinState) {
