@@ -15,6 +15,7 @@ import UseCaseProtocol
 
     @Published public private(set) var myCoins: [MyCoinItem] = []
     @Published public private(set) var trendingCoins: [TrendingCoinItem] = []
+    @Published public private(set) var isFetchingData = false
 
     public init(
         myCoinsUseCase: MyCoinsUseCaseProtocol,
@@ -48,6 +49,7 @@ import UseCaseProtocol
             "tron",
             "dogecoin"
         ]
+
         do {
             trendingCoins = try await trendingCoinsUseCase.execute(coinIDs: trendingCoinIDs)
                 .map(TrendingCoinItem.init)
@@ -56,11 +58,17 @@ import UseCaseProtocol
         }
     }
 
-    public func fetchAllData() async {
+    public func fetchAllData(isRefreshing: Bool = false) async {
+        if !isRefreshing {
+            isFetchingData = true
+        }
+
         // Make `fetchMyCoins` and `fetchTrendingCoins` run in parallel
         await withTaskGroup(of: Void.self) { taskGroup in
             taskGroup.addTask { await self.fetchMyCoins() }
             taskGroup.addTask { await self.fetchTrendingCoins() }
         }
+
+        isFetchingData = false
     }
 }

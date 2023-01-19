@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C3B441229504D8200AFCD81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441129504D8200AFCD81 /* AppState.swift */; };
 		1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */; };
 		1C3B441D2952B34D00AFCD81 /* Wormholy in Frameworks */ = {isa = PBXBuildFile; productRef = 1C3B441C2952B34D00AFCD81 /* Wormholy */; };
 		246DD0582953FCA0002BB9B9 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 246DD0572953FCA0002BB9B9 /* Factory */; };
@@ -52,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C3B441129504D8200AFCD81 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		249752BB29418C64003C6238 /* MyCoin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyCoin; path = CryptoPrices/Sources/MyCoin; sourceTree = "<group>"; };
 		24A9D1A72952C54E007DBBCB /* Container+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Injection.swift"; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				4D0A1DA129349D660038624D /* AppView.swift */,
-				1C3B441129504D8200AFCD81 /* AppState.swift */,
 				1C3B441329504DDD00AFCD81 /* AppCoordinator.swift */,
 			);
 			path = AppView;
@@ -429,7 +426,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C3B441429504DDD00AFCD81 /* AppCoordinator.swift in Sources */,
-				1C3B441229504D8200AFCD81 /* AppState.swift in Sources */,
 				4D0A1DA229349D660038624D /* AppView.swift in Sources */,
 				24A9D1A82952C54E007DBBCB /* Container+Injection.swift in Sources */,
 				4D0A1DA029349D660038624D /* CryptoPricesApp.swift in Sources */,

@@ -16,6 +16,7 @@ import UseCaseProtocol
     @Published public private(set) var coinDetail: CoinDetailItem?
     @Published public private(set) var chartData: [ChartDataPointUIModel] = []
     @Published public private(set) var isSuccess = false
+    @Published public private(set) var isFetchingData = false
 
     public init(
         coinDetailUseCase: CoinDetailUseCaseProtocol,
@@ -45,10 +46,16 @@ import UseCaseProtocol
         }
     }
 
-    public func fetchData(id: String, timeFrameItem: TimeFrameItem) async {
+    public func fetchData(id: String, timeFrameItem: TimeFrameItem, isRefreshing: Bool = false) async {
+        if !isRefreshing {
+            isFetchingData = true
+        }
+
         await withTaskGroup(of: Void.self) { taskGroup in
             taskGroup.addTask { await self.fetchCoinDetail(id: id) }
             taskGroup.addTask { await self.fetchChartPricesData(id: id, timeFrameItem: timeFrameItem) }
         }
+
+        isFetchingData = false
     }
 }

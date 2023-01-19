@@ -43,6 +43,13 @@ final class MyCoinViewModelSpec: QuickSpec {
                     await expect { await myCoinViewModel.chartData }
                         .to(equal([]))
                 }
+
+                it("has the correct value for isFetchingData") {
+                    await expect {
+                        await myCoinViewModel.isFetchingData
+                    }
+                    .to(beFalse())
+                }
             }
 
             describe("its fetchCoinDetail() call") {
@@ -147,6 +154,13 @@ final class MyCoinViewModelSpec: QuickSpec {
                         await expect { await myCoinViewModel.isSuccess }
                             .to(equal(true))
                     }
+
+                    it("has the correct value for isFetchingData") {
+                        await expect {
+                            await myCoinViewModel.isFetchingData
+                        }
+                        .to(beFalse())
+                    }
                 }
 
                 context("when coinDetailUseCase returns success but getChartPricesUseCase returns failure") {
@@ -173,6 +187,13 @@ final class MyCoinViewModelSpec: QuickSpec {
                     it("returns chart data unsuccessfully") {
                         await expect { await myCoinViewModel.isSuccess }
                             .to(equal(false))
+                    }
+
+                    it("has the correct value for isFetchingData") {
+                        await expect {
+                            await myCoinViewModel.isFetchingData
+                        }
+                        .to(beFalse())
                     }
                 }
 
@@ -201,6 +222,13 @@ final class MyCoinViewModelSpec: QuickSpec {
                         await expect { await myCoinViewModel.isSuccess }
                             .to(equal(true))
                     }
+
+                    it("has the correct value for isFetchingData") {
+                        await expect {
+                            await myCoinViewModel.isFetchingData
+                        }
+                        .to(beFalse())
+                    }
                 }
 
                 context("when coinDetailUseCase and getChartPricesUseCase both return failure") {
@@ -225,6 +253,13 @@ final class MyCoinViewModelSpec: QuickSpec {
                     it("returns chart data unsuccessfully") {
                         await expect { await myCoinViewModel.isSuccess }
                             .to(equal(false))
+                    }
+
+                    it("has the correct value for isFetchingData") {
+                        await expect {
+                            await myCoinViewModel.isFetchingData
+                        }
+                        .to(beFalse())
                     }
                 }
             }

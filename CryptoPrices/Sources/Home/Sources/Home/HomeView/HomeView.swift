@@ -29,15 +29,20 @@ public struct HomeView: View {
                 .frame(height: 1.0)
                 .background(Colors.bgMain.swiftUIColor)
         })
+        .spinner(isPresented: $showingSpinner)
         .task {
             await viewModel.fetchAllData()
         }
         .refreshable {
-            await viewModel.fetchAllData()
+            await viewModel.fetchAllData(isRefreshing: true)
+        }
+        .onReceive(viewModel.$isFetchingData) {
+            showingSpinner = $0
         }
     }
 
     @ObservedObject private var viewModel: HomeViewModel
+    @State private var showingSpinner = false
 
     public init(viewModel: HomeViewModel) {
         self.viewModel = viewModel

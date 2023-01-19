@@ -47,6 +47,13 @@ final class HomeViewModelSpec: QuickSpec {
                     }
                     .to(beEmpty())
                 }
+
+                it("has the correct value for isFetchingData") {
+                    await expect {
+                        await homeViewModel.isFetchingData
+                    }
+                    .to(beFalse())
+                }
             }
 
             describe("its fetchMyCoins() call") {
@@ -143,6 +150,11 @@ final class HomeViewModelSpec: QuickSpec {
                         await expect { await homeViewModel.trendingCoins }
                             .to(equal(expectedTrendinglCoins))
                     }
+
+                    it("gets the correct value for isFetchingData") {
+                        await expect { await homeViewModel.isFetchingData }
+                            .to(beFalse())
+                    }
                 }
 
                 context("when myCoinsUseCase returns success, trendingCoinsUseCase returns failure") {
@@ -165,6 +177,11 @@ final class HomeViewModelSpec: QuickSpec {
                         await expect { await homeViewModel.trendingCoins }
                             .to(beEmpty())
                     }
+
+                    it("gets the correct value for isFetchingData") {
+                        await expect { await homeViewModel.isFetchingData }
+                            .to(beFalse())
+                    }
                 }
 
                 context("when myCoinsUseCase and trendingCoinsUseCase return failure") {
@@ -184,6 +201,11 @@ final class HomeViewModelSpec: QuickSpec {
                     it("gets the correct value for trendingCoins") {
                         await expect { await homeViewModel.trendingCoins }
                             .to(beEmpty())
+                    }
+
+                    it("gets the correct value for isFetchingData") {
+                        await expect { await homeViewModel.isFetchingData }
+                            .to(beFalse())
                     }
                 }
             }
