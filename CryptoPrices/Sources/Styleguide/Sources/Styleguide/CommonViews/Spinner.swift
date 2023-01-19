@@ -21,7 +21,7 @@ private struct Spinner: ViewModifier {
         ZStack {
             content
 
-            CircularProgressView(progress: progress, tint: Colors.tiffanyBlue.swiftUIColor)
+            CircularProgressView(progress: progress)
                 .rotationEffect(.degrees(rotatingDegrees))
                 .renderIf(isPresented)
                 .onAppear {

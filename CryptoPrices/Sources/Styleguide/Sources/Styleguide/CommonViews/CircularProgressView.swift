@@ -19,7 +19,7 @@ public struct CircularProgressView: View {
             .frame(width: 48.0, height: 48.0)
     }
 
-    public init(progress: Double, tint: Color = .gray) {
+    public init(progress: Double, tint: Color = Colors.tiffanyBlue.swiftUIColor) {
         self.progress = progress
         self.tint = tint
     }
