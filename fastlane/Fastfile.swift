@@ -54,7 +54,8 @@ class Fastfile: LaneFile {
                 Constant.homeTestTarget,
                 Constant.myCoinTestTarget,
                 Constant.styleguideTestTarget,
-                Constant.useCaseTestTarget
+                Constant.useCaseTestTarget,
+                Constant.kifUITestTarget
             ],
             devices: Constant.devices
         )
