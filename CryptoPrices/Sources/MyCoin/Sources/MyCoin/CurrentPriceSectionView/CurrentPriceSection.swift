@@ -39,7 +39,11 @@ struct CurrentPriceSection: View {
                 })
                 .padding(EdgeInsets(top: 8.0, leading: 10.0, bottom: 8.0, trailing: 10.0))
                 .foregroundColor(Colors.guppieGreen.swiftUIColor)
-                .background(Colors.scandal.swiftUIColor)
+                .background(
+                    coinItem.priceChangePercentage24H > 0.0
+                    ? Colors.scandal.swiftUIColor
+                    : Colors.carnation.swiftUIColor.opacity(0.3)
+                )
                 .cornerRadius(20.0)
             }
         }
