@@ -44,6 +44,7 @@ struct SourceryPlugin: BuildToolPlugin {
                 "autoMockableImports=\(target.recursiveTargetDependencies.map(\.name))",
                 "--output",
                 generatedDirectory,
+                "--disableCache",
                 "--verbose"
             ],
             outputFilesDirectory: generatedDirectory
