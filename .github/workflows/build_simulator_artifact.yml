@@ -1,0 +1,62 @@
+name: Build artifact for the iOS Simulator
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch or ref to build
+        required: true
+        default: main
+
+  # Temporarily put here to build while it isn't in default branch
+  push:
+    branches: [chore/add-workflows-to-build-artifact]
+
+
+jobs:
+  build_simulator_artifact:
+    runs-on: mac-26
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_26.3.app
+
+      # - name: Install xcbeautify
+      #   run: brew install xcbeautify
+
+      - name: Cache Swift packages
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        with:
+          path: SourcePackages
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
+      - name: Build for iOS Simulator
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project CryptoPrices.xcodeproj \
+            -scheme CryptoPrices \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 17' \
+            -derivedDataPath build \
+            clean build | xcbeautify
+
+      - name: Zip .app
+        run: |
+          cd build/Build/Products/Debug-iphonesimulator
+          zip -r CryptoPrices.app.zip CryptoPrices.app
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: CryptoPrices-iOS
+          path: build/Build/Products/Debug-iphonesimulator/CryptoPrices.app.zip
+          retention-days: 5
